@@ -1,0 +1,14 @@
+# GitHub Pages (Jekyll) configuration for the CradGacha documentation site.
+# This renders the Markdown files under docs/ into a styled website automatically.
+# You do NOT need to install anything — GitHub builds this for you.
+
+title: CradGacha Documentation
+description: Cursor-driven hologram gacha plugin for Paper 1.21+
+theme: jekyll-theme-cayman
+
+# Keep the project's own README/SETUP out of the generated site
+# (the docs site has its own pages).
+exclude:
+  - README.md
+  - SETUP.md
+  - THEME-REFERENCE.md

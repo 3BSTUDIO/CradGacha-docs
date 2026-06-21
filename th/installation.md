@@ -1,0 +1,87 @@
+---
+title: การติดตั้ง
+---
+
+# การติดตั้ง
+
+[🏠 หน้าแรก](index.html) · [🇬🇧 Read in English](../en/installation.html) · [🌐 เลือกภาษา](../index.html)
+
+**หน้าทั้งหมด:** [หน้าแรก](index.html) · **การติดตั้ง** · [ตั้งค่าครั้งแรก](first-setup.html) · [คำสั่ง](commands.html) · [สิทธิ์](permissions.html) · [การตั้งค่า](configuration.html) · [ตู้กาชา](crates.html) · [Cursor UI](cursor-ui.html) · [หน้าผลรางวัล](result-panel.html) · [แก้ปัญหา](troubleshooting.html) · [คำถามที่พบบ่อย](faq.html) · [โน้ตนักพัฒนา](developer-notes.html)
+
+---
+
+## สิ่งที่ต้องมี
+
+| สิ่งที่ต้องมี | เวอร์ชัน / หมายเหตุ |
+|---|---|
+| **ซอฟต์แวร์เซิร์ฟ** | **Paper** 1.21+ (ต้องเป็น Paper เพราะใช้ Paper API) ทดสอบบน 1.21.4–1.21.11 |
+| **Java** | **Java 21** ขึ้นไป |
+| **packetevents** | **จำเป็น** ใช้ทำ spectator camera freeze ที่ทำให้เมนูเคอร์เซอร์ทำงาน |
+| **ItemsAdder** | **แนะนำอย่างยิ่ง** ให้รูปปุ่ม รูปเคอร์เซอร์ ไอคอนตู้ และโมเดลรางวัล (glyph) — ถ้าไม่มี เมนูจะเป็นกล่องสี่เหลี่ยม (□) |
+| **Vault** | จำเป็น**เฉพาะ**ตอนตู้ใช้ค่าเปิดแบบ `MONEY` และต้องมีปลั๊กอินเศรษฐกิจ (เช่น EssentialsX Economy) ด้วย |
+| **Nexo / Oraxen** | ไม่บังคับ เป็นตัวให้ custom item ทางเลือกสำหรับรางวัล/ไอคอน |
+| **BetterModel / ModelEngine** | ไม่บังคับ สำหรับอนิเมชันโมเดล 3D ก่อนการ์ดขึ้น |
+
+> ปลั๊กอินเสริมทั้งหมดเรียกใช้ผ่าน **reflection** — ถ้าไม่มี CradGacha ก็ยังเปิดได้
+
+## ขั้นที่ 1 — ติดตั้ง dependency
+
+วางพวกนี้ใน `plugins/` ก่อน แล้วเปิดเซิร์ฟหนึ่งครั้งให้มันสร้างไฟล์:
+
+- `packetevents` (จำเป็น)
+- `ItemsAdder` (แนะนำ)
+- `Vault` + ปลั๊กอินเศรษฐกิจ (เฉพาะถ้าใช้ค่าเปิดแบบ `MONEY`)
+
+## ขั้นที่ 2 — ติดตั้ง CradGacha
+
+1. ดาวน์โหลดหรือ build `CradGacha-1.0.0.jar`
+   - build จาก source: รัน `./gradlew build` แล้วหาไฟล์ใน `build/libs/`
+2. คัดลอก jar ไปไว้ในโฟลเดอร์ `plugins/` ของเซิร์ฟ
+
+## ขั้นที่ 3 — รีสตาร์ทเซิร์ฟ
+
+ใช้การ **รีสตาร์ทเต็ม** ไม่ใช่แค่ `/reload`:
+
+- ใน console พิมพ์ `stop` แล้วเปิดเซิร์ฟใหม่
+- หรือกดปุ่ม **Restart** ใน panel ของโฮสต์
+
+ตอนเปิดควรเห็น log ประมาณนี้:
+
+```
+[CradGacha] CradGacha enabled! Loaded 3 crate(s).
+[CradGacha] Integrations -> ItemsAdder: found | ... | packetevents: found
+```
+
+## ขั้นที่ 4 — ตรวจสอบ
+
+ในเกม (เป็น operator) รัน:
+
+```
+/gacha doctor
+```
+
+ทุกบรรทัดควรขึ้น ✓ สีเขียว ถ้ามีบรรทัดไหนเป็น ✗ สีแดง ข้อความจะบอกวิธีแก้
+ดูเพิ่มที่หน้า [แก้ปัญหา](troubleshooting.html)
+
+แล้วเปิดเมนู:
+
+```
+/gacha
+```
+
+## หมายเหตุเรื่อง resource pack
+
+รูปปุ่ม/เคอร์เซอร์ และโมเดลรางวัลมาจาก **ItemsAdder** หลังจากเพิ่ม/แก้รูปทุกครั้ง
+ให้รันคำสั่งของ ItemsAdder เพื่อ build pack ใหม่:
+
+```
+/iazip
+/iareload
+```
+
+ผู้เล่นต้อง **ยอมรับ resource pack** ของเซิร์ฟตอนเข้าเกม ไม่งั้นเมนูจะเป็นกล่องสี่เหลี่ยม (□)
+CradGacha จะเตือนผู้เล่นที่ปฏิเสธ pack
+
+---
+
+ถัดไป: [ตั้งค่าครั้งแรก →](first-setup.html)
