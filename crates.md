@@ -96,6 +96,40 @@ rewards:
 > Every reward must have a `material` **or** at least one `command`, otherwise it is skipped with a
 > warning in the console.
 
+## Custom items (ItemsAdder / Nexo / Oraxen)
+
+There is **no separate config section** for these — you use a custom item anywhere an item is
+expected by writing its **`namespace:id`**. The matching plugin just needs to be installed
+(check with `/gacha doctor`).
+
+| Provider | Format | Example |
+|---|---|---|
+| ItemsAdder | `namespace:id` | `dragon_jade:dragon_jade_sword` |
+| Nexo | `nexo:id` | `nexo:ruby` |
+| Oraxen | `oraxen:id` | `oraxen:ruby` |
+| Vanilla | material name | `DIAMOND` |
+
+You can use these ids in **any** item field: a reward's `material` / `icon`, the crate `icon` /
+`display-item`, the `cost.item`, and `card-back-by-rarity` (in `config.yml`).
+
+```yaml
+my_crate:
+  icon: "nexo:crate_icon"            # crate-list icon from Nexo
+  display-item: "oraxen:showcase"    # center item from Oraxen
+  cost: { type: ITEM, item: "nexo:coin", amount: 1 }   # pay with a Nexo item
+  rewards:
+    - { name: "Ruby",  material: "nexo:ruby",  amount: 1, rarity: RARE }
+    - { name: "Gem",   material: "oraxen:gem", amount: 1, rarity: EPIC }
+    - name: "Aura Buff"              # command reward shown with a Nexo icon
+      icon: "nexo:aura_token"
+      rarity: LEGENDARY
+      commands: [ "[console] aura give <player> fire" ]
+```
+
+> If a custom id can't be resolved (plugin missing or wrong id), an item reward is **skipped** with a
+> console warning; a missing **icon** falls back to PAPER. Run `/gacha doctor` to confirm Nexo/Oraxen
+> are detected.
+
 ## How chance / weight works
 
 A reward's chance comes from its **rarity's weight** (set in `config.yml`), not from the reward itself.

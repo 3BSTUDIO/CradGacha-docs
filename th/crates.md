@@ -95,6 +95,38 @@ rewards:
 > รางวัลทุกชิ้นต้องมี `material` **หรือ** `command` อย่างน้อยหนึ่งอย่าง ไม่งั้นจะถูกข้าม
 > พร้อมเตือนใน console
 
+## Custom items (ItemsAdder / Nexo / Oraxen)
+
+**ไม่มี config block แยก** สำหรับพวกนี้ — ใช้ custom item ได้ทุกที่ที่ระบุไอเทม โดยเขียนเป็น
+**`namespace:id`** แค่ติดตั้งปลั๊กอินนั้นไว้ (เช็คด้วย `/gacha doctor`)
+
+| ตัวให้ไอเทม | รูปแบบ | ตัวอย่าง |
+|---|---|---|
+| ItemsAdder | `namespace:id` | `dragon_jade:dragon_jade_sword` |
+| Nexo | `nexo:id` | `nexo:ruby` |
+| Oraxen | `oraxen:id` | `oraxen:ruby` |
+| Vanilla | ชื่อ material | `DIAMOND` |
+
+ใช้ id พวกนี้ได้ใน **ทุก** ช่องไอเทม: `material` / `icon` ของรางวัล, `icon` / `display-item` ของตู้,
+`cost.item`, และ `card-back-by-rarity` (ใน `config.yml`)
+
+```yaml
+my_crate:
+  icon: "nexo:crate_icon"            # ไอคอนตู้จาก Nexo
+  display-item: "oraxen:showcase"    # ไอเทมกลางจาก Oraxen
+  cost: { type: ITEM, item: "nexo:coin", amount: 1 }   # จ่ายด้วยไอเทม Nexo
+  rewards:
+    - { name: "Ruby",  material: "nexo:ruby",  amount: 1, rarity: RARE }
+    - { name: "Gem",   material: "oraxen:gem", amount: 1, rarity: EPIC }
+    - name: "Aura Buff"              # รางวัลคำสั่ง โชว์ด้วยไอคอน Nexo
+      icon: "nexo:aura_token"
+      rarity: LEGENDARY
+      commands: [ "[console] aura give <player> fire" ]
+```
+
+> ถ้า resolve id ไม่ได้ (ไม่มีปลั๊กอิน/id ผิด) รางวัลแบบไอเทมจะถูก **ข้าม** พร้อมเตือนใน console
+> ส่วน **icon** ที่หาไม่เจอจะ fallback เป็น PAPER รัน `/gacha doctor` เพื่อเช็คว่าเจอ Nexo/Oraxen
+
 ## chance / weight ทำงานอย่างไร
 
 โอกาสของรางวัลมาจาก **weight ของเรต** (ตั้งใน `config.yml`) ไม่ใช่ที่ตัวรางวัลเอง
