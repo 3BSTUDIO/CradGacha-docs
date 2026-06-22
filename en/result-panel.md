@@ -4,9 +4,7 @@ title: Result Panel
 
 # Result Panel
 
-[🏠 Home](index.html) · [🇹🇭 อ่านภาษาไทย](../th/result-panel.html) · [🌐 Language picker](../index.html)
 
-**Pages:** [Home](index.html) · [Installation](installation.html) · [First Setup](first-setup.html) · [Commands](commands.html) · [Permissions](permissions.html) · [Configuration](configuration.html) · [Crates](crates.html) · [Cursor UI](cursor-ui.html) · **Result Panel** · [Troubleshooting](troubleshooting.html) · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

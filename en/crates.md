@@ -4,9 +4,7 @@ title: Crates
 
 # Crates
 
-[🏠 Home](index.html) · [🇹🇭 อ่านภาษาไทย](../th/crates.html) · [🌐 Language picker](../index.html)
 
-**Pages:** [Home](index.html) · [Installation](installation.html) · [First Setup](first-setup.html) · [Commands](commands.html) · [Permissions](permissions.html) · [Configuration](configuration.html) · **Crates** · [Cursor UI](cursor-ui.html) · [Result Panel](result-panel.html) · [Troubleshooting](troubleshooting.html) · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

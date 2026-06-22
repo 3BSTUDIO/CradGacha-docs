@@ -4,9 +4,7 @@ title: Troubleshooting
 
 # Troubleshooting
 
-[🏠 Home](index.html) · [🇹🇭 อ่านภาษาไทย](../th/troubleshooting.html) · [🌐 Language picker](../index.html)
 
-**Pages:** [Home](index.html) · [Installation](installation.html) · [First Setup](first-setup.html) · [Commands](commands.html) · [Permissions](permissions.html) · [Configuration](configuration.html) · [Crates](crates.html) · [Cursor UI](cursor-ui.html) · [Result Panel](result-panel.html) · **Troubleshooting** · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

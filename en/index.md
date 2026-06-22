@@ -4,9 +4,7 @@ title: CradGacha — Home
 
 # CradGacha
 
-🏠 **Home** · [🇹🇭 อ่านภาษาไทย](../th/index.html) · [🌐 Language picker](../index.html) · [GitHub](https://github.com/3BSTUDIO/CradGacha)
 
-**Pages:** Home · [Installation](installation.html) · [First Setup](first-setup.html) · [Commands](commands.html) · [Permissions](permissions.html) · [Configuration](configuration.html) · [Crates](crates.html) · [Cursor UI](cursor-ui.html) · [Result Panel](result-panel.html) · [Troubleshooting](troubleshooting.html) · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

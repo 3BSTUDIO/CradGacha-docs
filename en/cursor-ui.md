@@ -4,9 +4,7 @@ title: Cursor UI
 
 # Cursor UI
 
-[🏠 Home](index.html) · [🇹🇭 อ่านภาษาไทย](../th/cursor-ui.html) · [🌐 Language picker](../index.html)
 
-**Pages:** [Home](index.html) · [Installation](installation.html) · [First Setup](first-setup.html) · [Commands](commands.html) · [Permissions](permissions.html) · [Configuration](configuration.html) · [Crates](crates.html) · **Cursor UI** · [Result Panel](result-panel.html) · [Troubleshooting](troubleshooting.html) · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

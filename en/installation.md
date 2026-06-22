@@ -4,9 +4,7 @@ title: Installation
 
 # Installation
 
-[🏠 Home](index.html) · [🇹🇭 อ่านภาษาไทย](../th/installation.html) · [🌐 Language picker](../index.html)
 
-**Pages:** [Home](index.html) · **Installation** · [First Setup](first-setup.html) · [Commands](commands.html) · [Permissions](permissions.html) · [Configuration](configuration.html) · [Crates](crates.html) · [Cursor UI](cursor-ui.html) · [Result Panel](result-panel.html) · [Troubleshooting](troubleshooting.html) · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

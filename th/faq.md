@@ -4,9 +4,7 @@ title: คำถามที่พบบ่อย
 
 # คำถามที่พบบ่อย (FAQ)
 
-[🏠 หน้าแรก](index.html) · [🇬🇧 Read in English](../en/faq.html) · [🌐 เลือกภาษา](../index.html)
 
-**หน้าทั้งหมด:** [หน้าแรก](index.html) · [การติดตั้ง](installation.html) · [ตั้งค่าครั้งแรก](first-setup.html) · [คำสั่ง](commands.html) · [สิทธิ์](permissions.html) · [การตั้งค่า](configuration.html) · [ตู้กาชา](crates.html) · [Cursor UI](cursor-ui.html) · [หน้าผลรางวัล](result-panel.html) · [แก้ปัญหา](troubleshooting.html) · **คำถามที่พบบ่อย** · [โน้ตนักพัฒนา](developer-notes.html)
 
 ---
 

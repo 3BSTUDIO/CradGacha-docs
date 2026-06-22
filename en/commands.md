@@ -4,9 +4,7 @@ title: Commands
 
 # Commands
 
-[🏠 Home](index.html) · [🇹🇭 อ่านภาษาไทย](../th/commands.html) · [🌐 Language picker](../index.html)
 
-**Pages:** [Home](index.html) · [Installation](installation.html) · [First Setup](first-setup.html) · **Commands** · [Permissions](permissions.html) · [Configuration](configuration.html) · [Crates](crates.html) · [Cursor UI](cursor-ui.html) · [Result Panel](result-panel.html) · [Troubleshooting](troubleshooting.html) · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

@@ -4,9 +4,7 @@ title: First Setup
 
 # First Setup
 
-[🏠 Home](index.html) · [🇹🇭 อ่านภาษาไทย](../th/first-setup.html) · [🌐 Language picker](../index.html)
 
-**Pages:** [Home](index.html) · [Installation](installation.html) · **First Setup** · [Commands](commands.html) · [Permissions](permissions.html) · [Configuration](configuration.html) · [Crates](crates.html) · [Cursor UI](cursor-ui.html) · [Result Panel](result-panel.html) · [Troubleshooting](troubleshooting.html) · [FAQ](faq.html) · [Developer Notes](developer-notes.html)
 
 ---
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{%- comment -%} ===== language detection + paired-page links ===== {%- endcomment -%}
+{%- if page.url contains '/th/' -%}
+  {%- assign curlang = 'th' -%}
+  {%- assign en_url = page.url | replace: '/th/', '/en/' -%}
+  {%- assign th_url = page.url -%}
+{%- elsif page.url contains '/en/' -%}
+  {%- assign curlang = 'en' -%}
+  {%- assign en_url = page.url -%}
+  {%- assign th_url = page.url | replace: '/en/', '/th/' -%}
+{%- else -%}
+  {%- assign curlang = 'en' -%}
+  {%- assign en_url = '/en/index.html' -%}
+  {%- assign th_url = '/th/index.html' -%}
+{%- endif -%}
+{%- assign p = '/' | append: curlang | append: '/' -%}
+<html lang="{{ curlang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} · CradGacha Docs</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="{{ '/assets/css/docs.css' | relative_url }}">
+</head>
+<body>
+
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
+  <a class="brand" href="{{ p | append: 'index.html' | relative_url }}">
+    <span class="brand-dot">&#9670;</span> CradGacha
+  </a>
+  <div class="top-actions">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a class="lang-btn {% if curlang == 'en' %}active{% endif %}" href="{{ en_url | relative_url }}">EN</a>
+      <a class="lang-btn {% if curlang == 'th' %}active{% endif %}" href="{{ th_url | relative_url }}">ไทย</a>
+    </div>
+    <a class="gh-link" href="https://github.com/3BSTUDIO/CradGacha" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <input class="filter" id="filter" type="text" autocomplete="off"
+         placeholder="{% if curlang == 'th' %}ค้นหาหน้า…{% else %}Filter pages…{% endif %}">
+  <nav class="nav">
+
+    <div class="nav-group">
+      <div class="nav-title">{% if curlang == 'th' %}เริ่มต้น{% else %}Getting Started{% endif %}</div>
+      <a class="nav-link {% if page.url contains '/index.html' %}active{% endif %}" href="{{ p | append: 'index.html' | relative_url }}">{% if curlang == 'th' %}บทนำ{% else %}Introduction{% endif %}</a>
+      <a class="nav-link {% if page.url contains 'installation.html' %}active{% endif %}" href="{{ p | append: 'installation.html' | relative_url }}">{% if curlang == 'th' %}การติดตั้ง{% else %}Installation{% endif %}</a>
+      <a class="nav-link {% if page.url contains 'first-setup.html' %}active{% endif %}" href="{{ p | append: 'first-setup.html' | relative_url }}">{% if curlang == 'th' %}ตั้งค่าครั้งแรก{% else %}First Setup{% endif %}</a>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-title">{% if curlang == 'th' %}อ้างอิง{% else %}Reference{% endif %}</div>
+      <a class="nav-link {% if page.url contains 'commands.html' %}active{% endif %}" href="{{ p | append: 'commands.html' | relative_url }}">{% if curlang == 'th' %}คำสั่ง{% else %}Commands{% endif %}</a>
+      <a class="nav-link {% if page.url contains 'permissions.html' %}active{% endif %}" href="{{ p | append: 'permissions.html' | relative_url }}">{% if curlang == 'th' %}สิทธิ์{% else %}Permissions{% endif %}</a>
+      <a class="nav-link {% if page.url contains 'configuration.html' %}active{% endif %}" href="{{ p | append: 'configuration.html' | relative_url }}">{% if curlang == 'th' %}การตั้งค่า{% else %}Configuration{% endif %}</a>
+      <a class="nav-link {% if page.url contains 'crates.html' %}active{% endif %}" href="{{ p | append: 'crates.html' | relative_url }}">{% if curlang == 'th' %}ตู้กาชา{% else %}Crates{% endif %}</a>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-title">{% if curlang == 'th' %}อินเทอร์เฟซ{% else %}Interface{% endif %}</div>
+      <a class="nav-link {% if page.url contains 'cursor-ui.html' %}active{% endif %}" href="{{ p | append: 'cursor-ui.html' | relative_url }}">Cursor UI</a>
+      <a class="nav-link {% if page.url contains 'result-panel.html' %}active{% endif %}" href="{{ p | append: 'result-panel.html' | relative_url }}">{% if curlang == 'th' %}หน้าผลรางวัล{% else %}Result Panel{% endif %}</a>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-title">{% if curlang == 'th' %}ช่วยเหลือ{% else %}Help{% endif %}</div>
+      <a class="nav-link {% if page.url contains 'troubleshooting.html' %}active{% endif %}" href="{{ p | append: 'troubleshooting.html' | relative_url }}">{% if curlang == 'th' %}แก้ปัญหา{% else %}Troubleshooting{% endif %}</a>
+      <a class="nav-link {% if page.url contains 'faq.html' %}active{% endif %}" href="{{ p | append: 'faq.html' | relative_url }}">{% if curlang == 'th' %}คำถามที่พบบ่อย{% else %}FAQ{% endif %}</a>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-title">{% if curlang == 'th' %}ขั้นสูง{% else %}Advanced{% endif %}</div>
+      <a class="nav-link {% if page.url contains 'developer-notes.html' %}active{% endif %}" href="{{ p | append: 'developer-notes.html' | relative_url }}">{% if curlang == 'th' %}โน้ตนักพัฒนา{% else %}Developer Notes{% endif %}</a>
+      <a class="nav-link {% if page.url contains 'github-pages.html' %}active{% endif %}" href="{{ '/github-pages.html' | relative_url }}">{% if curlang == 'th' %}เผยแพร่เว็บ (Pages){% else %}Publishing (Pages){% endif %}</a>
+    </div>
+
+  </nav>
+</aside>
+
+<div class="backdrop" id="backdrop"></div>
+
+<main class="content">
+  <article class="md">
+    {{ content }}
+  </article>
+  <footer class="page-foot">
+    <span>CradGacha Documentation</span>
+    <span>· <a href="https://github.com/3BSTUDIO/CradGacha" target="_blank" rel="noopener">GitHub</a></span>
+  </footer>
+</main>
+
+<script src="{{ '/assets/js/docs.js' | relative_url }}"></script>
+</body>
+</html>

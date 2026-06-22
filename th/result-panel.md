@@ -4,9 +4,7 @@ title: หน้าผลรางวัล
 
 # หน้าผลรางวัล (Result Panel)
 
-[🏠 หน้าแรก](index.html) · [🇬🇧 Read in English](../en/result-panel.html) · [🌐 เลือกภาษา](../index.html)
 
-**หน้าทั้งหมด:** [หน้าแรก](index.html) · [การติดตั้ง](installation.html) · [ตั้งค่าครั้งแรก](first-setup.html) · [คำสั่ง](commands.html) · [สิทธิ์](permissions.html) · [การตั้งค่า](configuration.html) · [ตู้กาชา](crates.html) · [Cursor UI](cursor-ui.html) · **หน้าผลรางวัล** · [แก้ปัญหา](troubleshooting.html) · [คำถามที่พบบ่อย](faq.html) · [โน้ตนักพัฒนา](developer-notes.html)
 
 ---
 

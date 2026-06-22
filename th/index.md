@@ -4,9 +4,7 @@ title: CradGacha — หน้าแรก
 
 # CradGacha
 
-🏠 **หน้าแรก** · [🇬🇧 Read in English](../en/index.html) · [🌐 เลือกภาษา](../index.html) · [GitHub](https://github.com/3BSTUDIO/CradGacha)
 
-**หน้าทั้งหมด:** หน้าแรก · [การติดตั้ง](installation.html) · [ตั้งค่าครั้งแรก](first-setup.html) · [คำสั่ง](commands.html) · [สิทธิ์](permissions.html) · [การตั้งค่า](configuration.html) · [ตู้กาชา](crates.html) · [Cursor UI](cursor-ui.html) · [หน้าผลรางวัล](result-panel.html) · [แก้ปัญหา](troubleshooting.html) · [คำถามที่พบบ่อย](faq.html) · [โน้ตนักพัฒนา](developer-notes.html)
 
 ---
 
