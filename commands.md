@@ -17,7 +17,7 @@ the available sub-commands and arguments (admin sub-commands only appear for adm
 | `/gacha open <crate> [1\|10]` | Open a crate directly without the menu (charges cost + cooldown). | everyone |
 | `/gacha debug` | Toggle the cursor-coordinate overlay (the menu must be open). | everyone |
 | `/gacha reload` | Reload `config.yml`, `crates.yml`, `cursor.yml`, `theme.yml` and the menu. | `cradgacha.admin` |
-| `/gacha doctor` | Run a setup health-check (packetevents, ItemsAdder, glyphs, Vault, crates, resource pack). | `cradgacha.admin` |
+| `/gacha doctor` | Run a setup health-check (packetevents, ItemsAdder, glyphs, Vault, crates, resource pack, and optional Nexo/Oraxen/ModelEngine/BetterModel). | `cradgacha.admin` |
 | `/gacha token <player>` | Show a player's token balance. | `cradgacha.admin` |
 | `/gacha token give <player> <amount>` | Give tokens to a player. | `cradgacha.admin` |
 | `/gacha token take <player> <amount>` | Remove tokens from a player. | `cradgacha.admin` |

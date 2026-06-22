@@ -17,7 +17,7 @@ title: คำสั่ง
 | `/gacha open <crate> [1\|10]` | เปิดตู้โดยตรงไม่ผ่านเมนู (คิดค่าเปิด + คูลดาวน์) | ทุกคน |
 | `/gacha debug` | สลับการโชว์พิกัดเคอร์เซอร์ (ต้องเปิดเมนูอยู่) | ทุกคน |
 | `/gacha reload` | โหลด `config.yml`, `crates.yml`, `cursor.yml`, `theme.yml` และเมนูใหม่ | `cradgacha.admin` |
-| `/gacha doctor` | ตรวจสุขภาพการตั้งค่า (packetevents, ItemsAdder, glyph, Vault, ตู้, resource pack) | `cradgacha.admin` |
+| `/gacha doctor` | ตรวจสุขภาพการตั้งค่า (packetevents, ItemsAdder, glyph, Vault, ตู้, resource pack และ Nexo/Oraxen/ModelEngine/BetterModel ที่เป็น optional) | `cradgacha.admin` |
 | `/gacha token <player>` | เช็คยอด token ของผู้เล่น | `cradgacha.admin` |
 | `/gacha token give <player> <amount>` | ให้ token แก่ผู้เล่น | `cradgacha.admin` |
 | `/gacha token take <player> <amount>` | หัก token จากผู้เล่น | `cradgacha.admin` |
