@@ -77,6 +77,14 @@ images, run ItemsAdder's commands so it rebuilds the pack:
 /iareload
 ```
 
+If you use **Nexo** or **Oraxen** items (e.g. as rewards or cost), rebuild their pack with that
+plugin's own command after adding/changing items:
+
+```
+/nexo reload pack      # Nexo  (or /nexo reload for everything)
+/oraxen reload pack    # Oraxen (or /oraxen reload all)
+```
+
 Players must **accept the server resource pack** when they join, or the menu will show as empty
 boxes (□). CradGacha warns a player who declined the pack.
 

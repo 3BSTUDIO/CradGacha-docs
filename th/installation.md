@@ -77,6 +77,14 @@ title: การติดตั้ง
 /iareload
 ```
 
+ถ้าใช้ไอเทมจาก **Nexo** หรือ **Oraxen** (เช่นเป็นรางวัลหรือค่าเปิด) ให้ rebuild pack ของปลั๊กอินนั้น
+ด้วยคำสั่งของมันเองหลังเพิ่ม/แก้ไอเทม:
+
+```
+/nexo reload pack      # Nexo  (หรือ /nexo reload สำหรับทั้งหมด)
+/oraxen reload pack    # Oraxen (หรือ /oraxen reload all)
+```
+
 ผู้เล่นต้อง **ยอมรับ resource pack** ของเซิร์ฟตอนเข้าเกม ไม่งั้นเมนูจะเป็นกล่องสี่เหลี่ยม (□)
 CradGacha จะเตือนผู้เล่นที่ปฏิเสธ pack
 
