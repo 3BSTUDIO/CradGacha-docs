@@ -59,7 +59,7 @@ In game (as an operator), run:
 ```
 
 Every line should show a green ✓. If something shows a red ✗, the message tells you how to fix it.
-See [Troubleshooting](troubleshooting.html) for details.
+See [Troubleshooting](troubleshooting.md) for details.
 
 Then open the menu:
 
@@ -82,4 +82,4 @@ boxes (□). CradGacha warns a player who declined the pack.
 
 ---
 
-Next: [First Setup →](first-setup.html)
+Next: [First Setup →](first-setup.md)

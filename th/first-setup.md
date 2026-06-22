@@ -60,7 +60,7 @@ daily:
     - { name: "Netherite", material: NETHERITE_INGOT, amount: 1, rarity: LEGENDARY }
 ```
 
-ดูทุกตัวเลือก (คำสั่ง ไอคอน น้ำหนัก pity) ที่หน้า [ตู้กาชา](crates.html)
+ดูทุกตัวเลือก (คำสั่ง ไอคอน น้ำหนัก pity) ที่หน้า [ตู้กาชา](crates.md)
 
 ## ขั้นที่ 3 — ตั้งค่าเปิด
 
@@ -75,7 +75,7 @@ cost: { type: TOKEN, amount: 5 }                   # 5 token (แต้มใน
 
 - `MONEY` ต้องมี **Vault** + ปลั๊กอินเศรษฐกิจ
 - `TOKEN` เป็นสกุลเงินในตัว ให้แต้มด้วย `/gacha token give <player> <amount>`
-  (ดู [คำสั่ง](commands.html))
+  (ดู [คำสั่ง](commands.md))
 
 ตอนเปิด 10 ใบ ค่าเปิดรวม = `amount × 10`
 
@@ -92,7 +92,7 @@ rarities:
   LEGENDARY: { color: "&6&l", weight: 3.0, ... }
 ```
 
-weight สูง = ออกบ่อยกว่า เรตที่ไม่มีรางวัลจะถูกข้าม ดูเพิ่มที่ [ตู้กาชา](crates.html)
+weight สูง = ออกบ่อยกว่า เรตที่ไม่มีรางวัลจะถูกข้าม ดูเพิ่มที่ [ตู้กาชา](crates.md)
 
 ## ขั้นที่ 5 — reload และทดสอบ
 
@@ -106,8 +106,8 @@ weight สูง = ออกบ่อยกว่า เรตที่ไม่
 - คลิกการ์ดทีละใบเพื่อพลิก หรือใช้ **Open All** (เฉพาะเปิด 10 ใบ)
 
 ถ้าเมนูเป็นกล่องสี่เหลี่ยม (□) แปลว่า resource pack/glyph ยังไม่พร้อม ให้รัน `/gacha doctor`
-แล้วดู [แก้ปัญหา](troubleshooting.html)
+แล้วดู [แก้ปัญหา](troubleshooting.md)
 
 ---
 
-ถัดไป: [คำสั่ง →](commands.html)
+ถัดไป: [คำสั่ง →](commands.md)

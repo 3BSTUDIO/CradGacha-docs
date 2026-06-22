@@ -20,7 +20,7 @@ title: แก้ปัญหา
 ## คำสั่งใช้ไม่ได้
 
 - คำสั่งแอดมิน (`reload`, `doctor`, `token`) ต้องมีสิทธิ์ `cradgacha.admin` — เป็น `op` หรือให้สิทธิ์
-  (ดู [สิทธิ์](permissions.html))
+  (ดู [สิทธิ์](permissions.md))
 - กด **Tab** หลัง `/gacha ` เพื่อดูว่ามีอะไรให้ใช้บ้าง
 
 ## dependency หาย
@@ -66,7 +66,7 @@ texture ใหม่ใน ItemsAdder
 
 ## เคอร์เซอร์ไปไม่ถึงขอบจอ
 
-เป็นข้อจำกัดฝั่งเซิร์ฟที่รู้กัน (ดู [Cursor UI](cursor-ui.html)) ใน `cursor.yml`:
+เป็นข้อจำกัดฝั่งเซิร์ฟที่รู้กัน (ดู [Cursor UI](cursor-ui.md)) ใน `cursor.yml`:
 
 - เพิ่ม `sensitivity-x` (เช่น `0.3` → `0.5`)
 - ขยาย `bounds.min-x` / `max-x`
@@ -82,12 +82,12 @@ texture ใหม่ใน ItemsAdder
 
 ## เว็บ GitHub Pages ไม่ขึ้น
 
-- ใน **Settings → Pages** ต้องตั้ง **Source** เป็น **Deploy from a branch** branch `main` โฟลเดอร์
-  **`/docs`** ดู [วิธีเปิด GitHub Pages](../github-pages.html)
-- รอ 1–2 นาทีหลัง Save ครั้งแรก build ใช้เวลาสักครู่
-- ดูแท็บ **Actions** ว่ามี run "pages build and deployment" ที่ล้มเหลวไหม
-- URL ของเว็บคือ `https://<ชื่อผู้ใช้>.github.io/CradGacha/`
+- ที่ repo **CradGacha-docs** ตั้ง **Settings → Pages → Source** เป็น **GitHub Actions**
+  ดู [เผยแพร่ (GitHub Pages)](deploy.md)
+- ดูแท็บ **Actions** ว่ามี run "Deploy Docs (VitePress)" ที่ล้มเหลวไหม แล้วอ่าน log
+- หลังเปิดใช้งาน push ขึ้น `main` (หรือกด Run workflow) เพื่อ trigger build ครั้งแรก
+- URL ของเว็บคือ `https://<ชื่อผู้ใช้>.github.io/CradGacha-docs/`
 
 ---
 
-ถัดไป: [คำถามที่พบบ่อย →](faq.html)
+ถัดไป: [คำถามที่พบบ่อย →](faq.md)

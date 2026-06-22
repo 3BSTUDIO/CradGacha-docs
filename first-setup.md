@@ -60,7 +60,7 @@ daily:
     - { name: "Netherite", material: NETHERITE_INGOT, amount: 1, rarity: LEGENDARY }
 ```
 
-See [Crates](crates.html) for every option (commands, icons, weights, pity).
+See [Crates](crates.md) for every option (commands, icons, weights, pity).
 
 ## Step 3 — Set the cost
 
@@ -75,7 +75,7 @@ cost: { type: TOKEN, amount: 5 }                   # 5 built-in tokens
 
 - `MONEY` needs **Vault** + an economy plugin.
 - `TOKEN` is a built-in currency. Give tokens with `/gacha token give <player> <amount>`
-  (see [Commands](commands.html)).
+  (see [Commands](commands.md)).
 
 On a 10-pull the total cost is `amount × 10`.
 
@@ -92,7 +92,7 @@ rarities:
   LEGENDARY: { color: "&6&l", weight: 3.0, ... }
 ```
 
-Higher weight = drops more often. A rarity with no rewards is skipped. See [Crates](crates.html).
+Higher weight = drops more often. A rarity with no rewards is skipped. See [Crates](crates.md).
 
 ## Step 5 — Reload and test
 
@@ -106,8 +106,8 @@ Higher weight = drops more often. A rarity with no rewards is skipped. See [Crat
 - Click each card to flip it, or use **Open All** (10-pull only).
 
 If the menu shows empty boxes (□), your resource pack/glyphs aren't ready — run `/gacha doctor`
-and see [Troubleshooting](troubleshooting.html).
+and see [Troubleshooting](troubleshooting.md).
 
 ---
 
-Next: [Commands →](commands.html)
+Next: [Commands →](commands.md)

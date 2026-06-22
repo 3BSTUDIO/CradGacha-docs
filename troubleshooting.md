@@ -20,7 +20,7 @@ title: Troubleshooting
 ## A command doesn't work
 
 - Admin commands (`reload`, `doctor`, `token`) need the `cradgacha.admin` permission — be `op` or
-  grant it (see [Permissions](permissions.html)).
+  grant it (see [Permissions](permissions.md)).
 - Press **Tab** after `/gacha ` to see what's available to you.
 
 ## A dependency is missing
@@ -68,7 +68,7 @@ or emissive isn't set in your model). Re-export the model/texture in ItemsAdder.
 
 ## The cursor can't reach the screen edges
 
-This is a known server-side limit (see [Cursor UI](cursor-ui.html)). In `cursor.yml`:
+This is a known server-side limit (see [Cursor UI](cursor-ui.md)). In `cursor.yml`:
 
 - Raise `sensitivity-x` (e.g. `0.3` → `0.5`).
 - Widen `bounds.min-x` / `max-x`.
@@ -84,12 +84,12 @@ The plugin restores your gamemode and camera when the menu closes, and it has a 
 
 ## GitHub Pages site doesn't appear
 
-- In **Settings → Pages**, the **Source** must be **Deploy from a branch**, branch `main`, folder
-  **`/docs`**. See [How to enable GitHub Pages](../github-pages.html).
-- Wait 1–2 minutes after saving; the first build takes a moment.
-- Check the **Actions** tab for a failed "pages build and deployment" run.
-- The site URL is `https://<your-user>.github.io/CradGacha/`.
+- On the **CradGacha-docs** repo, **Settings → Pages → Source** must be **GitHub Actions**.
+  See [Deploy (GitHub Pages)](deploy.md).
+- Check the **Actions** tab for a failed "Deploy Docs (VitePress)" run and read its logs.
+- After enabling, push to `main` (or run the workflow) to trigger the first build.
+- The site URL is `https://<your-user>.github.io/CradGacha-docs/`.
 
 ---
 
-Next: [FAQ →](faq.html)
+Next: [FAQ →](faq.md)

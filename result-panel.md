@@ -76,4 +76,4 @@ If you don't set a field, it uses the built-in default, so behaviour stays the s
 
 ---
 
-Next: [Troubleshooting →](troubleshooting.html)
+Next: [Troubleshooting →](troubleshooting.md)

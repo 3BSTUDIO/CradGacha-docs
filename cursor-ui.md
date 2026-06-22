@@ -35,7 +35,7 @@ freeze uses **packetevents**, which is why packetevents is required.
 3. When you click, it runs the action of whatever area you're hovering.
 
 You don't configure any of this — it just works. The layout (where the buttons are) is in
-`theme.yml`; the *feel* (sensitivity, bounds) is in `cursor.yml` (see [Configuration](configuration.html)).
+`theme.yml`; the *feel* (sensitivity, bounds) is in `cursor.yml` (see [Configuration](configuration.md)).
 
 ## Tuning the feel (cursor.yml)
 
@@ -89,4 +89,4 @@ These come from doing a cursor UI purely on the server (no client mod):
 
 ---
 
-Next: [Result Panel →](result-panel.html)
+Next: [Result Panel →](result-panel.md)

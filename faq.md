@@ -23,11 +23,11 @@ A: No — it requires **Paper** 1.21+ (it uses Paper-only APIs).
 
 **Q: How do I add a new crate?**
 A: Copy a block in `crates.yml`, give it a new id, edit the cost/rewards, then `/gacha reload`.
-See [Crates](crates.html).
+See [Crates](crates.md).
 
 **Q: How do I change drop chances?**
 A: Edit the `weight` of each rarity in `config.yml`. Higher weight = more common. See
-[Configuration](configuration.html).
+[Configuration](configuration.md).
 
 **Q: What are tokens?**
 A: A built-in currency (stored in `tokens.yml`) you can sell from your store. Grant with
@@ -53,11 +53,11 @@ A: That's the resource pack font not supporting stacked Thai vowels — not a pl
 text, or add a Thai-capable font to your pack.
 
 **Q: How do I move the cursor faster / reach the edges?**
-A: Raise `sensitivity-x` and widen `bounds` in `cursor.yml`. See [Cursor UI](cursor-ui.html).
+A: Raise `sensitivity-x` and widen `bounds` in `cursor.yml`. See [Cursor UI](cursor-ui.md).
 
 **Q: How do I reload after editing a file?**
 A: `/gacha reload` for YAML changes. A full server restart is only needed when you replace the jar.
 
 ---
 
-Next: [Developer Notes →](developer-notes.html)
+Next: [Developer Notes →](developer-notes.md)

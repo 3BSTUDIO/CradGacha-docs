@@ -98,4 +98,4 @@ com.threebstudio.cradgacha
 
 ---
 
-[← กลับหน้าแรก](index.html) · [🌐 เลือกภาษา](../index.html)
+[← กลับหน้าแรก](index.md) · [🌐 เลือกภาษา](index.md)

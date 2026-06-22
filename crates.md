@@ -123,8 +123,8 @@ pity: { enabled: true, rarity: LEGENDARY, threshold: 50 }
 - **x1** opens one card.
 - **x10** opens ten (capped by `settings.max-open`). Each card is rolled independently.
 - Cost scales with the number of cards.
-- See [Result Panel](result-panel.html) for what the buttons do after a pull.
+- See [Result Panel](result-panel.md) for what the buttons do after a pull.
 
 ---
 
-Next: [Cursor UI →](cursor-ui.html)
+Next: [Cursor UI →](cursor-ui.md)

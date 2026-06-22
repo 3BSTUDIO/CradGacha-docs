@@ -58,7 +58,7 @@ Reload after editing a YAML file:
 ## Notes
 
 - **`/gacha open`** still respects the cost, cooldown, inventory-space check, and the
-  "must be on the ground" rule (see [Configuration](configuration.html)). Opening from the **menu**
+  "must be on the ground" rule (see [Configuration](configuration.md)). Opening from the **menu**
   skips the ground check, because the player is temporarily a spectator.
 - The **token** sub-commands can be run from the **server console**, which is how online stores
   (Tebex, donation plugins, etc.) grant tokens automatically — have them run
@@ -67,4 +67,4 @@ Reload after editing a YAML file:
 
 ---
 
-Next: [Permissions →](permissions.html)
+Next: [Permissions →](permissions.md)

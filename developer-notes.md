@@ -99,4 +99,4 @@ the engine — that's how `select_crate`, `open_count`, `open_all`, `open_rates`
 
 ---
 
-[← Back to Home](index.html) · [🌐 Language picker](../index.html)
+[← Back to Home](index.md) · [🌐 Language picker](index.md)

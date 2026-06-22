@@ -22,10 +22,10 @@ title: คำถามที่พบบ่อย
 
 **ถาม: เพิ่มตู้ใหม่ยังไง?**
 ตอบ: คัดลอกบล็อกใน `crates.yml` ตั้ง id ใหม่ แก้ค่าเปิด/รางวัล แล้ว `/gacha reload`
-ดู [ตู้กาชา](crates.html)
+ดู [ตู้กาชา](crates.md)
 
 **ถาม: เปลี่ยนโอกาสดรอปยังไง?**
-ตอบ: แก้ `weight` ของแต่ละเรตใน `config.yml` weight สูง = ออกบ่อย ดู [การตั้งค่า](configuration.html)
+ตอบ: แก้ `weight` ของแต่ละเรตใน `config.yml` weight สูง = ออกบ่อย ดู [การตั้งค่า](configuration.md)
 
 **ถาม: token คืออะไร?**
 ตอบ: สกุลเงินในตัว (เก็บใน `tokens.yml`) ขายจากร้านได้ ให้ด้วย `/gacha token give <player> <amount>`
@@ -51,11 +51,11 @@ title: คำถามที่พบบ่อย
 ใช้ข้อความอังกฤษ หรือเพิ่ม font ไทยใน pack
 
 **ถาม: ขยับเคอร์เซอร์ให้เร็ว/ถึงขอบยังไง?**
-ตอบ: เพิ่ม `sensitivity-x` และขยาย `bounds` ใน `cursor.yml` ดู [Cursor UI](cursor-ui.html)
+ตอบ: เพิ่ม `sensitivity-x` และขยาย `bounds` ใน `cursor.yml` ดู [Cursor UI](cursor-ui.md)
 
 **ถาม: reload หลังแก้ไฟล์ยังไง?**
 ตอบ: `/gacha reload` สำหรับการแก้ YAML รีสตาร์ทเต็มต้องทำเฉพาะตอนเปลี่ยนไฟล์ jar
 
 ---
 
-ถัดไป: [โน้ตนักพัฒนา →](developer-notes.html)
+ถัดไป: [โน้ตนักพัฒนา →](developer-notes.md)

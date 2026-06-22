@@ -73,4 +73,4 @@ reveal-cards:
 
 ---
 
-ถัดไป: [แก้ปัญหา →](troubleshooting.html)
+ถัดไป: [แก้ปัญหา →](troubleshooting.md)

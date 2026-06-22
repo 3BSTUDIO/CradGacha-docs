@@ -39,4 +39,4 @@ If you do not run a permissions plugin, server operators (`/op`) already have it
 
 ---
 
-Next: [Configuration →](configuration.html)
+Next: [Configuration →](configuration.md)

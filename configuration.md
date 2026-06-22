@@ -15,8 +15,8 @@ so you can edit them separately. After any change, run **`/gacha reload`**.
 |---|---|
 | `config.yml` | Global behaviour, background, showcase banner, rarities, cooldown. |
 | `cursor.yml` | How the cursor and camera feel. |
-| `crates.yml` | Your crates — see the [Crates](crates.html) page. |
-| `theme.yml` | Menu layout — see [Cursor UI](cursor-ui.html). |
+| `crates.yml` | Your crates — see the [Crates](crates.md) page. |
+| `theme.yml` | Menu layout — see [Cursor UI](cursor-ui.md). |
 
 ---
 
@@ -158,7 +158,7 @@ rarities:
 
 ## cursor.yml (key values)
 
-How the virtual cursor and camera behave. See [Cursor UI](cursor-ui.html) for the concepts.
+How the virtual cursor and camera behave. See [Cursor UI](cursor-ui.md) for the concepts.
 
 ```yaml
 mode: spectator        # spectator = frozen view (best). Needs packetevents.
@@ -177,11 +177,11 @@ hide-hand: true
 ```
 
 - If the cursor **can't reach the screen edges**, raise `sensitivity-x` / widen `bounds`.
-- This is a known limit of a server-side cursor — see [Troubleshooting](troubleshooting.html).
+- This is a known limit of a server-side cursor — see [Troubleshooting](troubleshooting.md).
 
 > **Brightness / "dark models":** all menu displays are forced to full brightness (`15/15`) in code,
 > so buttons and rewards never look dim from world lighting. You don't configure this — it's automatic.
 
 ---
 
-Next: [Crates →](crates.html)
+Next: [Crates →](crates.md)

@@ -62,8 +62,8 @@ It is the cursor-only spin-off of an earlier project, rebuilt to be clean and fo
 3. Run `/gacha doctor` to confirm everything is green.
 4. Run `/gacha` to open the menu.
 
-Full details are on the [Installation](installation.html) and [First Setup](first-setup.html) pages.
+Full details are on the [Installation](installation.md) and [First Setup](first-setup.md) pages.
 
 ---
 
-Next: [Installation →](installation.html)
+Next: [Installation →](installation.md)

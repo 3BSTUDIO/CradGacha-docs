@@ -61,8 +61,8 @@ title: CradGacha — หน้าแรก
 3. รัน `/gacha doctor` เพื่อเช็คว่าทุกอย่างเขียว
 4. รัน `/gacha` เพื่อเปิดเมนู
 
-รายละเอียดเต็มอยู่ที่หน้า [การติดตั้ง](installation.html) และ [ตั้งค่าครั้งแรก](first-setup.html)
+รายละเอียดเต็มอยู่ที่หน้า [การติดตั้ง](installation.md) และ [ตั้งค่าครั้งแรก](first-setup.md)
 
 ---
 
-ถัดไป: [การติดตั้ง →](installation.html)
+ถัดไป: [การติดตั้ง →](installation.md)

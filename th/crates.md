@@ -122,8 +122,8 @@ pity: { enabled: true, rarity: LEGENDARY, threshold: 50 }
 - **x1** เปิดหนึ่งใบ
 - **x10** เปิดสิบใบ (จำกัดด้วย `settings.max-open`) แต่ละใบสุ่มแยกกัน
 - ค่าเปิดคิดตามจำนวนใบ
-- ดูว่าปุ่มหลังเปิดทำอะไรที่หน้า [หน้าผลรางวัล](result-panel.html)
+- ดูว่าปุ่มหลังเปิดทำอะไรที่หน้า [หน้าผลรางวัล](result-panel.md)
 
 ---
 
-ถัดไป: [Cursor UI →](cursor-ui.html)
+ถัดไป: [Cursor UI →](cursor-ui.md)
