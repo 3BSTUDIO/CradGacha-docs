@@ -34,6 +34,36 @@ my_crate:                         # <- id ของตู้ (ห้ามมี
 | `pity` | การการันตี (ไม่บังคับ) — ดูด้านล่าง |
 | `rewards` | รายการรางวัลที่เป็นไปได้ |
 
+## banner & ปุ่ม ต่อตู้ (ไม่บังคับ)
+
+แต่ละตู้ตั้ง **banner** กลางจอ และ **ปุ่มเลือก** ในรายการตู้ของตัวเองได้ ทุกฟิลด์ไม่บังคับ —
+ไม่ใส่ = ใช้ค่า default รวม (`config.yml > showcase` และ `theme.crate-list`)
+เมื่อผู้เล่นเลือกตู้ banner จะเปลี่ยนตามตู้นั้น
+
+```yaml
+my_crate:
+  # banner กลางจอเฉพาะตู้นี้ (override config.yml > showcase)
+  banner:
+    item: "nexo:my_banner"     # banner แบบ item …
+    # glyph: my_banner_glyph   # … หรือใช้ glyph เดี่ยวแทน
+    x: 0.3
+    y: 0.15
+    scale: 1.5
+  # ปุ่มเลือกตู้เฉพาะตู้นี้ (override theme.crate-list)
+  button:
+    item: "nexo:my_icon"           # ไอคอนตอน enabled …
+    item-disabled: "nexo:my_off"   # … ตอน enabled:false
+    selected-item: "nexo:my_sel"   # … ตอนถูกเลือก
+    # glyph: g_crate_1             # หรือใช้ glyph: glyph / glyph-disabled / selected-glyph
+    # text: "My Crate"             # หรือข้อความล้วน: enabled-color / disabled-color
+    x: -1.9
+    y: 0.82
+    scale: 0.52
+    hitbox: { w: 0.8, h: 0.22 }
+```
+
+ลำดับความสำคัญของปุ่ม: `selected-*` (ตอนเลือก) → `item`/`glyph`/`text` (ตามสถานะ) → ค่า default `theme.crate-list`
+
 ## ประเภทค่าเปิด
 
 ```yaml

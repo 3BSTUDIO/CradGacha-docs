@@ -17,6 +17,7 @@ title: การตั้งค่า
 | `cursor.yml` | ความรู้สึกของเคอร์เซอร์/กล้อง |
 | `crates.yml` | ตู้ของคุณ — ดูหน้า [ตู้กาชา](crates.md) |
 | `theme.yml` | เลย์เอาต์เมนู — ดู [Cursor UI](cursor-ui.md) |
+| `language.yml` | ข้อความทั้งหมด (แปลภาษาได้) — ดูด้านล่าง |
 
 ---
 
@@ -134,6 +135,41 @@ cooldown:
   seconds: 5
 ```
 
+### currency (ตั้งชื่อ token เอง)
+
+เปลี่ยนชื่อสกุลเงิน **token** ทุกที่ที่แสดง (ยอดคงเหลือ, ข้อความ cost, history, placeholder)
+
+```yaml
+currency:
+  token-name: "Token"          # เอกพจน์ — เช่น Coin / Gem / Crystal
+  token-name-plural: "Tokens"  # พหูพจน์ (ไม่ใส่ = token-name + "s")
+```
+
+### recovery (หลุด/ESC ระหว่างเปิด)
+
+จัดการกรณีผู้เล่นปิดหน้าเปิดการ์ดหรือหลุดก่อน claim **รางวัลไม่หายทั้ง 2 โหมด** (`pending.yml` คือแหล่งความจริง)
+อันนี้แค่เลือกว่าจะ *กลับมาเปิดต่อ* หรือ *แจกทันที*
+
+```yaml
+recovery:
+  mode: return_window          # return_window | auto_claim
+  timeout-seconds: 30
+```
+
+- **`return_window`** (ค่าเริ่มต้น) — เก็บรางวัลที่สุ่มไว้ `timeout-seconds` วินาที พิมพ์ `/gacha`
+  (หรือเข้าเกมใหม่แล้ว `/gacha`) ในเวลา = **กลับไปเปิดต่อชุดเดิม** หมดเวลา = แจกอัตโนมัติ
+- **`auto_claim`** — แจกรางวัลทันทีเมื่อปิดหน้าทั้งที่ยังเปิดไม่จบ
+
+### history (ประวัติการเปิด)
+
+```yaml
+history:
+  enabled: true
+  max-records-per-player: 50   # เกินจำนวนนี้ตัดอันเก่าทิ้ง (กัน history.yml โตไม่จำกัด)
+```
+
+เพิ่มปุ่ม `action: open_history` ใน `theme.yml` เพื่อเปิดหน้าประวัติในเกม
+
 ### rarities
 
 ใช้ร่วมทุกตู้ **weight** กำหนดความถี่ที่แต่ละเรตออก
@@ -177,6 +213,41 @@ hide-hand: true
 
 > **ความสว่าง / "โมเดลมืด":** display ทุกตัวในเมนูถูกตั้งความสว่างเต็ม (`15/15`) ในโค้ดอยู่แล้ว
 > ปุ่มและรางวัลจึงไม่มืดตามแสงในโลก — ไม่ต้องตั้งค่าเอง เป็นอัตโนมัติ
+
+---
+
+## language.yml (ข้อความทั้งหมด)
+
+ข้อความระบบทุกอย่างอยู่ใน `language.yml` แปล/เปลี่ยนสีได้โดยไม่แตะโค้ด ถ้าคีย์ไหนหาย จะ fallback
+เป็นค่า default ภาษาอังกฤษ (ไฟล์เก่าไม่พัง) รองรับสี `&` และ `{placeholder}` เช่น
+`{cost} {balance} {amount} {seconds} {crate} {reward} {token_name} {token_name_plural}`
+
+```yaml
+messages:
+  cost:
+    not-enough-token: "&cNot enough {token_name_plural}! Cost: &e{cost} &7(you have {balance})"
+  recovery:
+    returned: "&aWelcome back! Resuming your card reveal."
+  pity:
+    label: "&dPity: &f{pity_current}&7/&f{pity_required}"
+  # ... ดูคีย์ทั้งหมดในไฟล์
+```
+
+## placeholder ในเมนู (text element ใน theme.yml)
+
+element แบบ `type: text` ใน `theme.yml` ใช้ได้ (แทนค่าตามตู้ที่เลือก/ผู้เล่น):
+
+| placeholder | ความหมาย |
+|---|---|
+| `{cost}` / `{cost-text}` | ค่าเปิด (ตัวเลขล้วน / ข้อความเต็ม) |
+| `{money}` / `{token}` | ยอดคงเหลือของผู้เล่น |
+| `{token_name}` / `{token_name_plural}` | ชื่อสกุลเงินที่ตั้งเอง |
+| `{pity}` | ข้อความ pity จัดรูปแล้ว (`Pity: 12/90`) |
+| `{pity_current}` / `{pity_required}` | ตัวนับ / เพดาน pity ของตู้ที่เลือก |
+| `{crate}` / `{crate_name}` / `{crate_id}` | ชื่อ / id ตู้ที่เลือก |
+
+หน้าเปิดการ์ดก็โชว์ยอดคงเหลือเป็น default — ปรับได้ที่ `theme.reveal-balance`
+(`token`/`money` แต่ละอันมี `show`, `x`, `y`, `scale`, `format`)
 
 ---
 

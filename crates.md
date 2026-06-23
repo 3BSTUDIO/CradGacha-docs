@@ -34,6 +34,37 @@ my_crate:                         # <- the crate id (no spaces)
 | `pity` | Optional guarantee — see below. |
 | `rewards` | The list of possible rewards. |
 
+## Per-crate banner & button (optional)
+
+Each crate can override the center **banner** and its **select button** in the crate list. Every field
+is optional — omit it to fall back to the global default (`config.yml > showcase` and `theme.crate-list`).
+When a player selects the crate, the banner switches to that crate's.
+
+```yaml
+my_crate:
+  # center banner just for this crate (overrides config.yml > showcase)
+  banner:
+    item: "nexo:my_banner"     # an ItemDisplay banner …
+    # glyph: my_banner_glyph   # … OR a single glyph instead
+    x: 0.3
+    y: 0.15
+    scale: 1.5
+  # crate-select button just for this crate (overrides theme.crate-list)
+  button:
+    item: "nexo:my_icon"           # enabled icon …
+    item-disabled: "nexo:my_off"   # … shown when enabled:false
+    selected-item: "nexo:my_sel"   # … shown when this crate is selected
+    # glyph: g_crate_1             # OR use glyphs: glyph / glyph-disabled / selected-glyph
+    # text: "My Crate"             # OR plain text: enabled-color / disabled-color
+    x: -1.9
+    y: 0.82
+    scale: 0.52
+    hitbox: { w: 0.8, h: 0.22 }
+```
+
+Priority for the button visual: `selected-*` (when selected) → `item`/`glyph`/`text` (per state) →
+the `theme.crate-list` default.
+
 ## Cost types
 
 ```yaml
