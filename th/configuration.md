@@ -137,7 +137,7 @@ cooldown:
 
 ### currency (ตั้งชื่อ token เอง)
 
-เปลี่ยนชื่อสกุลเงิน **token** ทุกที่ที่แสดง (ยอดคงเหลือ, ข้อความ cost, history, placeholder)
+เปลี่ยนชื่อสกุลเงิน **token** ทุกที่ที่แสดง (ยอดคงเหลือ, ข้อความ cost, placeholder)
 
 ```yaml
 currency:
@@ -160,20 +160,8 @@ recovery:
   (หรือเข้าเกมใหม่แล้ว `/gacha`) ในเวลา = **กลับไปเปิดต่อชุดเดิม** หมดเวลา = แจกอัตโนมัติ
 - **`auto_claim`** — แจกรางวัลทันทีเมื่อปิดหน้าทั้งที่ยังเปิดไม่จบ
 
-### history (ประวัติการเปิด)
-
-```yaml
-history:
-  enabled: true
-  max-records-per-player: 50   # เกินจำนวนนี้ตัดอันเก่าทิ้ง (กัน history.yml โตไม่จำกัด)
-  show-per-page: 8             # จำนวนแถวต่อหน้า (ที่เหลือแบ่งหน้า)
-```
-
-เพิ่มปุ่ม `action: open_history` ใน `theme.yml` เพื่อเปิดหน้าประวัติในเกม หน้านี้แบ่งหน้าด้วยปุ่ม Prev/Next
-ที่ custom ได้ใน `theme.history-buttons.{prev,back,next}` (แต่ละปุ่มใช้ `text` / `glyph` / `item` + `x` / `y` / `scale` / `hitbox`)
-
-> **ไฟล์ข้อมูล:** ไฟล์ที่เก็บข้อมูล (`data.yml`, `tokens.yml`, `pending.yml`, `history.yml`,
-> `gamemode-recovery.yml`) ย้ายไปอยู่ในโฟลเดอร์ `plugins/CradGacha/data/` แล้ว — ของเดิมจะถูกย้ายให้อัตโนมัติตอนเปิดเซิร์ฟครั้งแรก
+> **ไฟล์ข้อมูล:** ไฟล์ที่เก็บข้อมูล (`data.yml`, `tokens.yml`, `pending.yml`, `gamemode-recovery.yml`)
+> ย้ายไปอยู่ในโฟลเดอร์ `plugins/CradGacha/data/` แล้ว — ของเดิมจะถูกย้ายให้อัตโนมัติตอนเปิดเซิร์ฟครั้งแรก
 
 ### rarities
 

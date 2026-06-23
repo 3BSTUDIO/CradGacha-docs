@@ -140,7 +140,7 @@ cooldown:
 
 ### currency (custom token name)
 
-Rename the built-in **token** currency everywhere it appears (balance, cost messages, history, placeholders).
+Rename the built-in **token** currency everywhere it appears (balance, cost messages, placeholders).
 
 ```yaml
 currency:
@@ -166,24 +166,9 @@ recovery:
   face-down again). When the window expires the rewards are delivered automatically.
 - **`auto_claim`** — deliver the rewards immediately when the reveal is closed unfinished.
 
-### history (pull history)
-
-Records each player's recent pulls (shown on the Pull History page — see below).
-
-```yaml
-history:
-  enabled: true
-  max-records-per-player: 50   # oldest entries are trimmed past this (keeps history.yml bounded)
-  show-per-page: 8             # rows per page on the Pull History screen (the rest is paginated)
-```
-
-Add a button with `action: open_history` in `theme.yml` to open the page in-game. The page is paginated
-with Prev/Next buttons that you can customise under `theme.history-buttons.{prev,back,next}`
-(each supports `text` / `glyph` / `item` + `x` / `y` / `scale` / `hitbox`).
-
-> **Data files:** persisted data (`data.yml`, `tokens.yml`, `pending.yml`, `history.yml`,
-> `gamemode-recovery.yml`) now lives in a `plugins/CradGacha/data/` subfolder. Existing files are
-> migrated there automatically on first start.
+> **Data files:** persisted data (`data.yml`, `tokens.yml`, `pending.yml`, `gamemode-recovery.yml`)
+> lives in a `plugins/CradGacha/data/` subfolder. Existing files are migrated there automatically on
+> first start.
 
 ### rarities
 
