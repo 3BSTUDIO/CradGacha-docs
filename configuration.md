@@ -174,9 +174,16 @@ Records each player's recent pulls (shown on the Pull History page — see below
 history:
   enabled: true
   max-records-per-player: 50   # oldest entries are trimmed past this (keeps history.yml bounded)
+  show-per-page: 8             # rows per page on the Pull History screen (the rest is paginated)
 ```
 
-Add a button with `action: open_history` in `theme.yml` to open the page in-game.
+Add a button with `action: open_history` in `theme.yml` to open the page in-game. The page is paginated
+with Prev/Next buttons that you can customise under `theme.history-buttons.{prev,back,next}`
+(each supports `text` / `glyph` / `item` + `x` / `y` / `scale` / `hitbox`).
+
+> **Data files:** persisted data (`data.yml`, `tokens.yml`, `pending.yml`, `history.yml`,
+> `gamemode-recovery.yml`) now lives in a `plugins/CradGacha/data/` subfolder. Existing files are
+> migrated there automatically on first start.
 
 ### rarities
 
@@ -257,8 +264,37 @@ Any `type: text` element in `theme.yml` can use these (resolved per selected cra
 | `{pity_current}` / `{pity_required}` | pity counter / threshold for the selected crate |
 | `{crate}` / `{crate_name}` / `{crate_id}` | selected crate name / id |
 
-The card-reveal page also shows the balance by default — tune it under `theme.reveal-balance`
-(`token`/`money` each with `show`, `x`, `y`, `scale`, `format`).
+### Balance display (token / money)
+
+Both the main menu and the card-reveal page use the **same** balance system — one entry per currency
+with an optional background pill — so they're configured identically:
+
+- main menu → `theme.balance`
+- reveal page → `theme.reveal-balance`
+
+```yaml
+theme:
+  balance:
+    show: true
+    money: { show: true, x: 0.7, y: 1.32, scale: 0.35, format: "&f{money}", bg: g_bg_money, bg-scale: 0.3 }
+    token: { show: true, x: 1.9, y: 1.32, scale: 0.35, format: "&f{token}", bg: g_bg_token, bg-scale: 0.3 }
+```
+
+Each currency: `show`, `x`, `y`, `scale`, `format` (supports `{money}`/`{token}`/`{token_name}` + `&`
+colours), plus an optional background — `bg` (a glyph id, or `ns:id` for an item; `bg: ""` hides it),
+`bg-x`, `bg-y`, `bg-scale`.
+
+### Reveal card size & spacing
+
+```yaml
+theme:
+  reveal-cards:
+    y: 0.7             # grid base height
+    scale: 0.85        # card size for a single row (1-5 cards)
+    scale-multi: 0.72  # card size for a grid (6-10 cards)
+    spacing-x: 0.98    # horizontal gap between cards
+    spacing-y: 1.1     # vertical gap between rows
+```
 
 ---
 
