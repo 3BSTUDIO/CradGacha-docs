@@ -15,8 +15,10 @@ A: No. It works on a normal vanilla client — they just need to accept the serv
 A: Yes, for the cursor menu (it powers the camera freeze). Without it the menu won't work properly.
 
 **Q: Do I need ItemsAdder?**
-A: Strongly recommended. It provides the button/cursor images and reward models. Without it the menu
-shows empty boxes (□).
+A: Not specifically — you need **one** custom-item provider: **Nexo**, ItemsAdder, or Oraxen. Any of
+them provides the button/cursor images and reward models (CradGacha picks the provider from each
+value's prefix: `nexo:`, `oraxen:`, an ItemsAdder `namespace:id`, or a plain glyph id). Without any
+provider the menu shows empty boxes (□). See [Installation](installation.md) for the Nexo setup steps.
 
 **Q: Does it work on Spigot/Bukkit?**
 A: No — it requires **Paper** 1.21+ (it uses Paper-only APIs).

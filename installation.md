@@ -15,9 +15,8 @@ title: Installation
 | **Server software** | **Paper** 1.21+ (Paper is required — it uses Paper APIs). Tested on 1.21.4–1.21.11. |
 | **Java** | **Java 21** or newer. |
 | **packetevents** | **Required.** Powers the spectator camera freeze that makes the cursor menu work. |
-| **ItemsAdder** | **Strongly recommended.** Provides the button images, cursor image, crate icons, and reward models (glyphs). Without it the menu shows empty boxes (□). |
+| **A custom-item provider** | **Strongly recommended — pick one:** **Nexo**, **ItemsAdder**, or **Oraxen**. Provides the button images, cursor image, crate icons, and reward models (as glyphs and/or items). Without one the menu shows empty boxes (□). |
 | **Vault** | Required **only if** a crate costs `MONEY`. Also needs an economy plugin (e.g. EssentialsX Economy). |
-| **Nexo / Oraxen** | Optional. Alternative custom-item providers for rewards/icons. |
 | **BetterModel / ModelEngine** | Optional. For a 3D model animation before cards appear. |
 
 > All optional plugins are loaded by **reflection** — if they are missing, CradGacha still starts.
@@ -27,7 +26,7 @@ title: Installation
 Put these in your `plugins/` folder first and start the server once so they generate their files:
 
 - `packetevents` (required)
-- `ItemsAdder` (recommended)
+- a custom-item provider — **Nexo**, ItemsAdder, or Oraxen (recommended; pick one)
 - `Vault` + an economy plugin (only if you use `MONEY` cost)
 
 ## Step 2 — Install CradGacha
@@ -69,24 +68,40 @@ Then open the menu:
 
 ## A note on the resource pack
 
-The button/cursor images and reward models come from **ItemsAdder**. After you add or change any
-images, run ItemsAdder's commands so it rebuilds the pack:
+The button/cursor images and reward models come from your custom-item provider. CradGacha reads
+each value by **namespace prefix**, so a theme/config can mix providers freely:
+
+| Prefix in config | Resolved as |
+|---|---|
+| `nexo:<id>` | a **Nexo** item |
+| `oraxen:<id>` | an **Oraxen** item |
+| `<namespace>:<id>` (e.g. `crates_gacha:bg_1`) | an **ItemsAdder** item |
+| a plain glyph id (e.g. `g_open_x1`) | a **glyph** — resolved via ItemsAdder **or** Nexo |
+| a vanilla material (e.g. `CHEST`) | a vanilla item |
+
+After adding or changing images/items, rebuild that provider's pack:
 
 ```
-/iazip
-/iareload
-```
-
-If you use **Nexo** or **Oraxen** items (e.g. as rewards or cost), rebuild their pack with that
-plugin's own command after adding/changing items:
-
-```
-/nexo reload pack      # Nexo  (or /nexo reload for everything)
-/oraxen reload pack    # Oraxen (or /oraxen reload all)
+/nexo reload           # Nexo   — reloads glyphs + items and rebuilds the pack
+/iazip                 # ItemsAdder — then /iareload
+/oraxen reload all     # Oraxen — (or /oraxen reload pack)
 ```
 
 Players must **accept the server resource pack** when they join, or the menu will show as empty
 boxes (□). CradGacha warns a player who declined the pack.
+
+### Using Nexo (glyphs + items)
+
+CradGacha ships a glyph set and item models for Nexo. To install them:
+
+1. Copy the glyph config to `plugins/Nexo/glyphs/crates_gacha.yml`.
+2. Copy the textures into `plugins/Nexo/pack/assets/crates_gacha/textures/` (keep the `font/` subfolder).
+3. Copy the item models into `plugins/Nexo/pack/assets/crates_gacha/models/`.
+4. Run `/nexo reload` (Nexo auto-assigns each glyph a character and rebuilds the pack), then **rejoin**.
+
+Reference a glyph in `theme.yml` with `type: glyph` (e.g. `value: g_open_x1`), and a Nexo item in
+`config.yml`/`cursor.yml` with the `nexo:` prefix (e.g. `crosshair-item: "nexo:ui_cursor"`).
+In any text/MiniMessage context a glyph also works as `<glyph:g_open_x1>` or the shorthand `:g_open_x1:`.
 
 ---
 
