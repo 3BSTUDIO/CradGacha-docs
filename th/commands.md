@@ -22,6 +22,11 @@ title: คำสั่ง
 | `/gacha token give <player> <amount>` | ให้ token แก่ผู้เล่น | `cradgacha.admin` |
 | `/gacha token take <player> <amount>` | หัก token จากผู้เล่น | `cradgacha.admin` |
 | `/gacha token set <player> <amount>` | ตั้งยอด token ของผู้เล่น | `cradgacha.admin` |
+| `/gacha station add <crate> [radius] [click\|proximity\|both]` | ผูกบล็อกที่มองอยู่เป็นจุดวางตู้ (คลิก/เดินเข้าเปิด) | `cradgacha.admin` |
+| `/gacha station remove` | ลบจุดวางตู้ที่บล็อกที่มองอยู่ | `cradgacha.admin` |
+| `/gacha station list` | แสดงจุดวางตู้ทั้งหมด | `cradgacha.admin` |
+| `/gacha setwarp` | ตั้งจุดที่ `/gacha` วาร์ปไป (กลับจุดเดิมเมื่อปิด) | `cradgacha.admin` |
+| `/gacha delwarp` | ยกเลิก warp (เปิดเมนูที่ที่ยืน) | `cradgacha.admin` |
 
 ## ตัวอย่าง
 

@@ -22,6 +22,11 @@ the available sub-commands and arguments (admin sub-commands only appear for adm
 | `/gacha token give <player> <amount>` | Give tokens to a player. | `cradgacha.admin` |
 | `/gacha token take <player> <amount>` | Remove tokens from a player. | `cradgacha.admin` |
 | `/gacha token set <player> <amount>` | Set a player's token balance. | `cradgacha.admin` |
+| `/gacha station add <crate> [radius] [click\|proximity\|both]` | Bind the block you're looking at as a crate station (click / walk-up to open). | `cradgacha.admin` |
+| `/gacha station remove` | Remove the station on the block you're looking at. | `cradgacha.admin` |
+| `/gacha station list` | List all crate stations. | `cradgacha.admin` |
+| `/gacha setwarp` | Set the spot `/gacha` teleports to (player returns on close). | `cradgacha.admin` |
+| `/gacha delwarp` | Clear the warp (open the menu where you stand). | `cradgacha.admin` |
 
 ## Examples
 

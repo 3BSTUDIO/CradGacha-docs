@@ -56,6 +56,7 @@ export default defineConfig({
             text: 'Reference',
             collapsed: false,
             items: [
+              { text: 'Features', link: '/features' },
               { text: 'Commands', link: '/commands' },
               { text: 'Permissions', link: '/permissions' },
               { text: 'Configuration', link: '/configuration' },
@@ -115,6 +116,7 @@ export default defineConfig({
               text: 'อ้างอิง',
               collapsed: false,
               items: [
+                { text: 'ฟีเจอร์', link: '/th/features' },
                 { text: 'คำสั่ง', link: '/th/commands' },
                 { text: 'สิทธิ์', link: '/th/permissions' },
                 { text: 'การตั้งค่า', link: '/th/configuration' },
