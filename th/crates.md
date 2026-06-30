@@ -178,6 +178,8 @@ pity: { enabled: true, rarity: LEGENDARY, threshold: 50 }
 - เมื่อถึง `threshold` การเปิดครั้งถัดไปจะ **การันตี** เรตนั้น
 - ตัวนับแยกตามผู้เล่น **และ** ตามตู้ เก็บใน `data.yml`
 - ตั้ง `enabled: false` เพื่อปิด pity ของตู้นั้น
+- **ค่า global:** `pity:` ใน `config.yml` (`enabled` / `rarity` / `threshold`) ใช้กับทุกตู้ · `pity:` ในตู้นี้ override รายคีย์ —
+  ถ้าไม่ใส่ `pity:` ในตู้เลย จะใช้ค่า global อัตโนมัติ
 
 ## x1 / x10 ทำงานอย่างไร
 

@@ -182,6 +182,8 @@ pity: { enabled: true, rarity: LEGENDARY, threshold: 50 }
 - When the count reaches `threshold`, the next open is **forced** to that rarity.
 - The counter is per-player **and** per-crate, saved in `data.yml`.
 - Set `enabled: false` to turn pity off for that crate.
+- **Global default:** `pity:` in `config.yml` (`enabled` / `rarity` / `threshold`) applies to every crate. A crate's
+  own `pity:` here overrides it per-key — omit a crate's `pity:` entirely to just use the global default.
 
 ## How x1 / x10 work
 
