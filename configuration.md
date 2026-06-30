@@ -118,16 +118,47 @@ card-back-by-rarity:
 
 ### model (optional)
 
-A 3D model animation that plays before the cards appear (needs BetterModel or ModelEngine).
+A 3D model animation that plays before the cards appear (needs BetterModel; server on Java 25). It runs inside
+the menu's spectator camera-lock on a clean stage (camera frozen, area cleared to air, background hidden), then
+the cards open. Animation is picked by the best rarity rolled.
 
 ```yaml
 model:
   enabled: false
   provider: AUTO          # AUTO / BETTERMODEL / MODELENGINE
-  id: "gacha_machine"
-  animation: "open"
+  id: "open"
   duration-ticks: 40
   distance: 2.0
+  brightness: 15          # 0-15 (15 = full bright); -1 = world lighting
+  animation-by-rarity: true
+  animations: { COMMON: common, RARE: rare, EPIC: epic, LEGENDARY: legendary }
+  animation: "open"       # fallback when animation-by-rarity: false
+```
+
+### clear-area (clean stage)
+
+Fakes the blocks around the player to **AIR for that viewer only** (packets — the world is never modified, other
+players see nothing) so the menu and 3D model have a clean backdrop without teleporting. Restored on close.
+
+```yaml
+clear-area:
+  enabled: true
+  radius: 5               # blocks cleared around the player (1-8); higher = bigger bubble
+  hide-furniture: true    # also hide nearby armor-stand furniture (Nexo/ItemsAdder decorations)
+```
+
+### reveal.suspense (sound only)
+
+A rising drum-roll + climax hit before an `announce` rarity is revealed (owner-only). **Sound only, no particles.**
+
+```yaml
+reveal:
+  suspense:
+    enabled: true
+    sound: "block.note_block.bell"               # the rising tick (custom IDs OK); "" = silent
+    climax-sound: "ui.toast.challenge_complete"   # the final hit; "" = no hit
+    volume: 1.0
+    speed: 3                                       # ticks between beats (higher = slower/longer)
 ```
 
 ### cooldown
@@ -176,8 +207,8 @@ Shared by every crate. **Weight** decides how often each rarity drops.
 
 ```yaml
 rarities:
-  COMMON:    { color: "&f",   weight: 60.0, sound: "entity.item.pickup",            particle: CRIT,             announce: false }
-  RARE:      { color: "&9",   weight: 25.0, sound: "entity.experience_orb.pickup",  particle: ENCHANT,          announce: false }
+  COMMON:    { color: "&f",   weight: 60.0, sound: "entity.experience_orb.pickup",  particle: CRIT,             announce: false }
+  RARE:      { color: "&9",   weight: 25.0, sound: "entity.player.levelup",         particle: ENCHANT,          announce: false }
   EPIC:      { color: "&5",   weight: 12.0, sound: "block.note_block.pling",        particle: WITCH,            announce: true }
   LEGENDARY: { color: "&6&l", weight: 3.0,  sound: "ui.toast.challenge_complete",   particle: TOTEM_OF_UNDYING, announce: true }
 ```

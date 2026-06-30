@@ -9,42 +9,27 @@ what you need. After editing config run `/gacha reload`. After editing the resou
 | Method | How |
 |--------|-----|
 | Command | `/gacha` (menu) · `/gacha open <crate> [1\|10]` (direct) |
-| Crate Station | place a model/block in the world, then **click** it or **walk up** to it |
-| Warp | `/gacha` teleports to a set spot, then returns the player on close |
 
-### Crate Stations
-Bind a world spot to a crate. Triggers: `proximity` (walk within `radius`), `click` (right-click), or `both`.
-Proximity is recommended — opening from a few blocks away keeps the 3D model **behind** the UI instead of
-covering it.
+### Clean stage (clear-area)
+When the menu opens, the blocks around the player are faked to **AIR for that viewer only** (sent via packets —
+the world is never modified, and other players see nothing), giving the menu and 3D model a clean empty backdrop
+without teleporting anyone. The real blocks are re-sent on close. Configure in `config.yml`:
 
-```
-/gacha station add <crate> [radius] [click|proximity|both]   # look at the block first
-/gacha station remove                                        # look at the block
-/gacha station list
-```
 ```yaml
-# config.yml
-stations:
-  default-mode: proximity     # proximity | click | both
-  default-radius: 3.0         # keep >= 2.5 so the model stays behind the UI
-  proximity-check-ticks: 10
+clear-area:
+  enabled: true
+  radius: 5     # blocks cleared around the player (1-8); higher = bigger bubble
 ```
-
-### Warp to a gacha spot
-`/gacha setwarp` sets the point; `/gacha` then teleports there and returns the player when the menu closes
-(disconnect-safe — they're returned on next join). `/gacha delwarp` clears it. Combined with **owner-only menus**,
-many players can warp to the same room without seeing each other's UI.
 
 ## Pity & guarantees
 - **Hard pity** — guaranteed `rarity` after `threshold` opens.
-- **Soft pity** — from `soft-start`, the chance to force the rarity ramps up to the threshold.
 - Pity **resets** on the pity rarity *or* the rarest reward present.
 - **Pity bar** — a tiled segment glyph on the main menu (see [Cursor UI](/cursor-ui)).
 - **Level-up sound** — an ascending tick each time the bar gains a segment.
 
 ```yaml
 # crates.yml — per crate
-pity: { enabled: true, rarity: LEGENDARY, threshold: 100, soft-start: 80 }
+pity: { enabled: true, rarity: LEGENDARY, threshold: 100 }
 ```
 ```yaml
 # config.yml
@@ -84,7 +69,7 @@ token-shop:
 
 ### Wishlist
 Players pick which **target-rarity** reward they want; rolling that rarity gives a wished one (the rarity is
-unchanged, so pity stays correct). Replaces the old Featured/50-50.
+unchanged, so pity stays correct). This is the main "steer your luck" mechanic.
 ```yaml
 # crates.yml
 wishlist: { enabled: true, max: 1, rarity: LEGENDARY }
@@ -108,23 +93,26 @@ cost: { type: PLAYERPOINTS, amount: 10 }
 Every menu's UI (cursor, cards, background) is shown **only to the opener** — other players (and players who
 join mid-menu) never see it. Lets people open the gacha at the same spot without UI collisions. Automatic, no config.
 
-## Pull Suspense (light + sound)
-An escalating sound + sparkle build-up before revealing an `announce` rarity (owner-only). A lightweight
-alternative to a 3D model — works on any Java version.
+## Pull Suspense (sound only)
+A rising drum-roll that builds toward revealing an `announce` rarity, then a climax hit — **sound only, no
+particles** (owner-only). A lightweight alternative to a 3D model — works on any Java version.
 ```yaml
 # config.yml
 reveal:
   suspense:
-    enabled: true
-    sound: "block.note_block.bell"               # ascending tick (custom IDs OK); "" = silent
-    climax-sound: "entity.firework_rocket.blast"
-    volume: 0.7
+    enabled: true                                # false = no drum-roll (the basic per-rarity reward sound still plays)
+    sound: "block.note_block.bell"               # the rising tick (custom resource-pack IDs OK); "" = silent
+    climax-sound: "ui.toast.challenge_complete"  # the final hit; "" = no hit
+    volume: 1.0
+    speed: 3                                      # ticks between beats (higher = slower/longer roll = more tension)
 ```
 
 ## 3D model open animation (BetterModel)
-Optional: play a model in front of the player, then open the cards. The animation is chosen by the **best
-(rarest) reward** rolled and plays once (holding the last frame); the player is frozen and the model is
-shown at full brightness, owner-only. **Requires the server on Java 25** (BetterModel's runtime).
+Optional: play a model before the cards appear. It runs **inside the menu's spectator camera-lock on a clean
+stage** — the camera is frozen (no free-look), the area around the player is cleared to air (client-side), and
+the background panel is hidden so only the model shows. The animation is picked by the **best (rarest) reward**
+rolled, plays once at full brightness (owner-only), then the cards open. **Requires the server on Java 25**
+(BetterModel's runtime).
 
 ```yaml
 # config.yml

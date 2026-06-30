@@ -115,16 +115,46 @@ card-back-by-rarity:
 
 ### model (ไม่บังคับ)
 
-อนิเมชันโมเดล 3D ก่อนการ์ดขึ้น (ต้องมี BetterModel หรือ ModelEngine)
+อนิเมชันโมเดล 3D ก่อนการ์ดขึ้น (ต้องมี BetterModel; host เป็น Java 25) เล่นในเมนู spectator ที่ lock กล้องบนฉากสะอาด
+(กล้องนิ่ง, เคลียร์บล็อกรอบตัวเป็นอากาศ, ซ่อนพื้นหลัง) แล้วค่อยเปิดการ์ด · เลือก animation ตาม rarity ดีสุดที่ได้
 
 ```yaml
 model:
   enabled: false
   provider: AUTO          # AUTO / BETTERMODEL / MODELENGINE
-  id: "gacha_machine"
-  animation: "open"
+  id: "open"
   duration-ticks: 40
   distance: 2.0
+  brightness: 15          # 0-15 (15 = สว่างสุด); -1 = ตามแสงโลก
+  animation-by-rarity: true
+  animations: { COMMON: common, RARE: rare, EPIC: epic, LEGENDARY: legendary }
+  animation: "open"       # ใช้เมื่อ animation-by-rarity: false
+```
+
+### clear-area (ฉากสะอาด)
+
+ทำให้บล็อกรอบตัวเป็น **อากาศเฉพาะคนเปิดเห็น** (packet — ไม่แก้โลกจริง คนอื่นไม่เห็น) ให้เมนู/โมเดลมีฉากหลังโล่ง
+โดยไม่ต้องเทเลพอร์ต · คืนบล็อกจริงตอนปิด
+
+```yaml
+clear-area:
+  enabled: true
+  radius: 5               # บล็อกรอบตัว (1-8); สูง = ฟองใหญ่ขึ้น
+  hide-furniture: true    # ซ่อน armor-stand furniture รอบตัว (Nexo/ItemsAdder) ด้วย
+```
+
+### reveal.suspense (เสียงล้วน)
+
+เสียง drum-roll ไต่ระดับ + climax ก่อนเผยของ rarity `announce` (owner-only) — **เสียงล้วน ไม่มี particle**
+
+```yaml
+reveal:
+  suspense:
+    enabled: true
+    sound: "block.note_block.bell"               # เสียงไต่ระดับ (custom ได้); "" = เงียบ
+    climax-sound: "ui.toast.challenge_complete"   # เสียงตบท้าย; "" = ไม่มี
+    volume: 1.0
+    speed: 3                                       # ticks ต่อจังหวะ (สูง = ช้า/ยาวขึ้น)
 ```
 
 ### cooldown
@@ -169,8 +199,8 @@ recovery:
 
 ```yaml
 rarities:
-  COMMON:    { color: "&f",   weight: 60.0, sound: "entity.item.pickup",            particle: CRIT,             announce: false }
-  RARE:      { color: "&9",   weight: 25.0, sound: "entity.experience_orb.pickup",  particle: ENCHANT,          announce: false }
+  COMMON:    { color: "&f",   weight: 60.0, sound: "entity.experience_orb.pickup",  particle: CRIT,             announce: false }
+  RARE:      { color: "&9",   weight: 25.0, sound: "entity.player.levelup",         particle: ENCHANT,          announce: false }
   EPIC:      { color: "&5",   weight: 12.0, sound: "block.note_block.pling",        particle: WITCH,            announce: true }
   LEGENDARY: { color: "&6&l", weight: 3.0,  sound: "ui.toast.challenge_complete",   particle: TOTEM_OF_UNDYING, announce: true }
 ```

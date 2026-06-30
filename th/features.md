@@ -8,40 +8,26 @@
 | วิธี | ทำยังไง |
 |------|---------|
 | คำสั่ง | `/gacha` (เมนู) · `/gacha open <crate> [1\|10]` (เปิดตรง) |
-| Crate Station | วางโมเดล/บล็อกในโลก แล้ว **คลิก** หรือ **เดินเข้าใกล้** |
-| Warp | `/gacha` วาร์ปไปจุดที่ตั้ง แล้วกลับจุดเดิมเมื่อปิดเมนู |
 
-### Crate Stations (จุดวางตู้)
-ผูกจุดในโลกกับตู้ — โหมด: `proximity` (เดินเข้าระยะ `radius`), `click` (คลิกขวา), `both`
-แนะนำ proximity เพราะเปิดตอนห่างไม่กี่บล็อก → โมเดล 3D อยู่**หลัง** UI ไม่บังปุ่ม
+### Clean stage (clear-area)
+ตอนเปิดเมนู บล็อกรอบตัวผู้เล่นจะถูกทำให้เป็น **อากาศเฉพาะคนเปิดเห็น** (ส่งผ่าน packet — ไม่แก้โลกจริง คนอื่นไม่เห็น)
+ทำให้เมนู/โมเดล 3D มีฉากหลังโล่งสะอาด โดยไม่ต้องเทเลพอร์ต · บล็อกจริงกลับมาเองตอนปิด ตั้งค่าใน `config.yml`:
 
-```
-/gacha station add <crate> [radius] [click|proximity|both]   # มองที่บล็อกก่อน
-/gacha station remove                                        # มองที่บล็อก
-/gacha station list
-```
 ```yaml
-# config.yml
-stations:
-  default-mode: proximity     # proximity | click | both
-  default-radius: 3.0         # >= 2.5 เพื่อให้โมเดลอยู่หลัง UI
-  proximity-check-ticks: 10
+clear-area:
+  enabled: true
+  radius: 5     # จำนวนบล็อกรอบตัว (1-8); สูง = ฟองใหญ่ขึ้น
 ```
-
-### Warp ไปจุดกาชา
-`/gacha setwarp` ตั้งจุด → `/gacha` วาร์ปไปที่นั่น แล้วกลับจุดเดิมเมื่อปิดเมนู (กัน disconnect — กลับให้ตอน join)
-`/gacha delwarp` ยกเลิก · รวมกับ **owner-only menu** ทำให้หลายคนวาร์ปจุดเดียวกันได้โดยไม่เห็น UI ของกันและกัน
 
 ## Pity & การันตี
 - **Hard pity** — การันตี `rarity` เมื่อครบ `threshold` ครั้ง
-- **Soft pity** — ตั้งแต่ `soft-start` เรทบังคับ rarity ค่อย ๆ เพิ่มจนถึง threshold
 - pity **reset** เมื่อได้ rarity เป้า หรือของแรร์สุดในตู้
 - **หลอด pity** — เรียง segment glyph บนเมนูหลัก (ดู [Cursor UI](/th/cursor-ui))
 - **เสียงเด้ง** — เสียงไต่ระดับทุกครั้งที่หลอดเลื่อนขึ้น 1 ช่อง
 
 ```yaml
 # crates.yml — ต่อตู้
-pity: { enabled: true, rarity: LEGENDARY, threshold: 100, soft-start: 80 }
+pity: { enabled: true, rarity: LEGENDARY, threshold: 100 }
 ```
 ```yaml
 # config.yml
@@ -81,7 +67,7 @@ token-shop:
 
 ### Wishlist
 ผู้เล่นเลือกของ **rarity เป้า** ที่อยากได้ → สุ่มได้ rarity นั้นจะได้ของที่ wish (rarity ไม่เปลี่ยน → pity ยังถูก)
-แทน Featured/50-50 เดิม
+เป็นกลไกหลัก "ลุ้นแบบกำหนดเองได้"
 ```yaml
 # crates.yml
 wishlist: { enabled: true, max: 1, rarity: LEGENDARY }
@@ -105,21 +91,24 @@ cost: { type: PLAYERPOINTS, amount: 10 }
 UI ของเมนู (เคอร์เซอร์/การ์ด/พื้นหลัง) แสดง **เฉพาะคนเปิด** — คนอื่น (รวมคนที่เพิ่ง join) มองไม่เห็น
 → เปิดจุดเดียวกันได้ไม่ชน · อัตโนมัติ ไม่ต้องตั้งค่า
 
-## Pull Suspense (แสง + เสียง)
-เสียงไต่ระดับ + sparkle ก่อนเผยของ rarity `announce` (owner-only) — ทางเลือกเบาแทนโมเดล 3D ใช้ได้ทุก Java
+## Pull Suspense (เสียงล้วน)
+เสียง drum-roll ไต่ระดับก่อนเผยของ rarity `announce` แล้วตบท้ายด้วย climax — **เสียงล้วน ไม่มี particle** (owner-only)
+ทางเลือกเบาแทนโมเดล 3D ใช้ได้ทุก Java
 ```yaml
 # config.yml
 reveal:
   suspense:
-    enabled: true
-    sound: "block.note_block.bell"               # เสียงไต่ระดับ (custom ได้); "" = เงียบ
-    climax-sound: "entity.firework_rocket.blast"
-    volume: 0.7
+    enabled: true                                # false = ไม่มี drum-roll (เสียง reward ปกติยังเล่น)
+    sound: "block.note_block.bell"               # เสียงไต่ระดับ (custom resource-pack ได้); "" = เงียบ
+    climax-sound: "ui.toast.challenge_complete"  # เสียงตบท้าย; "" = ไม่มี
+    volume: 1.0
+    speed: 3                                      # ticks ต่อจังหวะ (สูง = ช้า/ยาวขึ้น = ลุ้นขึ้น)
 ```
 
 ## โมเดล 3D ตอนเปิด (BetterModel)
-ตัวเลือกเสริม: เล่นโมเดลหน้าผู้เล่นก่อนเปิดการ์ด — เลือก animation ตาม **rarity ดีสุด** ที่ได้ เล่นครั้งเดียว
-(ค้างเฟรมสุดท้าย) + ผู้เล่นถูก freeze + โมเดลสว่างเต็ม owner-only · **ต้องรัน host เป็น Java 25**
+ตัวเลือกเสริม: เล่นโมเดลก่อนเปิดการ์ด — เล่น **ในเมนู spectator ที่ lock กล้องบนฉากสะอาด** (กล้องนิ่งหันไม่ได้,
+เคลียร์บล็อกรอบตัวเป็นอากาศ client-side, ซ่อนพื้นหลังเหลือแต่โมเดล) เลือก animation ตาม **rarity ดีสุด** ที่ได้
+เล่นครั้งเดียว สว่างเต็ม owner-only แล้วค่อยเปิดการ์ด · **ต้องรัน host เป็น Java 25**
 
 ```yaml
 # config.yml
