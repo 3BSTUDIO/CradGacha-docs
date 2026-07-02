@@ -62,6 +62,8 @@ It is the cursor-only spin-off of an earlier project, rebuilt to be clean and fo
 3. Run `/gacha doctor` to confirm everything is green.
 4. Run `/gacha` to open the menu.
 
+> 💾 **Starter files:** [download the default resource pack + example configs (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0) to skip building everything from scratch.
+
 Full details are on the [Installation](installation.md) and [First Setup](first-setup.md) pages.
 
 ---

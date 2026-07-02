@@ -35,6 +35,16 @@ Put these in your `plugins/` folder first and start the server once so they gene
    - To build from source: run `./gradlew build` and find the jar in `build/libs/`.
 2. Copy the jar into your server's `plugins/` folder.
 
+::: tip Starter files (download)
+Grab the ready-made **starter files** — the default resource pack and example config/theme — as a
+starting point instead of building everything from scratch:
+
+**[⬇ Download starter files (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0)**
+
+Unzip and follow [First Setup](first-setup.md) to drop the pieces into place (pack into your provider,
+`config.yml` / `crates.yml` / `theme.yml` into `plugins/CradGacha/`).
+:::
+
 ## Step 3 — Restart the server
 
 Use a **full restart**, not just `/reload`:

@@ -61,6 +61,8 @@ title: CradGacha — หน้าแรก
 3. รัน `/gacha doctor` เพื่อเช็คว่าทุกอย่างเขียว
 4. รัน `/gacha` เพื่อเปิดเมนู
 
+> 💾 **ไฟล์เริ่มต้น:** [ดาวน์โหลด resource pack ค่าเริ่มต้น + ตัวอย่าง config (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0) เพื่อไม่ต้องทำใหม่ทั้งหมด
+
 รายละเอียดเต็มอยู่ที่หน้า [การติดตั้ง](installation.md) และ [ตั้งค่าครั้งแรก](first-setup.md)
 
 ---

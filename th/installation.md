@@ -35,6 +35,16 @@ title: การติดตั้ง
    - build จาก source: รัน `./gradlew build` แล้วหาไฟล์ใน `build/libs/`
 2. คัดลอก jar ไปไว้ในโฟลเดอร์ `plugins/` ของเซิร์ฟ
 
+::: tip ไฟล์เริ่มต้น (ดาวน์โหลด)
+โหลด **ไฟล์เริ่มต้น** สำเร็จรูป — resource pack ค่าเริ่มต้น + ตัวอย่าง config/theme — ไว้เป็นจุดตั้งต้น
+แทนการทำใหม่ทั้งหมด:
+
+**[⬇ ดาวน์โหลดไฟล์เริ่มต้น (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0)**
+
+แตกไฟล์แล้วทำตาม [ตั้งค่าครั้งแรก](first-setup.md) เพื่อวางแต่ละส่วนให้ถูกที่ (pack เข้า provider,
+`config.yml` / `crates.yml` / `theme.yml` เข้า `plugins/CradGacha/`)
+:::
+
 ## ขั้นที่ 3 — รีสตาร์ทเซิร์ฟ
 
 ใช้การ **รีสตาร์ทเต็ม** ไม่ใช่แค่ `/reload`:
