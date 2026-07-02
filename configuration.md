@@ -118,22 +118,31 @@ card-back-by-rarity:
 
 ### model (optional)
 
-A 3D model animation that plays before the cards appear (needs BetterModel; server on Java 25). It runs inside
-the menu's spectator camera-lock on a clean stage (camera frozen, area cleared to air, background hidden), then
-the cards open. Animation is picked by the best rarity rolled.
+A 3D model animation that plays before the cards appear. Works with **BetterModel** (owner-only display, others
+see nothing) or **ModelEngine** (a real model, visible to everyone at the spot). It runs inside the menu's
+spectator camera-lock on a clean stage (camera frozen, area cleared to air, background hidden), then the cards
+open. Animation is picked by the best rarity rolled.
 
 ```yaml
 model:
   enabled: false
-  provider: AUTO          # AUTO / BETTERMODEL / MODELENGINE
+  provider: AUTO          # AUTO / BETTERMODEL / MODELENGINE (AUTO prefers BetterModel if installed)
   id: "open"
   duration-ticks: 40
   distance: 2.0
+  spawn-yaw: 0            # ModelEngine only: the model's fixed spawn facing (its bind pose = no rotation on spawn)
+  yaw-offset: 180         # ModelEngine only: rotates the CAMERA around the model until it faces you (0/90/180/270)
   brightness: 15          # 0-15 (15 = full bright); -1 = world lighting
   animation-by-rarity: true
   animations: { COMMON: common, RARE: rare, EPIC: epic, LEGENDARY: legendary }
   animation: "open"       # fallback when animation-by-rarity: false
 ```
+
+::: tip ModelEngine facing
+Rather than rotating the model to face the player (ModelEngine lerps that on spawn = a visible "2-step turn"),
+the model spawns at its fixed `spawn-yaw` and the **camera** is aimed at it. If the model faces the wrong way,
+change `yaw-offset` (try `0`, `90`, `270`) and `/gacha reload` — the model stays still, no turn animation.
+:::
 
 ### clear-area (clean stage)
 
@@ -144,6 +153,8 @@ players see nothing) so the menu and 3D model have a clean backdrop without tele
 clear-area:
   enabled: true
   radius: 5               # blocks cleared around the player (1-8); higher = bigger bubble
+  forward-distance: 16    # ALSO clear a view-cone this many blocks in front of the camera (0-32; 0 = off)
+                          # — stops far blocks peeking through the transparent parts of the menu background
   hide-furniture: true    # also hide nearby armor-stand furniture (Nexo/ItemsAdder decorations)
 ```
 
@@ -235,10 +246,16 @@ bounds:                # how far the cursor can travel from the center
   min-y: -1.6
   max-y: 1.8
 smoothing: 0.7         # cursor smoothing (1.0 = raw, 0.6–0.8 = smooth)
-crosshair-item: "crates_gacha:ui_cursor"   # the cursor image
+crosshair-item: "nexo:ui_cursor"   # the cursor image (ns:id) — or "" to use the glyph crosshair
 crosshair-scale: 0.2
 hide-hand: true
+body-double: true      # show others a standing clone of the player while they're in the menu (see below)
 ```
+
+**`body-double`** — while in the menu the player is in spectator mode, which makes them invisible to
+everyone else. With this on, other players instead see a **packet-only clone** (same name + skin) standing
+where the menu was opened, so from the outside the player simply appears to stand still. Nothing is spawned
+server-side; the clone vanishes the instant the menu closes. Set `false` to let the player just disappear.
 
 - If the cursor **can't reach the screen edges**, raise `sensitivity-x` / widen `bounds`.
 - This is a known limit of a server-side cursor — see [Troubleshooting](troubleshooting.md).
@@ -310,7 +327,33 @@ theme:
     scale-multi: 0.72  # card size for a grid (6-10 cards)
     spacing-x: 0.98    # horizontal gap between cards
     spacing-y: 1.1     # vertical gap between rows
+    reward-scale: 0.4  # revealed reward size, as a multiplier of the card size (0.4 = 40% of the card)
+    reward-y: -0.3     # revealed reward vertical offset on the card (negative = lower)
 ```
+
+`reward-scale` / `reward-y` control the **revealed reward** shown on the flipped card (custom reward
+models tend to be large, so the default shrinks and centers them). Raise `reward-scale` for bigger rewards.
+
+### Background tiles
+
+When the menu background is split into a grid (`theme.background.tiles.enabled: true`):
+
+```yaml
+theme:
+  background:
+    tiles:
+      enabled: true
+      cols: 3
+      rows: 2
+      tile-width: 2.4
+      tile-height: 2.4
+      overlap: 1.0      # enlarge each tile image only (spacing unchanged), e.g. 1.06
+      items: [ "nexo:bg_1", "nexo:bg_2", "nexo:bg_3", "nexo:bg_4", "nexo:bg_5", "nexo:bg_6" ]
+```
+
+`overlap` fixes thin **black seam lines** between tiles that appear for players on **older clients via
+ViaVersion/ViaBackwards** (their item-display sprites render slightly smaller). Start at `1.06`; players
+on a matching client version are unaffected.
 
 ---
 

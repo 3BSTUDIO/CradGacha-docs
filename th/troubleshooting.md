@@ -30,6 +30,31 @@ title: แก้ปัญหา
 - **ItemsAdder** ให้รูปภาพ ถ้าไม่มีเมนูจะเป็นกล่อง (□)
 - **Vault** ต้องมีเฉพาะตู้ค่าเปิดแบบ `MONEY`
 
+## ผู้เล่นคนอื่นหลุดตอนมีคนเปิดกาชา
+
+**packetevents เก่าเกินไปสำหรับเวอร์ชัน Minecraft** ของคุณ · บน **MC 1.21.9+** packetevents ก่อน 1.21.9 จะ
+encode packet ร่างจำลอง (body double) ที่ส่งให้ผู้เล่นข้างๆ ผิด → client ของเขาตัดการเชื่อมต่อทันทีที่มีคนเปิดเมนู
+
+- อัปเป็น **packetevents 2.13.0+** (ให้ตรงเวอร์ชันเซิร์ฟ) แล้ว restart + ทดสอบใหม่
+- แก้ชั่วคราวได้ด้วย `cursor.body-double: false` ใน `cursor.yml` แต่การอัป packetevents คือการแก้จริง
+
+## เส้นดำระหว่าง tile ของพื้นหลัง
+
+ผู้เล่นบางคนเห็นเส้นดำบางๆ ระหว่างรูปพื้นหลังแบบ tile · ผู้เล่นเหล่านั้นใช้ **client เก่าต่อผ่าน
+ViaVersion/ViaBackwards** — client เขา render sprite item-display เล็กกว่านิดหน่อยเลยเกิดช่องว่าง
+
+- ตั้ง `background.tiles.overlap` ใน `theme.yml` เป็น `1.06` (ลอง `1.08` ถ้ายังมีเส้นบางๆ) · มันขยายเฉพาะรูป
+  tile · spacing เท่าเดิม ผู้เล่นที่ client ตรงเวอร์ชันไม่ได้รับผลกระทบ · แล้ว `/gacha reload`
+
+## มีก้อนหิน/บล็อกลอยกลางเมนู
+
+เป็นได้ 2 สาเหตุ:
+
+1. **banner ของตู้ชี้ไปไอเทมที่ไม่มี** · ถ้า `crates.<id>.banner.item` (หรือ icon ของรางวัล) ใช้ id/namespace ที่
+   pack ไม่มี (เช่นชื่อเก่า `crates_gacha:` หรือ prefix `oraxen:` ทั้งที่ใช้ Nexo) client จะไม่มี model เลยขึ้น
+   บล็อก fallback · แก้ id + prefix (`nexo:` / `oraxen:` / `itemsadder`) ให้ตรง pack แล้ว `/gacha reload`
+2. **บล็อกโลกจริงโผล่ทะลุพื้นหลัง** · เพิ่ม `clear-area.forward-distance` (เช่น `16`) ให้เคลียร์กรวยหน้ากล้องด้วย
+
 ## เมนูเป็นกล่องสี่เหลี่ยม (□) / รูปไม่ขึ้น
 
 แปลว่า resource pack หรือ glyph ยังไม่พร้อม:
@@ -78,7 +103,14 @@ texture ใหม่ใน ItemsAdder
 คนที่ค้าง spectator หลังเซิร์ฟดับ ถ้ามีคนค้าง:
 
 - ให้เข้าเกมใหม่ (การกู้คืนทำงานตอน join) หรือตั้ง gamemode ด้วยมือ
-- เช็คว่า **packetevents** ติดตั้งและเวอร์ชันใหม่
+- เช็คว่า **packetevents** ติดตั้งและเวอร์ชันใหม่ (2.13.0+ บน MC 1.21.9+)
+
+## ร้าน Spark ขึ้นว่ารางวัล "is misconfigured"
+
+spark item ตัวนั้น resolve ไม่ได้ · แต่ละ `spark.items` ต้อง **อ้างอิง** ด้วย `reward: "<ชื่อรางวัลที่มีอยู่>"`
+**หรือ** นิยามในตัวเองด้วย `name:` + `item:` หรือ `commands:` · ดู
+[ตู้กาชา → Duplicate & Spark](crates.md#duplicate-amp-spark-exchange) (การจับคู่ชื่อจะตัดโค้ดสี/ตัวพิมพ์/ช่องว่าง
+เปลี่ยนชื่อแล้วจึงไม่พังการอ้างอิง)
 
 ## เว็บ GitHub Pages ไม่ขึ้น
 

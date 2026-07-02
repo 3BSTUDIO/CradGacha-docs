@@ -115,6 +115,7 @@ rewards:
 | `amount` | จำนวนไอเทม |
 | `rarity` | หนึ่งในเรตของคุณ (`COMMON`/`RARE`/`EPIC`/`LEGENDARY`) |
 | `commands` | คำสั่ง console/ผู้เล่นที่รันตอนรับรางวัล `<player>` จะถูกแทนด้วยชื่อผู้ชนะ |
+| `duplicate` | `false` = ไม่แปลงเป็น Spark (ส่ง/รัน command ทุกครั้ง) · ดูด้านล่าง |
 
 **คำนำหน้าคำสั่ง:**
 
@@ -124,6 +125,46 @@ rewards:
 
 > รางวัลทุกชิ้นต้องมี `material` **หรือ** `command` อย่างน้อยหนึ่งอย่าง ไม่งั้นจะถูกข้าม
 > พร้อมเตือนใน console
+
+## Duplicate & Spark Exchange
+
+**Duplicate → Spark:** ของที่เคยได้แล้ว จ่าย **Spark** แทนการให้ซ้ำ
+
+```yaml
+duplicate:
+  enabled: true
+  give-spark: 5                                   # ค่า fallback ทุก rarity
+  by-rarity: { COMMON: 2, RARE: 5, EPIC: 12, LEGENDARY: 30 }
+  include-commands: true                          # นับรางวัลแบบ command ด้วย: ของซ้ำจ่าย Spark
+                                                  # แทนการรัน command ซ้ำ
+                                                  # (default false = เฉพาะรางวัลไอเทมที่เป็น duplicate ได้)
+```
+
+- ปกติเฉพาะรางวัล **ไอเทม** ที่เป็น duplicate ได้ (รางวัล command จะรัน command ทุกครั้ง) · ตั้ง
+  `include-commands: true` เพื่อให้รางวัล command เข้าระบบ Spark ด้วย
+- ยกเว้นรายชิ้นด้วย `duplicate: false` — รางวัลตัวนั้นจะ **ส่ง/รันทุกครั้ง** ไม่แปลงเป็น Spark (เช่นการจ่ายเงินที่
+  ต้องจ่ายทุกครั้ง):
+
+```yaml
+rewards:
+  - { name: "Money Bag", rarity: COMMON, commands: ["[console] eco give <player> 100"], duplicate: false }
+```
+
+**ร้าน Spark Exchange:** ใช้ Spark แลกของ · แต่ละชิ้น **อ้างอิงรางวัลเดิม** หรือ **นิยามในตัวเอง** ก็ได้
+(เหมือน Token Shop):
+
+```yaml
+spark:
+  enabled: true
+  title: "&b&lSpark Exchange"
+  items:
+    - { reward: "Dragon Jade Spear", cost: 120 }              # อ้างอิงชื่อรางวัล
+    - { name: "Trident", item: TRIDENT, amount: 1, cost: 30 }  # ไอเทม inline (ไม่ต้องมีรางวัลตรงกัน)
+    - { name: "100 Coins", commands: ["[console] eco give <player> 100"], icon: SUNFLOWER, cost: 15 }
+```
+
+ฟิลด์ inline: `name` (จำเป็น), แล้ว `item` **หรือ** `commands` (อย่างน้อยหนึ่ง), + `amount`, `icon`,
+`rarity` (default `COMMON`) · การจับคู่ชื่อของ `reward:` จะตัด `&`/`§` โค้ดสี ตัวพิมพ์เล็กใหญ่ และช่องว่างส่วนเกิน
 
 ## Custom items (ItemsAdder / Nexo / Oraxen)
 

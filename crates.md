@@ -117,6 +117,7 @@ rewards:
 | `amount` | Item amount. |
 | `rarity` | One of your rarities (`COMMON`/`RARE`/`EPIC`/`LEGENDARY`). |
 | `commands` | Console/player commands run on claim. `<player>` is replaced with the winner's name. |
+| `duplicate` | `false` = never converted to Spark (always delivered / commands always re-run). See below. |
 
 **Command prefixes:**
 
@@ -126,6 +127,47 @@ rewards:
 
 > Every reward must have a `material` **or** at least one `command`, otherwise it is skipped with a
 > warning in the console.
+
+## Duplicate & Spark Exchange
+
+**Duplicate → Spark:** an already-collected reward pays **Spark** instead of giving it again.
+
+```yaml
+duplicate:
+  enabled: true
+  give-spark: 5                                   # fallback for all rarities
+  by-rarity: { COMMON: 2, RARE: 5, EPIC: 12, LEGENDARY: 30 }
+  include-commands: true                          # ALSO track command-only rewards: a duplicate pays
+                                                  # Spark INSTEAD of re-running its commands
+                                                  # (default false = only item rewards can be duplicates)
+```
+
+- By default only **item** rewards can be duplicates (command rewards always re-run their commands).
+  Set `include-commands: true` so command-only rewards convert to Spark on a duplicate too.
+- Opt out per reward with `duplicate: false` — that reward is **always** delivered / re-run, never
+  converted (e.g. a money payout that should pay every time):
+
+```yaml
+rewards:
+  - { name: "Money Bag", rarity: COMMON, commands: ["[console] eco give <player> 100"], duplicate: false }
+```
+
+**Spark Exchange shop:** spend Spark on a chosen reward. Each item is **either** a reference to an existing
+reward **or** a self-contained definition (like the Token Shop):
+
+```yaml
+spark:
+  enabled: true
+  title: "&b&lSpark Exchange"
+  items:
+    - { reward: "Dragon Jade Spear", cost: 120 }              # reference a reward by its display name
+    - { name: "Trident", item: TRIDENT, amount: 1, cost: 30 }  # inline item (no matching reward needed)
+    - { name: "100 Coins", commands: ["[console] eco give <player> 100"], icon: SUNFLOWER, cost: 15 }
+```
+
+Inline fields: `name` (required), then `item` **or** `commands` (at least one), plus optional `amount`,
+`icon`, `rarity` (default `COMMON`). Reward-name matching for `reward:` ignores `&`/`§` colour codes,
+case and extra spaces.
 
 ## Custom items (ItemsAdder / Nexo / Oraxen)
 

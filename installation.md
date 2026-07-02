@@ -14,7 +14,7 @@ title: Installation
 |---|---|
 | **Server software** | **Paper** 1.21+ (Paper is required — it uses Paper APIs). Tested on 1.21.4–1.21.11. |
 | **Java** | **Java 21** or newer. |
-| **packetevents** | **Required.** Powers the spectator camera freeze that makes the cursor menu work. |
+| **packetevents** | **Required.** Powers the spectator camera freeze that makes the cursor menu work. Use a build that matches your MC version — on **1.21.9+ use packetevents 2.13.0+** (older builds mis-encode packets and can disconnect nearby players). |
 | **A custom-item provider** | **Strongly recommended — pick one:** **Nexo**, **ItemsAdder**, or **Oraxen**. Provides the button images, cursor image, crate icons, and reward models (as glyphs and/or items). Without one the menu shows empty boxes (□). |
 | **Vault** | Required **only if** a crate costs `MONEY`. Also needs an economy plugin (e.g. EssentialsX Economy). |
 | **BetterModel / ModelEngine** | Optional. For a 3D model animation before cards appear. |

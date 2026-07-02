@@ -30,6 +30,37 @@ title: Troubleshooting
 - **ItemsAdder** provides the images; without it the menu shows boxes (□).
 - **Vault** is only needed for `MONEY` cost crates.
 
+## Other players get disconnected when someone opens the gacha
+
+Your **packetevents is too old for your Minecraft version**. On **MC 1.21.9+**, a pre-1.21.9 packetevents
+mis-encodes the body-double packet sent to nearby players, and their client drops the connection the moment
+someone opens the menu.
+
+- Update to **packetevents 2.13.0+** (matching your server version), restart, and retest.
+- As a stopgap you can disable the clone with `cursor.body-double: false` in `cursor.yml`, but updating
+  packetevents is the real fix.
+
+## Black seam lines between the background tiles
+
+Only some players see thin black lines between the tiled background images. Those players are on an
+**older client connecting through ViaVersion/ViaBackwards** — their client renders item-display sprites
+slightly smaller, so gaps appear between tiles.
+
+- In `theme.yml` set `background.tiles.overlap` to `1.06` (try `1.08` if a hairline remains). This
+  enlarges each tile image only; the grid spacing is unchanged, so players on a matching client are
+  unaffected. Then `/gacha reload`.
+
+## A grey/stone block floats in the middle of the menu
+
+Two possible causes:
+
+1. **A crate banner points at a missing item.** If `crates.<id>.banner.item` (or a reward icon) uses an
+   id/namespace your pack doesn't have (e.g. an old `crates_gacha:` name, or an `oraxen:` prefix while you
+   run Nexo), the client has no model for it and shows a fallback block. Fix the id and the prefix
+   (`nexo:` / `oraxen:` / `itemsadder`) to match your pack, then `/gacha reload`.
+2. **A real world block peeking through the background.** Raise `clear-area.forward-distance` (e.g. `16`)
+   so the view-cone in front of the camera is cleared too.
+
 ## The menu shows empty boxes (□) / images don't appear
 
 This means the resource pack or glyphs aren't ready:
@@ -80,7 +111,14 @@ The plugin restores your gamemode and camera when the menu closes, and it has a 
 (`gamemode-recovery.yml`) that fixes anyone left in spectator after a crash. If someone is stuck:
 
 - Have them rejoin (recovery runs on join), or set their gamemode manually.
-- Ensure **packetevents** is installed and up to date.
+- Ensure **packetevents** is installed and up to date (2.13.0+ on MC 1.21.9+).
+
+## The Spark shop says a reward "is misconfigured"
+
+A spark item couldn't be resolved. Each `spark.items` entry must be **either** `reward: "<an existing
+reward's name>"` **or** a self-contained entry with `name:` plus `item:` or `commands:`. See
+[Crates → Duplicate & Spark](crates.md#duplicate-amp-spark-exchange). (Name matching ignores colour codes,
+case and spacing, so a rename won't break a reference.)
 
 ## GitHub Pages site doesn't appear
 

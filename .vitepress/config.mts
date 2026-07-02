@@ -83,6 +83,7 @@ export default defineConfig({
             text: 'Advanced',
             collapsed: false,
             items: [
+              { text: 'Developer API', link: '/developer-api' },
               { text: 'Developer Notes', link: '/developer-notes' },
               { text: 'Deploy (GitHub Pages)', link: '/deploy' }
             ]
@@ -143,6 +144,7 @@ export default defineConfig({
               text: 'ขั้นสูง',
               collapsed: false,
               items: [
+                { text: 'Developer API', link: '/th/developer-api' },
                 { text: 'โน้ตนักพัฒนา', link: '/th/developer-notes' },
                 { text: 'เผยแพร่ (GitHub Pages)', link: '/th/deploy' }
               ]

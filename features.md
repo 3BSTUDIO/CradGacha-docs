@@ -44,17 +44,26 @@ pity:
 An already-owned item pays **Spark** instead of giving the duplicate. Converted at roll time (loss/dupe-proof).
 ```yaml
 # crates.yml
-duplicate: { enabled: true, give-spark: 5, by-rarity: { RARE: 10, EPIC: 25, LEGENDARY: 100 } }
+duplicate:
+  enabled: true
+  give-spark: 5
+  by-rarity: { RARE: 10, EPIC: 25, LEGENDARY: 100 }
+  include-commands: true   # also count command-only rewards (a duplicate pays Spark instead of re-running)
 ```
+Add `duplicate: false` on any single reward to exempt it (always delivered / commands always re-run). See
+[Crates → Duplicate & Spark](/crates#duplicate-amp-spark-exchange).
 
 ### Spark Exchange (shop)
 Spend Spark (earned from duplicates) on a chosen reward — pity-proof. A separate shop from the Token Shop.
+Each item can **reference an existing reward** or be **defined inline** (like the Token Shop):
 ```yaml
 # crates.yml
 spark:
   enabled: true
   items:
-    - { reward: "Dragon Jade Spear", cost: 30 }   # reward = a reward name in this crate
+    - { reward: "Dragon Jade Spear", cost: 30 }              # reference a reward name in this crate
+    - { name: "Trident", item: TRIDENT, amount: 1, cost: 30 } # inline item (no matching reward needed)
+    - { name: "100 Coins", commands: ["[console] eco give <player> 100"], icon: SUNFLOWER, cost: 15 }
 ```
 
 ### Token Shop
@@ -89,9 +98,15 @@ broadcast: { enabled: true }
 cost: { type: PLAYERPOINTS, amount: 10 }
 ```
 
-## Owner-only menus
-Every menu's UI (cursor, cards, background) is shown **only to the opener** — other players (and players who
-join mid-menu) never see it. Lets people open the gacha at the same spot without UI collisions. Automatic, no config.
+## Owner-only menus + body double
+Every menu's UI (cursor, cards, background, and the ModelEngine open model) is shown **only to the opener** —
+other players (and players who join mid-menu) never see it. Lets people open the gacha at the same spot without
+UI collisions. Automatic, no config.
+
+Because the menu puts the player in spectator (which hides them from others), a **body double** — a packet-only
+clone with the player's name + skin — is shown to everyone else, standing where the menu was opened. From the
+outside the player just appears to stand still; the clone vanishes the instant the menu closes. Toggle with
+`cursor.body-double` (default on).
 
 ## Pull Suspense (sound only)
 A rising drum-roll that builds toward revealing an `announce` rarity, then a climax hit — **sound only, no
@@ -107,20 +122,30 @@ reveal:
     speed: 3                                      # ticks between beats (higher = slower/longer roll = more tension)
 ```
 
-## 3D model open animation (BetterModel)
+## 3D model open animation (BetterModel / ModelEngine)
 Optional: play a model before the cards appear. It runs **inside the menu's spectator camera-lock on a clean
 stage** — the camera is frozen (no free-look), the area around the player is cleared to air (client-side), and
 the background panel is hidden so only the model shows. The animation is picked by the **best (rarest) reward**
-rolled, plays once at full brightness (owner-only), then the cards open. **Requires the server on Java 25**
-(BetterModel's runtime).
+rolled, plays once at full brightness, then the cards open.
+
+Two providers (set `provider`, or leave `AUTO`):
+
+- **BetterModel** — the model is an owner-only display: **only the opener sees it**. Requires the server on
+  Java 25 (BetterModel's runtime).
+- **ModelEngine** — the model is a real entity, so **everyone at the spot sees it**. Facing is handled by
+  aiming the camera (`spawn-yaw` + `yaw-offset`) rather than rotating the model — see
+  [Configuration → model](/configuration#model-optional).
 
 ```yaml
 # config.yml
 model:
   enabled: true
-  id: "open"                 # model name in BetterModel/models (open.bbmodel -> "open")
-  duration-ticks: 150        # safety net; cards open when the animation actually ends
+  provider: AUTO             # AUTO / BETTERMODEL / MODELENGINE
+  id: "open"                 # model name in BetterModel/models or ModelEngine (open.bbmodel -> "open")
+  duration-ticks: 150        # BetterModel: safety net (cards open when the animation ends). ModelEngine: exact length
   distance: 2.0
+  spawn-yaw: 0               # ModelEngine only — see Configuration
+  yaw-offset: 180            # ModelEngine only — rotate the camera until the model faces you
   brightness: 15             # 0-15 (15 = full bright); -1 = world lighting
   animation-by-rarity: true
   animations: { COMMON: common, RARE: rare, EPIC: epic, LEGENDARY: legendary }
