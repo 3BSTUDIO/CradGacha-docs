@@ -85,6 +85,7 @@ each value by **namespace prefix**, so a theme/config can mix providers freely:
 |---|---|
 | `nexo:<id>` | a **Nexo** item |
 | `oraxen:<id>` | an **Oraxen** item |
+| `mmoitems:<TYPE>:<id>` (e.g. `mmoitems:SWORD:CUTLASS`) | an **MMOItems** item |
 | `<namespace>:<id>` (e.g. `crates_gacha:bg_1`) | an **ItemsAdder** item |
 | a plain glyph id (e.g. `g_open_x1`) | a **glyph** — resolved via ItemsAdder **or** Nexo |
 | a vanilla material (e.g. `CHEST`) | a vanilla item |

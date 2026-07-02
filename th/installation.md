@@ -85,6 +85,7 @@ title: การติดตั้ง
 |---|---|
 | `nexo:<id>` | item ของ **Nexo** |
 | `oraxen:<id>` | item ของ **Oraxen** |
+| `mmoitems:<TYPE>:<id>` (เช่น `mmoitems:SWORD:CUTLASS`) | item ของ **MMOItems** |
 | `<namespace>:<id>` (เช่น `crates_gacha:bg_1`) | item ของ **ItemsAdder** |
 | ชื่อ glyph เปล่า ๆ (เช่น `g_open_x1`) | **glyph** — resolve ผ่าน ItemsAdder **หรือ** Nexo |
 | material vanilla (เช่น `CHEST`) | item vanilla |

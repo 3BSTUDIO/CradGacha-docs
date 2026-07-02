@@ -166,7 +166,7 @@ spark:
 ฟิลด์ inline: `name` (จำเป็น), แล้ว `item` **หรือ** `commands` (อย่างน้อยหนึ่ง), + `amount`, `icon`,
 `rarity` (default `COMMON`) · การจับคู่ชื่อของ `reward:` จะตัด `&`/`§` โค้ดสี ตัวพิมพ์เล็กใหญ่ และช่องว่างส่วนเกิน
 
-## Custom items (ItemsAdder / Nexo / Oraxen)
+## Custom items (ItemsAdder / Nexo / Oraxen / MMOItems)
 
 **ไม่มี config block แยก** สำหรับพวกนี้ — ใช้ custom item ได้ทุกที่ที่ระบุไอเทม โดยเขียนเป็น
 **`namespace:id`** แค่ติดตั้งปลั๊กอินนั้นไว้ (เช็คด้วย `/gacha doctor`)
@@ -176,7 +176,11 @@ spark:
 | ItemsAdder | `namespace:id` | `dragon_jade:dragon_jade_sword` |
 | Nexo | `nexo:id` | `nexo:ruby` |
 | Oraxen | `oraxen:id` | `oraxen:ruby` |
+| MMOItems | `mmoitems:TYPE:ID` | `mmoitems:SWORD:CUTLASS` |
 | Vanilla | ชื่อ material | `DIAMOND` |
+
+> **MMOItems** ใช้ **type + id** รูปแบบเลยมี 2 ส่วน: `mmoitems:<TYPE>:<ID>` (TYPE คือชนิดของ MMOItems
+> เช่น `SWORD`, `ARMOR`, `MATERIAL`)
 
 ใช้ id พวกนี้ได้ใน **ทุก** ช่องไอเทม: `material` / `icon` ของรางวัล, `icon` / `display-item` ของตู้,
 `cost.item`, และ `card-back-by-rarity` (ใน `config.yml`)

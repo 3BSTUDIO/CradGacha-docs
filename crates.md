@@ -169,7 +169,7 @@ Inline fields: `name` (required), then `item` **or** `commands` (at least one), 
 `icon`, `rarity` (default `COMMON`). Reward-name matching for `reward:` ignores `&`/`§` colour codes,
 case and extra spaces.
 
-## Custom items (ItemsAdder / Nexo / Oraxen)
+## Custom items (ItemsAdder / Nexo / Oraxen / MMOItems)
 
 There is **no separate config section** for these — you use a custom item anywhere an item is
 expected by writing its **`namespace:id`**. The matching plugin just needs to be installed
@@ -180,7 +180,11 @@ expected by writing its **`namespace:id`**. The matching plugin just needs to be
 | ItemsAdder | `namespace:id` | `dragon_jade:dragon_jade_sword` |
 | Nexo | `nexo:id` | `nexo:ruby` |
 | Oraxen | `oraxen:id` | `oraxen:ruby` |
+| MMOItems | `mmoitems:TYPE:ID` | `mmoitems:SWORD:CUTLASS` |
 | Vanilla | material name | `DIAMOND` |
+
+> **MMOItems** uses a **type + id**, so its format has two parts: `mmoitems:<TYPE>:<ID>` (the type is
+> the MMOItems item type, e.g. `SWORD`, `ARMOR`, `MATERIAL`).
 
 You can use these ids in **any** item field: a reward's `material` / `icon`, the crate `icon` /
 `display-item`, the `cost.item`, and `card-back-by-rarity` (in `config.yml`).
