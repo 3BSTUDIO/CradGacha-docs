@@ -30,6 +30,22 @@ title: แก้ปัญหา
 - **ItemsAdder** ให้รูปภาพ ถ้าไม่มีเมนูจะเป็นกล่อง (□)
 - **Vault** ต้องมีเฉพาะตู้ค่าเปิดแบบ `MONEY`
 
+## คลิกไม่ติด / ผู้เล่นถูกเตะในเมนู (anticheat)
+
+ถ้าคลิกไม่ติดหลังเปิดตู้ — หรือผู้เล่นหลุด — แสดงว่า **anticheat** จับ packet ที่เมนูเคอร์เซอร์ใช้ ใน console
+จะเห็นบรรทัดแบบ `Grim » <player> failed PacketOrderB (x20) pre-attack` ไต่ขึ้นเรื่อยๆ จนถูกเตะ
+
+CradGacha จะ grant สิทธิ์ยกเว้นชั่วคราวระหว่างอยู่ในเมนู เช็คว่า node ยกเว้นของ anticheat คุณอยู่ใน `cursor.yml`:
+
+```yaml
+anticheat-exempt-permissions:
+  - grim.exempt        # GrimAC (ค่าเริ่มต้น)
+  # - <node-ยกเว้นของ-anticheat-คุณ>
+```
+
+สิทธิ์เหล่านี้ถูก grant **เฉพาะ** ตอนเปิดเมนู และเอาออกเมื่อปิด · ถ้า anticheat ใช้ node อื่น เพิ่มตรงนี้ (แล้ว
+`/gacha reload`) · `grim.exempt` ของ GrimAC ใส่ให้เป็นค่าเริ่มต้นแล้ว
+
 ## ผู้เล่นคนอื่นหลุดตอนมีคนเปิดกาชา
 
 **packetevents เก่าเกินไปสำหรับเวอร์ชัน Minecraft** ของคุณ · บน **MC 1.21.9+** packetevents ก่อน 1.21.9 จะ

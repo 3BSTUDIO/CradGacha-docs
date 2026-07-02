@@ -30,6 +30,24 @@ title: Troubleshooting
 - **ItemsAdder** provides the images; without it the menu shows boxes (□).
 - **Vault** is only needed for `MONEY` cost crates.
 
+## Clicks stop working / the player gets kicked in the menu (anticheat)
+
+If clicks stop registering after you open a crate — or the player is disconnected — your **anticheat** is
+flagging the packets the cursor menu uses. In the console you'll see lines like
+`Grim » <player> failed PacketOrderB (x20) pre-attack` climbing until a kick.
+
+CradGacha grants a temporary bypass while the menu is open. Make sure your anticheat's bypass node is in
+`cursor.yml`:
+
+```yaml
+anticheat-exempt-permissions:
+  - grim.exempt        # GrimAC (default)
+  # - <your-anticheat-bypass-node>
+```
+
+These permissions are granted **only** while the menu is open and removed on close. If your anticheat uses
+a different bypass node, add it here (and `/gacha reload`). GrimAC's `grim.exempt` is included by default.
+
 ## Other players get disconnected when someone opens the gacha
 
 Your **packetevents is too old for your Minecraft version**. On **MC 1.21.9+**, a pre-1.21.9 packetevents
