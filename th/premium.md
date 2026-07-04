@@ -39,6 +39,22 @@ CradGacha มี **2 jar แยกกัน** ที่ build จากโปร
 
 สร้างตู้ใหม่จากศูนย์ในเกม 100% — เขียน skeleton (ปิดไว้) ลง `crates.yml`, reload, แล้วเปิด editor ให้ ใส่รางวัล/ตั้ง cost & pity/เปิดใช้งานใน Settings เสร็จ
 
+## Global Config editor — `/gacha config`
+
+ปรับค่า **global** บนแผง cursor — ไม่ต้องแตะ YAML แต่ละค่าจะเขียนกลับไฟล์ต้นทางที่ถูกต้อง
+(`cursor.yml` / `config.yml` / `theme.yml`) แล้ว reload ให้เอง
+
+- **Mouse & Cursor** — **ความไวเมาส์** (X/Y), UI scale, cursor smoothing
+- **Cursor Feel** — ขนาด crosshair, magnetic snap (เปิด/แรง/รัศมี)
+- **Menu** — ซ่อนมือ, ฟ้าใส, body double, max open (x10), clear-area เปิด/ปิด + รัศมี
+- **Gameplay** — require-on-ground, เช็คช่องกระเป๋า, cooldown, reward log, VIP luck
+- **Effects** — glow การ์ด, pull suspense, โมเดล 3D, pity ค่ากลาง
+- **Rarities** — ต่อ rarity: weight, announce, สี glow
+
+ตัวเลขใช้ปุ่ม −/+ (หรือคลิกที่ค่าเพื่อพิมพ์ตรง); toggle สลับ; enum วน
+
+> ค่าที่อาจทำเมนูใช้ไม่ได้ (camera mode, cursor plane distance, cursor bounds) **ไม่** เปิดให้แก้ที่นี่ — อยู่ใน `cursor.yml`
+
 ## Simulator สุ่ม 1,000 ครั้ง
 
 ปุ่ม **[ 🎲 Test 1000 ]** ในeditor สุ่มตู้ (ค่าที่ save ล่าสุด) 1,000 ครั้ง โชว์ % ที่ออกจริงต่อ rarity เทียบกับ % ที่ตั้ง — เช็คเร็วๆ ว่า weight รู้สึกถูกไหม (และ rate-up บูสต์ตรงจุดไหม)

@@ -33,6 +33,7 @@ title: คำสั่ง
 | `/gacha key give <player> <crate> [amount]` | แจกกุญแจของตู้ (เปิดฟรีไม่เสีย cost) | `cradgacha.admin` |
 | `/gacha stats [crate]` | dashboard % ดรอป + อันดับคนเปิด (จาก reward log) | `cradgacha.admin` |
 | `/gacha layout` | layout editor — ลาก element เมนูด้วยเมาส์ | `cradgacha.admin` |
+| `/gacha config` | ตั้งค่า global ในเกม — ความไวเมาส์, ขอบเคอร์เซอร์, ui-scale, เอฟเฟกต์, rarities (รวม glow) — ไม่ต้องแตะ YAML | `cradgacha.admin` |
 
 ## ตัวอย่าง
 

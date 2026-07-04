@@ -39,6 +39,23 @@ Only the keys you actually change are written back, so hand-tuned values (banner
 
 Build a brand-new crate from scratch, 100% in-game: it writes a disabled skeleton to `crates.yml`, reloads, and opens the editor on it. Add rewards, set cost & pity, enable it in Settings, done.
 
+## Global Config editor — `/gacha config`
+
+Tune **global** settings on a cursor panel — no YAML. Each field writes back to its real source file
+(`cursor.yml` / `config.yml` / `theme.yml`) and reloads the plugin.
+
+- **Mouse & Cursor** — **mouse speed** (X/Y), UI scale, cursor smoothing.
+- **Cursor Feel** — crosshair size, magnetic snap (on/strength/radius).
+- **Menu** — hide hand, clear weather, body double, max open (x10), clear-area on/off + radius.
+- **Gameplay** — require-on-ground, inventory-space check, cooldown, reward log, VIP luck.
+- **Effects** — card glow, pull suspense, 3D open model, global pity default.
+- **Rarities** — per rarity: weight, announce, glow color.
+
+Numbers use −/+ buttons (or click the value to type an exact one); toggles flip; enums cycle.
+
+> Settings that could make the menu unusable (camera mode, cursor plane distance, cursor bounds) are
+> deliberately **not** exposed here — those stay in `cursor.yml`.
+
 ## 1,000-Roll Simulator
 
 The editor's **[ 🎲 Test 1000 ]** rolls the (last-saved) crate 1,000 times and shows the real drop distribution per rarity next to the configured chance — a fast sanity check that your weights feel right (and that rate-up boosts land where you expect).

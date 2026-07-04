@@ -33,6 +33,7 @@ These only exist in the [Premium](/premium) build (the free jar shows an upsell 
 | `/gacha key give <player> <crate> [amount]` | Give a crate's key item (opens the crate free, bypassing cost). | `cradgacha.admin` |
 | `/gacha stats [crate]` | Drop-distribution dashboard + top openers (from the reward log). | `cradgacha.admin` |
 | `/gacha layout` | Live layout editor — drag menu elements with the mouse. | `cradgacha.admin` |
+| `/gacha config` | In-game global config editor — mouse speed, cursor bounds, UI scale, effects, rarities (incl. glow) — no YAML. | `cradgacha.admin` |
 
 ## Examples
 
