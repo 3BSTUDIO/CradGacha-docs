@@ -53,6 +53,9 @@ It is the cursor-only spin-off of an earlier project, rebuilt to be clean and fo
 | **Self-diagnostics** | `/gacha doctor` checks your setup (packetevents, ItemsAdder, glyphs, Vault, crates, resource pack). |
 | **Reward safety** | Rolled rewards are saved to disk immediately, so nothing is lost on crash/disconnect/death. |
 
+> ⭐ **Premium** adds an in-game editor & crate creator, rate-up events, VIP luck, crate keys, a stats
+> dashboard and a live layout editor (and removes the 3-crate limit). See the [Premium](/premium) page.
+
 ---
 
 ## Quick start (the short version)

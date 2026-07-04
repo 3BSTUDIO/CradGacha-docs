@@ -15,13 +15,24 @@ title: คำสั่ง
 |---|---|---|
 | `/gacha` | เปิดเมนูเลือกตู้ | ทุกคน |
 | `/gacha open <crate> [1\|10]` | เปิดตู้โดยตรงไม่ผ่านเมนู (คิดค่าเปิด + คูลดาวน์) | ทุกคน |
+| `/gacha history` | ประวัติของที่ตัวเองได้ + pity ต่อตู้ (ต้อง `reward-log.enabled`) | ทุกคน |
+| `/gacha fix [player]` | แก้ตัวเอง (หรือผู้เล่น) ที่ค้าง — รีเซ็ตมุมมอง/กล้อง/gamemode | ตัวเอง · `cradgacha.admin` สำหรับคนอื่น |
 | `/gacha debug` | สลับการโชว์พิกัดเคอร์เซอร์ (ต้องเปิดเมนูอยู่) | ทุกคน |
 | `/gacha reload` | โหลด `config.yml`, `crates.yml`, `cursor.yml`, `theme.yml` และเมนูใหม่ | `cradgacha.admin` |
 | `/gacha doctor` | ตรวจสุขภาพการตั้งค่า (packetevents, ItemsAdder, glyph, Vault, ตู้, resource pack และ Nexo/Oraxen/ModelEngine/BetterModel ที่เป็น optional) | `cradgacha.admin` |
-| `/gacha token <player>` | เช็คยอด token ของผู้เล่น | `cradgacha.admin` |
-| `/gacha token give <player> <amount>` | ให้ token แก่ผู้เล่น | `cradgacha.admin` |
-| `/gacha token take <player> <amount>` | หัก token จากผู้เล่น | `cradgacha.admin` |
-| `/gacha token set <player> <amount>` | ตั้งยอด token ของผู้เล่น | `cradgacha.admin` |
+| `/gacha token <player>` · `give`/`take`/`set <player> <amount>` | เช็ค / ให้ / หัก / ตั้งยอด token ของผู้เล่น | `cradgacha.admin` |
+
+### คำสั่งพรีเมียม
+
+มีเฉพาะ jar [พรีเมียม](/th/premium) (jar ฟรีขึ้นข้อความชวนอัปเกรด):
+
+| คำสั่ง | ทำอะไร | สิทธิ์ |
+|---|---|---|
+| `/gacha edit <crate>` | เปิด editor รางวัล + settings ในเกม | `cradgacha.admin` |
+| `/gacha create <id>` | สร้างตู้ใหม่ในเกมแล้วเปิด editor | `cradgacha.admin` |
+| `/gacha key give <player> <crate> [amount]` | แจกกุญแจของตู้ (เปิดฟรีไม่เสีย cost) | `cradgacha.admin` |
+| `/gacha stats [crate]` | dashboard % ดรอป + อันดับคนเปิด (จาก reward log) | `cradgacha.admin` |
+| `/gacha layout` | layout editor — ลาก element เมนูด้วยเมาส์ | `cradgacha.admin` |
 
 ## ตัวอย่าง
 

@@ -3,11 +3,14 @@
 อ้างอิงทุกฟีเจอร์การเล่นของ CradGacha ส่วนใหญ่ **ปิด/ปลอดภัยโดยค่าเริ่มต้น** เปิดเฉพาะที่ต้องการ
 แก้ config แล้วสั่ง `/gacha reload` · แก้ resource pack (Nexo/BetterModel) แล้ว **restart + rejoin**
 
+> หา **editor ในเกม, rate-up event, VIP luck, กุญแจตู้, สถิติ หรือ layout editor** อยู่ใช่ไหม? อยู่ที่หน้า [พรีเมียม](/th/premium)
+
 ## วิธีเปิดกาชา
 
 | วิธี | ทำยังไง |
 |------|---------|
 | คำสั่ง | `/gacha` (เมนู) · `/gacha open <crate> [1\|10]` (เปิดตรง) |
+| ประวัติ | `/gacha history` — ประวัติของที่ตัวเองได้ + pity ปัจจุบัน (ต้อง `reward-log.enabled: true`) |
 
 ### Clean stage (clear-area)
 ตอนเปิดเมนู บล็อกรอบตัวผู้เล่นจะถูกทำให้เป็น **อากาศเฉพาะคนเปิดเห็น** (ส่งผ่าน packet — ไม่แก้โลกจริง คนอื่นไม่เห็น)
@@ -95,6 +98,43 @@ broadcast: { enabled: true }
 # crates.yml
 cost: { type: PLAYERPOINTS, amount: 10 }
 ```
+
+### ใช้หลายอย่างพร้อมกัน
+ต้องมีหลายอย่างถึงเปิดได้ — เขียน `cost` เป็น **list** (ทั้งหมดหรือไม่จ่ายเลย; เปิดล้มเหลวคืนครบ):
+```yaml
+# crates.yml — ต้องมีเพชร 1 และเงิน 100 ถึงเปิดได้
+cost:
+  - { type: ITEM, item: DIAMOND, amount: 1 }
+  - { type: MONEY, amount: 100 }
+```
+ตัวแรกเป็นหลัก ที่เหลือเป็นเสริม (หรือใช้ `cost: {…}` เดี่ยว แล้วเพิ่ม `cost.extra: [ … ]` ก็ได้ ผลเหมือนกัน)
+
+### กุญแจตู้
+ไอเทม `key` เปิดตู้ **ฟรีไม่เสีย cost** (1 ดอก/ครั้ง) ดู [พรีเมียม → กุญแจตู้](/th/premium#กุญแจตู้-keys)
+
+## ปรับแต่งการ์ดรางวัล
+
+### ขอบเรืองแสงตาม rarity
+การ์ดที่พลิกเปิด **เรืองแสงสีตาม rarity** ทำงานเลย (ดึงจาก `color` ของ rarity) กำหนดสีเองหรือปิดได้ต่อ rarity:
+```yaml
+# config.yml — rarities.<R>.glow
+LEGENDARY: { color: "&6&l", weight: 3.0, glow: "#FFAA00" }   # "#RRGGBB" | none
+```
+```yaml
+# config.yml — เปิด/ปิดรวม
+theme: { reveal-cards: { glow: true } }
+```
+
+### ขนาด/ข้อความ/title ต่อรางวัล
+แต่ละรางวัลกำหนดขนาดบนการ์ด + ข้อความแชท / title ตอนได้ (`{reward}` / `{player}`) แก้ใน [editor พรีเมียม](/th/premium) หรือ `crates.yml`:
+```yaml
+# crates.yml — รางวัลหนึ่ง
+- { name: "Trident", material: TRIDENT, rarity: LEGENDARY,
+    scale: 1.2,                                   # ขนาดบนการ์ด (ไม่ใส่ = ค่า theme)
+    message: "&6&lLEGENDARY! &fYou won {reward}!", # แชทหลังการ์ดพลิก
+    title: "&6✦ {reward} ✦" }                      # title ตัวใหญ่กลางจอ
+```
+ข้อความแชท / broadcast จะส่ง **หลัง** การ์ดพลิกเสร็จ รางวัลจึงโชว์ก่อน
 
 ## Owner-only menu + ร่างจำลอง (body double)
 UI ของเมนู (เคอร์เซอร์/การ์ด/พื้นหลัง และโมเดล open ของ ModelEngine) แสดง **เฉพาะคนเปิด** — คนอื่น (รวมคนที่เพิ่ง

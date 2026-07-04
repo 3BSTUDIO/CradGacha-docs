@@ -4,11 +4,15 @@ A reference for every CradGacha gameplay feature. Most are **config-gated and of
 what you need. After editing config run `/gacha reload`. After editing the resource pack (Nexo/BetterModel)
 **restart + rejoin**.
 
+> Looking for the **in-game editor, rate-up events, VIP luck, crate keys, stats or the layout editor**? Those
+> are on the [Premium](/premium) page.
+
 ## Ways to open a crate
 
 | Method | How |
 |--------|-----|
 | Command | `/gacha` (menu) · `/gacha open <crate> [1\|10]` (direct) |
+| History | `/gacha history` — a player's own recent pulls + current pity (needs `reward-log.enabled: true`) |
 
 ### Clean stage (clear-area)
 When the menu opens, the blocks around the player are faked to **AIR for that viewer only** (sent via packets —
@@ -97,6 +101,46 @@ broadcast: { enabled: true }
 # crates.yml
 cost: { type: PLAYERPOINTS, amount: 10 }
 ```
+
+### Multiple costs at once
+Require several things to open — write `cost` as a **list** (all-or-nothing; a failed open refunds everything):
+```yaml
+# crates.yml — needs a diamond AND 100 money to open
+cost:
+  - { type: ITEM, item: DIAMOND, amount: 1 }
+  - { type: MONEY, amount: 100 }
+```
+The first entry is the primary; the rest are extras. (You can also keep a single `cost: {…}` and add a
+`cost.extra: [ … ]` list — same result.)
+
+### Crate keys
+A `key` item opens the crate **for free, bypassing the cost** (1 key per open). See [Premium → Crate Keys](/premium#crate-keys).
+
+## Reveal card customization
+
+### Rarity glow
+The revealed reward card **glows in its rarity's color**. Works out of the box (auto-derived from the rarity's
+`color`); set an exact color or turn it off per rarity:
+```yaml
+# config.yml — rarities.<R>.glow
+LEGENDARY: { color: "&6&l", weight: 3.0, glow: "#FFAA00" }   # "#RRGGBB" | none
+```
+```yaml
+# config.yml — master toggle
+theme: { reveal-cards: { glow: true } }
+```
+
+### Per-reward size, message & title
+Each reward can override its display size on the card and show a custom chat message / big title when won
+(`{reward}` / `{player}` placeholders). Editable in the [Premium editor](/premium) or `crates.yml`:
+```yaml
+# crates.yml — a reward
+- { name: "Trident", material: TRIDENT, rarity: LEGENDARY,
+    scale: 1.2,                                   # card display size (omit = theme default)
+    message: "&6&lLEGENDARY! &fYou won {reward}!", # chat line after the card flips
+    title: "&6✦ {reward} ✦" }                      # big center title
+```
+The chat message / broadcast is sent **after** the card fully flips, so the reward shows first.
 
 ## Owner-only menus + body double
 Every menu's UI (cursor, cards, background, and the ModelEngine open model) is shown **only to the opener** —

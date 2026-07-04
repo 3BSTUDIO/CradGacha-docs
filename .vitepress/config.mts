@@ -40,6 +40,7 @@ export default defineConfig({
         nav: [
           { text: 'Guide', link: '/' },
           { text: 'Installation', link: '/installation' },
+          { text: 'Premium', link: '/premium' },
           { text: 'Deploy', link: '/deploy' }
         ],
         sidebar: [
@@ -57,6 +58,7 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Features', link: '/features' },
+              { text: 'Premium', link: '/premium' },
               { text: 'Commands', link: '/commands' },
               { text: 'Permissions', link: '/permissions' },
               { text: 'Configuration', link: '/configuration' },
@@ -100,6 +102,7 @@ export default defineConfig({
         nav: [
           { text: 'คู่มือ', link: '/th/' },
           { text: 'การติดตั้ง', link: '/th/installation' },
+          { text: 'พรีเมียม', link: '/th/premium' },
           { text: 'เผยแพร่', link: '/th/deploy' }
         ],
         sidebar: {
@@ -118,6 +121,7 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: 'ฟีเจอร์', link: '/th/features' },
+                { text: 'พรีเมียม', link: '/th/premium' },
                 { text: 'คำสั่ง', link: '/th/commands' },
                 { text: 'สิทธิ์', link: '/th/permissions' },
                 { text: 'การตั้งค่า', link: '/th/configuration' },

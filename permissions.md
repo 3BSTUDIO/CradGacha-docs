@@ -12,10 +12,11 @@ CradGacha keeps permissions deliberately simple.
 
 | Permission node | Default | Grants |
 |---|---|---|
-| `cradgacha.admin` | `op` | Admin commands: `/gacha reload`, `/gacha doctor`, and all `/gacha token …` commands. |
+| `cradgacha.admin` | `op` | Admin commands: `/gacha reload`, `/gacha doctor`, `/gacha token …`, and the [Premium](/premium) admin commands (`edit`, `create`, `key`, `stats`, `layout`). |
+| `cradgacha.luck.<N>` | `false` | **Premium VIP luck** — a rarity-weight boost of N percent (e.g. `cradgacha.luck.10` = +10%). The highest node a player has wins. Prefix is configurable (`luck.permission-prefix`). |
 
-Everything else — opening the menu (`/gacha`), opening a crate (`/gacha open`), and `/gacha debug`
-— is available to **all players** and needs no permission.
+Everything else — opening the menu (`/gacha`), opening a crate (`/gacha open`), `/gacha history`,
+`/gacha fix` (on yourself), and `/gacha debug` — is available to **all players** and needs no permission.
 
 ## Who should have what
 
