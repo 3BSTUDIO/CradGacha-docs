@@ -11,6 +11,32 @@ title: แก้ปัญหา
 > **ขั้นแรกของเกือบทุกปัญหา:** รัน `/gacha doctor` มันตรวจ packetevents, ItemsAdder, glyph, Vault,
 > ตู้ของคุณ และ resource pack แล้วบอกว่าอะไรผิด
 
+## เมนูขึ้นเป็นบล็อกหินสีเทา และ/หรือ ข้อความดิบ (`i_token:1`, `1`, `10`) {#stone-menu}
+
+นี่คือ **ปัญหาภาพที่พบบ่อยที่สุด** และมีสาเหตุเดียว: **asset ของ UI ยังไม่ถูกโหลดสำหรับ item provider ที่คุณใช้**
+พื้นหลังเมนู ปุ่ม และเคอร์เซอร์ เป็นไอเทม-โมเดล + font glyph ที่มากับ pack ของ CradGacha เมื่อหาไม่เจอ
+ไอเทม-โมเดลจะ fallback เป็นบล็อกหิน และ glyph จะแสดงเป็น id ดิบ (`i_token:1`, `1`, `10`)
+
+ไล่ตามลำดับนี้:
+
+1. **ติดตั้ง pack ให้ตรง provider** — เอา pack ที่ตรงกับ item plugin ของคุณ (`pack/itemsadder`, `pack/nexo`
+   หรือ `pack/oraxen`) วางลงในโฟลเดอร์ที่ถูกต้อง (ดู [การติดตั้ง](installation.md)) แล้ว rebuild/reload:
+   ItemsAdder ใช้ `/iazip` + `/iareload`, หรือ reload pack ของ Nexo / Oraxen
+2. **ชี้ config ไปที่ provider ที่ถูก** — ใน `config.yml` ตั้ง `ui.item-provider` เป็น provider ของคุณ
+   (`itemsadder` / `nexo` / `oraxen`) หรือปล่อย `auto` ไฟล์ `theme.yml` / `cursor.yml` อ้างภาพเป็น
+   `provider:<ชื่อ>` (หรือ id ตรงๆ `nexo:` / `oraxen:` / `crad_gacha:`) — prefix ต้องตรงกับปลั๊กอินที่ใช้จริง
+   ถ้าใช้ Nexo แต่ config เขียน `oraxen:` จะเจออาการนี้พอดี
+3. **ให้ client รับ resource pack** — ผู้เล่นต้องกดรับ resource pack ของเซิร์ฟ (ไม่แน่ใจให้ relog) แล้วรัน
+   `/gacha doctor` ดูบรรทัด "resource pack"
+4. **อัปเดต pack เก่า** — ถ้า banner กับการ์ดขึ้นปกติ แต่ *พื้นหลัง* เป็นหิน แปลว่า pack ของคุณเก่ากว่า tile
+   `menu_background` / `bg_1..6` — ติดตั้ง pack ปัจจุบันจาก `pack/` ใหม่
+
+::: tip
+ในเวอร์ชันปัจจุบัน ภาพ UI ที่ resolve ไม่ได้จะถูก **ซ่อน** (เห็นพาเนลดำด้านหลังแทน) ไม่กลายเป็นกำแพงหินแล้ว
+ดังนั้นถ้าเมนูยังเป็นหินเทาทั้งหมด แปลว่าคุณใช้ **jar เวอร์ชันเก่า** ด้วย — อัปเดตปลั๊กอินด้วย
+ส่วน glyph ยังต้องติดตั้ง pack ถึงจะแสดงผลได้
+:::
+
 ## ปลั๊กอินไม่โหลด
 
 - ดู console ว่ามี error สีแดงตอนเปิดไหม

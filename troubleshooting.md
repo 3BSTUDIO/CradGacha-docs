@@ -11,6 +11,34 @@ title: Troubleshooting
 > **First step for almost everything:** run `/gacha doctor`. It checks packetevents, ItemsAdder,
 > glyphs, Vault, your crates, and your resource pack, and tells you what's wrong.
 
+## The menu shows grey stone blocks and/or raw text (`i_token:1`, `1`, `10`) {#stone-menu}
+
+This is the **most common visual issue**, and it has one root cause: **the built-in UI assets aren't loaded
+for the item provider you run.** The menu background, buttons and cursor are custom item-models + font glyphs
+shipped in the CradGacha pack. When they can't be found, the item-models fall back to a stone block and the
+glyphs render as their raw id text (`i_token:1`, `1`, `10`).
+
+Work through these in order:
+
+1. **Install the pack for your provider.** Drop in the ready-made pack that matches your item plugin —
+   `pack/itemsadder`, `pack/nexo` or `pack/oraxen` — into the right folder (see
+   [Installation](installation.md)), then rebuild/reload it: ItemsAdder `/iazip` + `/iareload`, or reload the
+   Nexo / Oraxen pack.
+2. **Point the config at the right provider.** In `config.yml` set `ui.item-provider` to your provider
+   (`itemsadder` / `nexo` / `oraxen`) or leave it `auto`. The shipped `theme.yml` / `cursor.yml` reference
+   images as `provider:<name>` (or a literal `nexo:` / `oraxen:` / `crad_gacha:` id) — the prefix must match
+   the plugin you actually run. Running Nexo while the config says `oraxen:` gives exactly this symptom.
+3. **Make the client accept the resource pack.** The player must accept the server resource pack (rejoin if
+   unsure). Run `/gacha doctor` and check the "resource pack" line.
+4. **Update an old pack.** If the banner and card backs show but the *background* is stone, your pack predates
+   the `menu_background` / `bg_1..6` tiles — reinstall the current pack from `pack/`.
+
+::: tip
+In current builds, a UI image that can't be resolved is **hidden** (the solid black backing panel shows
+through) instead of turning into a stone wall. So if the whole menu is grey stone, you are also on an **older
+jar** — update the plugin as well. Glyphs still need the pack installed to render.
+:::
+
 ## The plugin doesn't load
 
 - Check the console for a red error during startup.
