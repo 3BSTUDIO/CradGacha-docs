@@ -43,6 +43,23 @@ through) instead of turning into a stone wall. So if the whole menu is grey ston
 jar** — update the plugin as well. Glyphs still need the pack installed to render.
 :::
 
+## Nexo/Oraxen items don't resolve on an older Minecraft (grey menu on 1.21.4/1.21.7)
+
+If the console shows a **`NoClassDefFoundError`** (e.g. `io/papermc/paper/datacomponent/item/Weapon`) when
+CradGacha resolves a UI item, your **item-provider is built for a newer Minecraft than your server**. Nexo
+1.23+, for example, uses the `minecraft:weapon` data component that only exists on **1.21.5+**, so building any
+Nexo item on **1.21.4** throws and every UI image comes back empty (grey menu). This is a provider↔MC version
+mismatch, not a CradGacha bug.
+
+Fix, any one of:
+- **Update the server** to the version your provider needs (Nexo 1.23+ → 1.21.5+).
+- **Use a provider build made for your MC version** (an older Nexo/Oraxen that matches 1.21.4).
+- **Switch to vanilla mode** — `ui.item-provider: vanilla` + `pack/vanilla` as a resource pack. It needs no
+  Nexo/Oraxen and works on **1.21.4+**, so it sidesteps the mismatch entirely.
+
+`/gacha doctor` reports this ("UI provider is … but none of the CradGacha images resolve"), and the console
+line `Nexo lookup '…' failed: your Nexo version is built for a NEWER Minecraft…` names the exact cause.
+
 ## The plugin doesn't load
 
 - Check the console for a red error during startup.

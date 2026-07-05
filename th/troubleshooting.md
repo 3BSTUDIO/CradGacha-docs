@@ -41,6 +41,22 @@ title: แก้ปัญหา
 ส่วน glyph ยังต้องติดตั้ง pack ถึงจะแสดงผลได้
 :::
 
+## ไอเทม Nexo/Oraxen resolve ไม่ได้บน MC เก่า (เมนูเป็นหินบน 1.21.4/1.21.7)
+
+ถ้า console ขึ้น **`NoClassDefFoundError`** (เช่น `io/papermc/paper/datacomponent/item/Weapon`) ตอน CradGacha
+resolve ไอเทม UI แปลว่า **item-provider ของคุณถูก build มาสำหรับ MC ที่ใหม่กว่าเซิร์ฟ** ตัวอย่าง Nexo 1.23+ ใช้
+component `minecraft:weapon` ที่มีเฉพาะ **1.21.5+** ดังนั้นบน **1.21.4** พอ build ไอเทม Nexo จะ throw และภาพ UI
+ทุกตัวว่างเปล่า (เมนูเป็นหิน) — เป็นปัญหา provider↔เวอร์ชัน MC ไม่ใช่บั๊กของ CradGacha
+
+แก้ได้ (เลือกอย่างใดอย่างหนึ่ง):
+- **อัปเดตเซิร์ฟ** ให้ตรงเวอร์ชันที่ provider ต้องการ (Nexo 1.23+ → 1.21.5+)
+- **ใช้ provider เวอร์ชันที่ build มาสำหรับ MC ของคุณ** (Nexo/Oraxen เก่าที่ตรงกับ 1.21.4)
+- **สลับไปโหมด vanilla** — `ui.item-provider: vanilla` + ใช้ `pack/vanilla` เป็น resource pack ไม่ต้องมี
+  Nexo/Oraxen และใช้ได้บน **1.21.4+** เลยข้ามปัญหานี้ไปได้เลย
+
+`/gacha doctor` จะรายงานเรื่องนี้ และ console บรรทัด `Nexo lookup '…' failed: your Nexo version is built for a
+NEWER Minecraft…` จะบอกสาเหตุตรงๆ
+
 ## ปลั๊กอินไม่โหลด
 
 - ดู console ว่ามี error สีแดงตอนเปิดไหม
