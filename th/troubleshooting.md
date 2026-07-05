@@ -19,6 +19,10 @@ title: แก้ปัญหา
 
 ไล่ตามลำดับนี้:
 
+0. **ไม่มี ItemsAdder / Nexo / Oraxen เลย?** ใช้ **โหมด vanilla** — เอา `pack/vanilla` ไปวางเป็น resource pack
+   ของเซิร์ฟตามปกติ แล้วตั้ง `ui.item-provider: vanilla` (ตัว `pack/vanilla/CradGacha` ตั้งให้แล้ว) เมนูจะ
+   แสดงผลครบ **โดยไม่ต้องมี item-provider plugin เลย** (ต้อง MC 1.21.4+ และผู้เล่นต้องกดรับ pack)
+   ถ้าตั้ง `auto` ไว้ ระบบจะเลือก vanilla ให้เองเมื่อไม่มีทั้ง 3 ตัว
 1. **ติดตั้ง pack ให้ตรง provider** — เอา pack ที่ตรงกับ item plugin ของคุณ (`pack/itemsadder`, `pack/nexo`
    หรือ `pack/oraxen`) วางลงในโฟลเดอร์ที่ถูกต้อง (ดู [การติดตั้ง](installation.md)) แล้ว rebuild/reload:
    ItemsAdder ใช้ `/iazip` + `/iareload`, หรือ reload pack ของ Nexo / Oraxen

@@ -20,6 +20,10 @@ glyphs render as their raw id text (`i_token:1`, `1`, `10`).
 
 Work through these in order:
 
+0. **No ItemsAdder / Nexo / Oraxen at all?** Use **vanilla mode** — drop `pack/vanilla` in as a normal server
+   resource pack and set `ui.item-provider: vanilla` (the bundled `pack/vanilla/CradGacha` already does). The
+   whole menu then renders with **no item-provider plugin** (needs MC 1.21.4+; players must accept the pack).
+   `auto` already picks vanilla when none of the three is installed.
 1. **Install the pack for your provider.** Drop in the ready-made pack that matches your item plugin —
    `pack/itemsadder`, `pack/nexo` or `pack/oraxen` — into the right folder (see
    [Installation](installation.md)), then rebuild/reload it: ItemsAdder `/iazip` + `/iareload`, or reload the
