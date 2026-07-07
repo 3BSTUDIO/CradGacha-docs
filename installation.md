@@ -31,9 +31,10 @@ Put these in your `plugins/` folder first and start the server once so they gene
 
 ## Step 2 — Install CradGacha
 
-1. Download or build `CradGacha-1.0.0.jar`.
-   - To build from source: run `./gradlew build` and find the jar in `build/libs/`.
-2. Copy the jar into your server's `plugins/` folder.
+1. Download your **CradGacha jar** — the Free build, or the Premium build if you bought it — from where you
+   got the plugin (your purchase / the resource page).
+2. Copy the jar into your server's `plugins/` folder, then start the server. On first run it unpacks the
+   bundled resource packs so you can run [`/gacha setup`](setup.md).
 
 ::: tip Starter files (download)
 Grab the ready-made **starter files** — the default resource pack and example config/theme — as a

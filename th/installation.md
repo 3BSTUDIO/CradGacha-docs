@@ -31,9 +31,8 @@ title: การติดตั้ง
 
 ## ขั้นที่ 2 — ติดตั้ง CradGacha
 
-1. ดาวน์โหลดหรือ build `CradGacha-1.0.0.jar`
-   - build จาก source: รัน `./gradlew build` แล้วหาไฟล์ใน `build/libs/`
-2. คัดลอก jar ไปไว้ในโฟลเดอร์ `plugins/` ของเซิร์ฟ
+1. ดาวน์โหลด **CradGacha jar** — ตัว Free หรือ Premium (ถ้าซื้อ) — จากที่ที่คุณได้ปลั๊กอินมา (หน้าซื้อ / resource page)
+2. คัดลอก jar ไปไว้ในโฟลเดอร์ `plugins/` ของเซิร์ฟ แล้วเปิดเซิร์ฟ — ครั้งแรกจะแตก resource pack ในตัวออกมาให้ พร้อมรัน [`/gacha setup`](setup.md)
 
 ::: tip ไฟล์เริ่มต้น (ดาวน์โหลด)
 โหลด **ไฟล์เริ่มต้น** สำเร็จรูป — resource pack ค่าเริ่มต้น + ตัวอย่าง config/theme — ไว้เป็นจุดตั้งต้น
