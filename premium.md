@@ -1,9 +1,9 @@
 # Premium
 
-CradGacha ships as **two separate jars** built from the same project:
+CradGacha ships as **two separate jars**:
 
-| Build | Jar | What you get |
-|-------|-----|--------------|
+| Edition | Jar | What you get |
+|---------|-----|--------------|
 | **Free** | `CradGacha-x.jar` | The full cursor menu, reveal, pity, duplicate→spark, wishlist, token shop, all cost types, rarity glow, per-reward size/message/title, history, PlaceholderAPI, developer API — up to **3 crates**. |
 | **Premium** | `CradGacha-Premium-x.jar` | Everything in Free **plus** the in-game editor, crate creator, rate-up events, VIP luck, crate keys, stats dashboard, live layout editor — and **unlimited crates**. |
 

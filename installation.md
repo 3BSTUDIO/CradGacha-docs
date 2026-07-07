@@ -14,7 +14,7 @@ title: Installation
 |---|---|
 | **Server software** | **Paper** 1.21+ (Paper is required — it uses Paper APIs). Tested on 1.21.4–1.21.11. |
 | **Java** | **Java 21** or newer. |
-| **packetevents** | **Required.** Powers the spectator camera freeze that makes the cursor menu work. Use a build that matches your MC version — on **1.21.9+ use packetevents 2.13.0+** (older builds mis-encode packets and can disconnect nearby players). |
+| **packetevents** | **Required.** Powers the spectator camera freeze that makes the cursor menu work. Use a version that matches your MC — on **1.21.9+ use packetevents 2.13.0+** (older ones mis-encode packets and can disconnect nearby players). |
 | **A custom-item provider** | **Strongly recommended — pick one:** **Nexo**, **ItemsAdder**, or **Oraxen**. Provides the button images, cursor image, crate icons, and reward models (as glyphs and/or items). Without one the menu shows empty boxes (□). |
 | **Vault** | Required **only if** a crate costs `MONEY`. Also needs an economy plugin (e.g. EssentialsX Economy). |
 | **BetterModel / ModelEngine** | Optional. For a 3D model animation before cards appear. |
@@ -31,14 +31,15 @@ Put these in your `plugins/` folder first and start the server once so they gene
 
 ## Step 2 — Install CradGacha
 
-1. Download your **CradGacha jar** — the Free build, or the Premium build if you bought it — from where you
-   got the plugin (your purchase / the resource page).
+1. Download your **CradGacha jar** — the Free version, or the Premium version if you bought it — from where
+   you got the plugin (your purchase / the resource page).
 2. Copy the jar into your server's `plugins/` folder, then start the server. On first run it unpacks the
    bundled resource packs so you can run [`/gacha setup`](setup.md).
 
 ::: tip Starter files (download)
-Grab the ready-made **starter files** — the default resource pack and example config/theme — as a
-starting point instead of building everything from scratch:
+The plugin already bundles the resource pack (unpacked on first run — see [`/gacha setup`](setup.md)).
+This optional download is the same **starter files** — default resource pack + example config/theme — if
+you'd rather set them up by hand:
 
 **[⬇ Download starter files (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0)**
 

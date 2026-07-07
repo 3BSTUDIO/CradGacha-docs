@@ -24,7 +24,7 @@ the available sub-commands and arguments (admin sub-commands only appear for adm
 
 ### Premium commands
 
-These only exist in the [Premium](/premium) build (the free jar shows an upsell notice):
+These only exist in the [Premium](/premium) version (the free jar shows an upsell notice):
 
 | Command | What it does | Permission |
 |---|---|---|
