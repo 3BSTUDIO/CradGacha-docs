@@ -46,7 +46,7 @@ settings:
 ```yaml
 background:
   show: true
-  item: "crates_gacha:menu_background"   # รูปเดี่ยว (ใช้เมื่อ tiles.enabled = false)
+  item: "crad_gacha:menu_background"   # รูปเดี่ยว (ใช้เมื่อ tiles.enabled = false)
   panel-material: BLACK_CONCRETE         # แผงหลัง (concrete = ทึบ, glass = โปร่ง)
   panel-width: 11.0
   panel-height: 11.0
@@ -61,12 +61,12 @@ background:
     tile-width: 2.4
     tile-height: 2.4
     items:                               # เรียง row-major: บนซ้าย, บนกลาง, บนขวา, ล่างซ้าย, ...
-      - "crates_gacha:bg_1"
-      - "crates_gacha:bg_2"
-      - "crates_gacha:bg_3"
-      - "crates_gacha:bg_4"
-      - "crates_gacha:bg_5"
-      - "crates_gacha:bg_6"
+      - "crad_gacha:bg_1"
+      - "crad_gacha:bg_2"
+      - "crad_gacha:bg_3"
+      - "crad_gacha:bg_4"
+      - "crad_gacha:bg_5"
+      - "crad_gacha:bg_6"
 ```
 
 > **ทำไมต้อง tile?** Minecraft จำกัดรูปเดี่ยวที่ 256×256 px พื้นหลังใหญ่จึงต้องแบ่งเป็นหลายชิ้นเรียง grid
@@ -107,10 +107,10 @@ world-reveal:
 
 ```yaml
 card-back-by-rarity:
-  COMMON: "crates_gacha:card_back_c"
-  RARE: "crates_gacha:card_back_r"
-  EPIC: "crates_gacha:card_back_e"
-  LEGENDARY: "crates_gacha:card_back_l"
+  COMMON: "crad_gacha:card_back_c"
+  RARE: "crad_gacha:card_back_r"
+  EPIC: "crad_gacha:card_back_e"
+  LEGENDARY: "crad_gacha:card_back_l"
 ```
 
 ### model (ไม่บังคับ)

@@ -89,7 +89,7 @@ death, and `/reload` because they are persisted at roll time and delivered on jo
 - Animation presets (pulse/pop/shake) — `AnimationStep` is currently scale + glow only.
 - More billboard/rotation options for holograms.
 - Additional cost types or a placeholder/PlaceholderAPI hook.
-- A namespaced ItemsAdder content pack of its own (currently reuses `crates_gacha:*`).
+- A namespaced ItemsAdder content pack of its own (currently reuses `crad_gacha:*`).
 
 ## Adding a custom menu action
 

@@ -30,7 +30,8 @@ It is the cursor-only spin-off of an earlier project, rebuilt to be clean and fo
 
 - **Server owners** who want a good-looking crate/gacha system.
 - **New admins** — you only edit a few YAML files; this wiki walks you through every step.
-- Servers that already use **ItemsAdder** (used for the button/cursor images and reward models).
+- **Any server** — with ItemsAdder / Nexo / Oraxen for the fanciest look, or **none at all** (the bundled
+  vanilla pack renders the whole menu on MC 1.21.4+).
 
 ---
 
@@ -60,10 +61,11 @@ It is the cursor-only spin-off of an earlier project, rebuilt to be clean and fo
 
 ## Quick start (the short version)
 
-1. Install **packetevents** and **ItemsAdder** (required), plus **Vault** if you sell pulls for money.
-2. Drop `CradGacha-1.0.0.jar` into your `plugins/` folder and restart.
-3. Run `/gacha doctor` to confirm everything is green.
-4. Run `/gacha` to open the menu.
+1. Install **packetevents** (required), plus **Vault** if you sell pulls for money. An item provider
+   (ItemsAdder / Nexo / Oraxen) is optional.
+2. Drop the **CradGacha jar** into your `plugins/` folder and start the server.
+3. Run **`/gacha setup`** — it installs the resource pack for your provider (or vanilla if you have none).
+4. Run `/gacha doctor` to confirm everything is green, then `/gacha` to open the menu.
 
 > 💾 **Starter files:** [download the default resource pack + example configs (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0) to skip building everything from scratch.
 

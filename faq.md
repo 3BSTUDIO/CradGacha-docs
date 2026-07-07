@@ -14,11 +14,15 @@ A: No. It works on a normal vanilla client — they just need to accept the serv
 **Q: Do I really need packetevents?**
 A: Yes, for the cursor menu (it powers the camera freeze). Without it the menu won't work properly.
 
-**Q: Do I need ItemsAdder?**
-A: Not specifically — you need **one** custom-item provider: **Nexo**, ItemsAdder, or Oraxen. Any of
-them provides the button/cursor images and reward models (CradGacha picks the provider from each
-value's prefix: `nexo:`, `oraxen:`, an ItemsAdder `namespace:id`, or a plain glyph id). Without any
-provider the menu shows empty boxes (□). See [Installation](installation.md) for the Nexo setup steps.
+**Q: Do I need ItemsAdder / Nexo / Oraxen?**
+A: **No.** They give the nicest look, but CradGacha ships a **vanilla** pack that renders the whole menu
+with no item-provider plugin (MC **1.21.4+**). Just run `/gacha setup` — it uses whichever provider you have,
+or falls back to vanilla and even hosts the pack for you. See [Setup & Resource Pack](setup.md).
+
+**Q: My provider is for a newer Minecraft than my server — will it work?**
+A: Item plugins are version-locked (e.g. Nexo 1.23+ needs MC 1.21.5+). On an older MC, `/gacha setup` detects
+that the provider can't build items and **automatically switches to the vanilla pack**, so the menu still
+works. Or upgrade the server / use a provider version matching your MC.
 
 **Q: Does it work on Spigot/Bukkit?**
 A: No — it requires **Paper** 1.21+ (it uses Paper-only APIs).

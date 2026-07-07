@@ -88,7 +88,7 @@ com.threebstudio.cradgacha
 - animation preset (pulse/pop/shake) — ตอนนี้ `AnimationStep` มีแค่ scale + glow
 - ตัวเลือก billboard/การหมุนของ hologram เพิ่มเติม
 - เพิ่มประเภทค่าเปิด หรือ hook PlaceholderAPI
-- ทำ content pack ItemsAdder ของตัวเอง (ตอนนี้ใช้ร่วม `crates_gacha:*`)
+- ทำ content pack ItemsAdder ของตัวเอง (ตอนนี้ใช้ร่วม `crad_gacha:*`)
 
 ## เพิ่ม action ของเมนูเอง
 

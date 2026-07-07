@@ -139,7 +139,7 @@ ViaVersion/ViaBackwards** — client เขา render sprite item-display เล
 เป็นได้ 2 สาเหตุ:
 
 1. **banner ของตู้ชี้ไปไอเทมที่ไม่มี** · ถ้า `crates.<id>.banner.item` (หรือ icon ของรางวัล) ใช้ id/namespace ที่
-   pack ไม่มี (เช่นชื่อเก่า `crates_gacha:` หรือ prefix `oraxen:` ทั้งที่ใช้ Nexo) client จะไม่มี model เลยขึ้น
+   pack ไม่มี (เช่นชื่อเก่า `crad_gacha:` หรือ prefix `oraxen:` ทั้งที่ใช้ Nexo) client จะไม่มี model เลยขึ้น
    บล็อก fallback · แก้ id + prefix (`nexo:` / `oraxen:` / `itemsadder`) ให้ตรง pack แล้ว `/gacha reload`
 2. **บล็อกโลกจริงโผล่ทะลุพื้นหลัง** · เพิ่ม `clear-area.forward-distance` (เช่น `16`) ให้เคลียร์กรวยหน้ากล้องด้วย
 

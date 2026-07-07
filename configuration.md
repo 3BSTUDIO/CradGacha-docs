@@ -47,7 +47,7 @@ The menu's backdrop. You can use a single image, a tiled image, or a solid colou
 ```yaml
 background:
   show: true
-  item: "crates_gacha:menu_background"   # single image (used when tiles.enabled = false)
+  item: "crad_gacha:menu_background"   # single image (used when tiles.enabled = false)
   panel-material: BLACK_CONCRETE         # solid backing (concrete = opaque, glass = translucent)
   panel-width: 11.0
   panel-height: 11.0
@@ -62,12 +62,12 @@ background:
     tile-width: 2.4
     tile-height: 2.4
     items:                               # row-major: top-left, top-mid, top-right, bottom-left, ...
-      - "crates_gacha:bg_1"
-      - "crates_gacha:bg_2"
-      - "crates_gacha:bg_3"
-      - "crates_gacha:bg_4"
-      - "crates_gacha:bg_5"
-      - "crates_gacha:bg_6"
+      - "crad_gacha:bg_1"
+      - "crad_gacha:bg_2"
+      - "crad_gacha:bg_3"
+      - "crad_gacha:bg_4"
+      - "crad_gacha:bg_5"
+      - "crad_gacha:bg_6"
 ```
 
 > **Why tiles?** Minecraft caps a single image at 256×256 px. A large background must be split into
@@ -110,10 +110,10 @@ The face-down card image, chosen by the hidden reward's rarity.
 
 ```yaml
 card-back-by-rarity:
-  COMMON: "crates_gacha:card_back_c"
-  RARE: "crates_gacha:card_back_r"
-  EPIC: "crates_gacha:card_back_e"
-  LEGENDARY: "crates_gacha:card_back_l"
+  COMMON: "crad_gacha:card_back_c"
+  RARE: "crad_gacha:card_back_r"
+  EPIC: "crad_gacha:card_back_e"
+  LEGENDARY: "crad_gacha:card_back_l"
 ```
 
 ### model (optional)

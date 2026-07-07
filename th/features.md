@@ -191,7 +191,7 @@ model:
 > ทำเป็น **bone animation** + texture นิ่ง (model animation ค้างเฟรมสุดท้ายได้จริง)
 
 ## Custom sound
-ทุกช่องเสียงรับ **custom sound id** (namespaced เช่น `crates_gacha:fanfare`) — ใส่ `.ogg` + entry ใน `sounds.json`
+ทุกช่องเสียงรับ **custom sound id** (namespaced เช่น `crad_gacha:fanfare`) — ใส่ `.ogg` + entry ใน `sounds.json`
 เข้า pack (ผ่าน Nexo) แล้วอ้าง event id · ช่องที่ตั้งได้: `rarities.<R>.sound`, `pity.level-sound`,
 `reveal.suspense.sound` / `climax-sound`
 

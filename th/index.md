@@ -29,7 +29,7 @@ title: CradGacha — หน้าแรก
 
 - **เจ้าของเซิร์ฟ** ที่อยากได้ระบบกาชา/กล่องสุ่มสวย ๆ
 - **แอดมินมือใหม่** — แก้แค่ไฟล์ YAML ไม่กี่ไฟล์ คู่มือนี้พาทำทีละขั้น
-- เซิร์ฟที่ใช้ **ItemsAdder** อยู่แล้ว (ใช้สำหรับรูปปุ่ม/เคอร์เซอร์ และโมเดลรางวัล)
+- **เซิร์ฟทุกแบบ** — มี ItemsAdder / Nexo / Oraxen ก็ภาพสวยสุด หรือไม่มีเลยก็ได้ (vanilla pack ในตัว render เมนูครบบน MC 1.21.4+)
 
 ---
 
@@ -59,10 +59,10 @@ title: CradGacha — หน้าแรก
 
 ## เริ่มเร็ว (ฉบับย่อ)
 
-1. ติดตั้ง **packetevents** และ **ItemsAdder** (จำเป็น) และ **Vault** ถ้าจะขายด้วยเงิน
-2. วาง `CradGacha-1.0.0.jar` ลงโฟลเดอร์ `plugins/` แล้วรีสตาร์ท
-3. รัน `/gacha doctor` เพื่อเช็คว่าทุกอย่างเขียว
-4. รัน `/gacha` เพื่อเปิดเมนู
+1. ติดตั้ง **packetevents** (จำเป็น) และ **Vault** ถ้าจะขายด้วยเงิน · item provider (ItemsAdder / Nexo / Oraxen) ไม่บังคับ
+2. วาง **CradGacha jar** ลงโฟลเดอร์ `plugins/` แล้วเปิดเซิร์ฟ
+3. รัน **`/gacha setup`** — ติดตั้ง resource pack ให้ตรง provider (หรือ vanilla ถ้าไม่มี)
+4. รัน `/gacha doctor` เช็คว่าทุกอย่างเขียว แล้ว `/gacha` เปิดเมนู
 
 > 💾 **ไฟล์เริ่มต้น:** [ดาวน์โหลด resource pack ค่าเริ่มต้น + ตัวอย่าง config (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0) เพื่อไม่ต้องทำใหม่ทั้งหมด
 

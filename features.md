@@ -202,7 +202,7 @@ restart → rejoin. It also bumps animated-texture speed (`frametime`) so sprite
 > effect, animate a **bone** with a static texture (the model animation holds the last frame).
 
 ## Custom sounds
-All sound options accept **custom resource-pack sound IDs** (namespaced, e.g. `crates_gacha:fanfare`). Add the
+All sound options accept **custom resource-pack sound IDs** (namespaced, e.g. `crad_gacha:fanfare`). Add the
 `.ogg` + a `sounds.json` entry to the pack (via Nexo), then reference the event id. Config sound fields:
 `rarities.<R>.sound`, `pity.level-sound`, `reveal.suspense.sound` / `climax-sound`.
 

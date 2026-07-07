@@ -152,7 +152,7 @@ slightly smaller, so gaps appear between tiles.
 Two possible causes:
 
 1. **A crate banner points at a missing item.** If `crates.<id>.banner.item` (or a reward icon) uses an
-   id/namespace your pack doesn't have (e.g. an old `crates_gacha:` name, or an `oraxen:` prefix while you
+   id/namespace your pack doesn't have (e.g. an old `crad_gacha:` name, or an `oraxen:` prefix while you
    run Nexo), the client has no model for it and shows a fallback block. Fix the id and the prefix
    (`nexo:` / `oraxen:` / `itemsadder`) to match your pack, then `/gacha reload`.
 2. **A real world block peeking through the background.** Raise `clear-area.forward-distance` (e.g. `16`)
