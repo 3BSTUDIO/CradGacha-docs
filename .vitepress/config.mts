@@ -40,8 +40,7 @@ export default defineConfig({
         nav: [
           { text: 'Guide', link: '/' },
           { text: 'Installation', link: '/installation' },
-          { text: 'Premium', link: '/premium' },
-          { text: 'Deploy', link: '/deploy' }
+          { text: 'Premium', link: '/premium' }
         ],
         sidebar: [
           {
@@ -85,9 +84,7 @@ export default defineConfig({
             text: 'Advanced',
             collapsed: false,
             items: [
-              { text: 'Developer API', link: '/developer-api' },
-              { text: 'Developer Notes', link: '/developer-notes' },
-              { text: 'Deploy (GitHub Pages)', link: '/deploy' }
+              { text: 'Developer API', link: '/developer-api' }
             ]
           }
         ]
@@ -102,8 +99,7 @@ export default defineConfig({
         nav: [
           { text: 'คู่มือ', link: '/th/' },
           { text: 'การติดตั้ง', link: '/th/installation' },
-          { text: 'พรีเมียม', link: '/th/premium' },
-          { text: 'เผยแพร่', link: '/th/deploy' }
+          { text: 'พรีเมียม', link: '/th/premium' }
         ],
         sidebar: {
           '/th/': [
@@ -148,9 +144,7 @@ export default defineConfig({
               text: 'ขั้นสูง',
               collapsed: false,
               items: [
-                { text: 'Developer API', link: '/th/developer-api' },
-                { text: 'โน้ตนักพัฒนา', link: '/th/developer-notes' },
-                { text: 'เผยแพร่ (GitHub Pages)', link: '/th/deploy' }
+                { text: 'Developer API', link: '/th/developer-api' }
               ]
             }
           ]
