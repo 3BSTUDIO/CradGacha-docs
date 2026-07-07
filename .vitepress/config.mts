@@ -49,6 +49,7 @@ export default defineConfig({
             items: [
               { text: 'Introduction', link: '/' },
               { text: 'Installation', link: '/installation' },
+              { text: 'Setup & Resource Pack', link: '/setup' },
               { text: 'First Setup', link: '/first-setup' }
             ]
           },
@@ -109,6 +110,7 @@ export default defineConfig({
               items: [
                 { text: 'บทนำ', link: '/th/' },
                 { text: 'การติดตั้ง', link: '/th/installation' },
+                { text: 'ติดตั้ง & Resource Pack', link: '/th/setup' },
                 { text: 'ตั้งค่าครั้งแรก', link: '/th/first-setup' }
               ]
             },

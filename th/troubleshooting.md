@@ -41,6 +41,32 @@ title: แก้ปัญหา
 ส่วน glyph ยังต้องติดตั้ง pack ถึงจะแสดงผลได้
 :::
 
+## glyph เป็นกล่อง (□ / tofu) — ปุ่ม, pity bar, ไอคอนเงิน
+
+ภาพขึ้นแต่ glyph เป็นกล่องว่าง = **font ไม่ตรงกับที่ client โหลด**:
+
+- **2 pack ตีกัน (vanilla + provider)** ถ้าใช้ vanilla mode *แต่*ยังมี provider (Nexo/IA/Oraxen) ที่ส่ง pack
+  ของตัวเองมาด้วย ทั้งคู่มี `assets/minecraft/font/default.json` → ของ provider (ที่ไม่มี glyph เรา) ชนะ → tofu
+  เวอร์ชันปัจจุบันย้าย glyph vanilla ไป font แยก **`crad_gacha:default`** ที่ provider ทับไม่ได้ — อัปเดตปลั๊กอิน
+  แล้วรัน `/gacha setup` ใหม่
+- **client ไม่รับ pack / ค้างของเก่า** ให้ผู้เล่นกดรับ pack (relog) และถ้าแก้ pack hash เปลี่ยน ต้อง relog ให้โหลดใหม่
+- **แก้เองแล้ว font ผิด namespace** glyph อยู่ที่ `crad_gacha:default` อย่าย้ายไป `minecraft:default` เวลามี provider
+
+## พื้นหลังเป็นม่วง-ดำ (magenta) ลายตาราง
+
+คือ **missing-texture** ของ vanilla — texture ของโมเดลไม่อยู่ใน atlas ตั้งแต่ MC 1.19.3 texture ของ item-model
+ต้องอยู่ในโฟลเดอร์ที่ atlas สแกน vanilla pack วาง texture โมเดลไว้ที่ `textures/item/` (source `item` ครอบให้)
+แล้วอ้างเป็น `crad_gacha:item/<ชื่อ>` ถ้าคุณทำ pack เองโดยวาง texture ที่ root ให้ย้ายไป `textures/item/` +
+แก้ ref ในโมเดล หรือ generate ใหม่ด้วย `pack/_generate/genpacks.py` (ไม่กระทบ ItemsAdder/Nexo/Oraxen — พวกนั้นสร้าง atlas เอง)
+
+## Nexo ขึ้น "Texture … has bad resolution-ratio"
+
+เป็น warning **INFO** ไม่มีปัญหา: texture UI บางตัวไม่ใช่ power-of-two ซึ่งกระทบแค่ mipmap (มองไกล/เล็ก) เมนู
+ระยะใกล้ไม่เป็นไร ขึ้นเพราะ provider กำลังประมวลผล texture เรา ถ้า fallback เป็น **vanilla** เพราะ provider
+incompatible `/gacha setup` จะ **ลบ copy ของ provider ที่ไม่ใช้ทิ้ง** เอง warning ก็หาย ไม่งั้นลบ
+`plugins/<Provider>/{items,glyphs}/crad_gacha.yml` กับ `plugins/<Provider>/pack/assets/crad_gacha/` แล้ว reload
+provider นั้น หรือปล่อยไว้ก็ได้
+
 ## ไอเทม Nexo/Oraxen resolve ไม่ได้บน MC เก่า (เมนูเป็นหินบน 1.21.4/1.21.7)
 
 ถ้า console ขึ้น **`NoClassDefFoundError`** (เช่น `io/papermc/paper/datacomponent/item/Weapon`) ตอน CradGacha

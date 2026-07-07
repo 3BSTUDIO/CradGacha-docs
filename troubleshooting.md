@@ -43,6 +43,36 @@ through) instead of turning into a stone wall. So if the whole menu is grey ston
 jar** — update the plugin as well. Glyphs still need the pack installed to render.
 :::
 
+## Glyphs show as boxes (□ / tofu) — buttons, pity bar, currency
+
+The images render but text glyphs are empty boxes. The glyph **font isn't the one the client loaded**:
+
+- **Two packs fighting (vanilla + a provider).** If you run vanilla mode *and* still have an item provider
+  (Nexo/IA/Oraxen) that sends its own pack, both define `assets/minecraft/font/default.json` and the
+  provider's (which lacks our glyphs) wins → tofu. Current builds put the vanilla glyphs in a **separate
+  `crad_gacha:default` font** that no provider can override — update the plugin and re-run `/gacha setup`.
+- **Pack not accepted / stale.** Make the client accept the server pack (rejoin), and if you changed the pack,
+  its hash changed — rejoin so the client re-downloads it.
+- **Wrong font namespace after a manual edit.** The glyphs live in `crad_gacha:default`; don't move them into
+  `minecraft:default` when a provider is present.
+
+## The background is purple/black (magenta) checkerboard
+
+That's the vanilla **missing-texture** — a model's texture isn't in the atlas. Since MC 1.19.3 an item-model's
+texture must be in a directory the atlas scans. The vanilla pack puts model textures under
+`textures/item/` (covered by the stock `item` atlas source) and references them as `crad_gacha:item/<name>`.
+If you hand-built a pack with textures at the `textures/` root, either move them to `textures/item/` and fix
+the model refs, or regenerate with `pack/_generate/genpacks.py`. (This does **not** affect ItemsAdder/Nexo/
+Oraxen — they build their own atlas.)
+
+## Nexo logs "Texture … has bad resolution-ratio"
+
+Harmless **INFO** warnings: some UI textures aren't power-of-two, which only affects mipmapping (distant/
+small rendering) — the close-up menu is unaffected. They appear when a provider is processing our textures.
+If you fell back to **vanilla** on an incompatible provider, `/gacha setup` now **removes the unused provider
+copy** so the warnings stop; otherwise you can delete `plugins/<Provider>/{items,glyphs}/crad_gacha.yml` and
+`plugins/<Provider>/pack/assets/crad_gacha/`, then reload that provider. Or ignore them.
+
 ## Nexo/Oraxen items don't resolve on an older Minecraft (grey menu on 1.21.4/1.21.7)
 
 If the console shows a **`NoClassDefFoundError`** (e.g. `io/papermc/paper/datacomponent/item/Weapon`) when
