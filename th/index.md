@@ -64,8 +64,7 @@ title: CradGacha — หน้าแรก
 3. รัน **`/gacha setup`** — ติดตั้ง resource pack ให้ตรง provider (หรือ vanilla ถ้าไม่มี)
 4. รัน `/gacha doctor` เช็คว่าทุกอย่างเขียว แล้ว `/gacha` เปิดเมนู
 
-> 💾 **ไฟล์เริ่มต้น:** [ดาวน์โหลด resource pack ค่าเริ่มต้น + ตัวอย่าง config (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0) เพื่อไม่ต้องทำใหม่ทั้งหมด
-
+ปลั๊กอินฝัง resource pack มาให้และแตกออกครั้งแรกที่เปิด — แค่รัน [`/gacha setup`](setup.md)
 รายละเอียดเต็มอยู่ที่หน้า [การติดตั้ง](installation.md) และ [ตั้งค่าครั้งแรก](first-setup.md)
 
 ---

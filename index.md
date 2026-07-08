@@ -67,12 +67,9 @@ It is the cursor-only spin-off of an earlier project, rebuilt to be clean and fo
 3. Run **`/gacha setup`** — it installs the resource pack for your provider (or vanilla if you have none).
 4. Run `/gacha doctor` to confirm everything is green, then `/gacha` to open the menu.
 
-> 💾 **Starter files:** [download the default resource pack + example configs (MEGA)](https://mega.nz/file/ECoG2baa#RRIBS282vXQRHGTodQ_cmf4mawcSqfYgZ-4QwZueUS0) to skip building everything from scratch.
-
+The plugin bundles the resource pack and unpacks it on first run — just run [`/gacha setup`](setup.md).
 Full details are on the [Installation](installation.md) and [First Setup](first-setup.md) pages.
 
 ---
 
 Next: [Installation →](installation.md)
-
-<!-- rebuild: trigger GitHub Actions VitePress deploy -->
