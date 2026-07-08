@@ -74,3 +74,5 @@ Full details are on the [Installation](installation.md) and [First Setup](first-
 ---
 
 Next: [Installation →](installation.md)
+
+<!-- rebuild: trigger GitHub Actions VitePress deploy -->
