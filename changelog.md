@@ -30,9 +30,12 @@ title: Changelog
 
 New config keys are listed on the [Configuration](configuration.md#keys-added-in-1-0-2) page.
 
-**Note**
+**Developer API split**
 
-- The **Developer API** (events + `CradGachaAPI`) is now a **Premium** feature.
+- The API is now **Free (read-only)** + **Premium (actions & events)**. `isMenuOpen`, `getPity`,
+  `getTokens`, `getCrateIds` work on any jar; `openCrate`, `addTokens`, `takeTokens` and the
+  `GachaOpen`/`GachaPreOpen` events require the **Premium jar** or an `api.premium-token` (the Premium jar
+  auto-generates one in `config.yml`). See [Developer API](developer-api.md).
 
 ## 1.0.1
 

@@ -30,9 +30,12 @@ title: บันทึกการอัปเดต
 
 คีย์ config ใหม่ดูที่หน้า [การตั้งค่า](configuration.md#คีย์ที่เพิ่มใน-1-0-2)
 
-**หมายเหตุ**
+**แยก Developer API**
 
-- **Developer API** (event + `CradGachaAPI`) ตอนนี้เป็นฟีเจอร์ **พรีเมียม**
+- API แบ่งเป็น **Free (read-only)** + **Premium (สั่งงาน & events)** · `isMenuOpen`, `getPity`,
+  `getTokens`, `getCrateIds` ใช้ได้ทุก jar; ส่วน `openCrate`, `addTokens`, `takeTokens` และ event
+  `GachaOpen`/`GachaPreOpen` ต้องมี **jar Premium** หรือ `api.premium-token` (jar Premium เจนให้อัตโนมัติใน
+  `config.yml`) · ดู [Developer API](developer-api.md)
 
 ## 1.0.1
 

@@ -4,13 +4,22 @@ title: Developer API
 
 # Developer API
 
-::: warning เฉพาะพรีเมียม
-Developer API (facade `CradGachaAPI` และ Bukkit event) เป็นฟีเจอร์ **พรีเมียม** — ใช้ได้เฉพาะเมื่อ
-ติดตั้ง jar **Premium** เท่านั้น บนเวอร์ชัน Free เมธอดเหล่านี้ไม่รองรับ
-:::
-
 CradGacha มี API เล็กๆ ที่เสถียรให้ปลั๊กอินอื่นใช้: Bukkit event 2 ตัว + facade แบบ static
-ทุกเมธอด **เรียกจาก main thread เท่านั้น** และใช้ได้เมื่อ CradGacha **Premium** เปิดใช้งานแล้ว
+ทุกเมธอด **เรียกจาก main thread เท่านั้น** และใช้ได้เมื่อ CradGacha เปิดใช้งานแล้ว
+
+API แบ่งเป็น 2 ส่วน:
+
+| ส่วน | เมธอด | ใช้ได้เมื่อ |
+|------|-------|-----------|
+| **Free** (read-only) | `isMenuOpen`, `getPity`, `getTokens`, `getCrateIds` | ทุก jar |
+| **Premium** (สั่งงาน + events) | `openCrate`, `addTokens`, `takeTokens`, `GachaOpenEvent`, `GachaPreOpenEvent` | jar Premium **หรือ** มี `api.premium-token` ที่ถูกต้อง |
+
+::: warning ปลดล็อกส่วน Premium
+เมธอด premium จะทำงานเฉพาะเมื่อติดตั้ง **CradGacha Premium** หรือมี `api.premium-token` (ไม่ว่าง) ใน
+`config.yml` · jar Premium จะ **เจน token ให้อัตโนมัติ** ใน config ตอนรันครั้งแรก — ก็อปไปใส่ config ของ
+ปลั๊กอินคู่หูเพื่อใช้ premium API ร่วมกับ jar Free ได้ · ระหว่างล็อก `openCrate`/`takeTokens` คืน `false`,
+`addTokens` ไม่ทำอะไร, และ event จะไม่ยิง · เช็ค [`isPremiumApiAvailable()`](#facade-cradgachaapi) ก่อน
+:::
 
 ## การตั้งค่า
 
@@ -28,20 +37,26 @@ API อยู่ใน package `com.threebstudio.cradgacha.api`
 ```java
 import com.threebstudio.cradgacha.api.CradGachaAPI;
 
-// สั่งเปิดตู้ผ่านโค้ด — flow เดียวกับกดปุ่ม Open ในเมนู
-// (ยิง GachaPreOpenEvent, หักค่าเปิด, แล้วโชว์ผลรางวัล)
-// คืน false ถ้าถูกบล็อก: ไม่มีตู้นี้, ค่าเปิด, cooldown, หรือ event ถูก cancel
-boolean started = CradGachaAPI.openCrate(player, "starter", 10);
+// ----- Premium: เช็คก่อนเรียก -----
+if (CradGachaAPI.isPremiumApiAvailable()) {
+    // สั่งเปิดตู้ผ่านโค้ด — flow เดียวกับกดปุ่ม Open ในเมนู
+    // คืน false ถ้าถูกบล็อก (ไม่มีตู้/ค่าเปิด/cooldown/event ถูก cancel) หรือ premium API ถูกล็อก
+    boolean started = CradGachaAPI.openCrate(player, "starter", 10);
+    CradGachaAPI.addTokens(uuid, 100);        // ให้ token (ไม่ทำอะไรถ้าล็อก)
+    CradGachaAPI.takeTokens(uuid, 50);        // false ถ้ายอดไม่พอ หรือถ้าล็อก
+}
 
+// ----- Free: ใช้ได้เสมอ -----
 CradGachaAPI.isMenuOpen(player);          // ผู้เล่นอยู่ในเมนู CradGacha ไหม?
 CradGachaAPI.getPity(uuid, "starter");    // ตัวนับ pity ของตู้
 CradGachaAPI.getTokens(uuid);             // ยอด token ในตัว
-CradGachaAPI.addTokens(uuid, 100);        // ให้ token
-CradGachaAPI.takeTokens(uuid, 50);        // false ถ้ายอดไม่พอ (ไม่หักอะไรเลย)
 CradGachaAPI.getCrateIds();               // List<String> id ของทุกตู้ที่โหลด
 ```
 
 ## Events
+
+> event ทั้งสองอยู่ในส่วน **Premium** — ยิงเฉพาะเมื่อ premium API ปลดล็อก (jar Premium หรือ
+> `api.premium-token`) · บนเซิร์ฟ Free ที่ล็อกอยู่ listener จะไม่ถูกเรียกเลย
 
 ### `GachaPreOpenEvent` — cancel ได้
 
