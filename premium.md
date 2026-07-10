@@ -121,14 +121,54 @@ reward-log:
   enabled: true
 ```
 
-## Live Layout Editor — `/gacha layout`
+## Live Layout Editor — `/gacha layout [theme]`
 
 Redesign the menu with the mouse instead of tuning `x`/`y` numbers by hand.
 
+- `/gacha layout` edits the **active** theme; `/gacha layout <name>` switches to and edits that theme (tab-completed). Clone a theme first with **`/gacha config` → Theme → Clone** if you want to keep the default untouched.
 - Opens the real crate menu in **layout mode**; click a themed element to pick it up (it rides the cursor), click again to drop it.
-- **Undo / Redo / Save / Library / Exit** toolbar; while dragging, drop onto **Delete** or **Duplicate** zones.
-- **Button Library** popup — lists every button defined in `theme.yml` (tabs: All / Main / Reveal / Sub Pages / Custom); click one to place a copy. **[ + Add ]** registers a new glyph button by writing a `font_image` into your ItemsAdder pack (then run `/iazip`), and **[ - Remove ]** unregisters custom ones.
-- **Save** writes the new positions back to `theme.yml` (and a crate's banner override to `crates.yml`).
+- **Save** writes the new positions/looks/functions back to `theme.yml` (a crate's banner override goes to `crates.yml`); **Exit** discards.
+
+### Top toolbar (nothing held)
+
+| Cell | Does |
+|------|------|
+| **Undo** / **Redo** | step through every change |
+| **Save** | write changes to yml |
+| **Library** | open the Button Library popup |
+| **Text** | type a new text element — it then rides the cursor; click to place it |
+| **Exit** | discard and leave |
+
+### Held-element toolbar (while an element rides the cursor)
+
+| Cell | Does |
+|------|------|
+| **Bigger** / **Smaller** | resize the held element (0.05 steps) |
+| **Delete** | remove it |
+| **Duplicate** | drop a copy, keep editing the copy |
+| **Image** | open the Library and click any image to set it as this element's look |
+| **Function** | give it a click action (see the table below); type `none` to clear |
+
+- **Button Library** popup — lists every button defined in `theme.yml` (tabs: All / Main / Reveal / Sub Pages / Custom); click one to place a copy (or, in *Image* mode, to set the held element's image). **[ + Add ]** registers a new glyph button by writing a `font_image` into your ItemsAdder pack (then run `/iazip`), and **[ - Remove ]** unregisters custom ones.
+
+### Element functions (the **Function** button)
+
+Assign any of these so a custom text/image element becomes a working button. Saved to `theme.yml` as `elements.<id>.action` (+ `param`), with a default hitbox so it's clickable.
+
+| Action | What the button does | Param |
+|--------|----------------------|-------|
+| `open_shop` | open the Token Shop | — |
+| `open_spark` | open the Spark Exchange | — |
+| `open_wishlist` | open the Wishlist | — |
+| `open_rates` | open the drop-rates page | — |
+| `open_history` | open the player's pull history | — |
+| `open_count` | open this crate for N pulls | `<crate>:<count>` (e.g. `starter:10`) |
+| `open_all` | open the max pulls at once | crate id (optional) |
+| `back_to_menu` | return to the crate list | — |
+| `close_menu` | close the whole menu | — |
+| `link_url` | send the player a clickable chat link | a URL |
+
+> Tip: the toolbar strips are single textures split into equal cells. If you re-draw `layout_edit.png` / `layout_edit_1.png` a different width, set `theme.layout-editor.bar-aspect` / `mbar-aspect` (width ÷ height) so they don't stretch.
 
 ---
 

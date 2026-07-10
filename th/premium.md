@@ -120,14 +120,54 @@ reward-log:
   enabled: true
 ```
 
-## Live Layout Editor — `/gacha layout`
+## Live Layout Editor — `/gacha layout [ธีม]`
 
 จัด layout เมนูด้วยเมาส์แทนการปรับเลข `x`/`y` เอง
 
+- `/gacha layout` = แก้ธีมที่ใช้อยู่; `/gacha layout <ชื่อ>` = สลับไปแก้ธีมนั้น (มี tab-complete) หากไม่อยากแก้ธีม default ให้โคลนก่อนที่ **`/gacha config` → Theme → Clone**
 - เปิดเมนูตู้จริงในโหมด **layout** — คลิก element เพื่อหยิบ (ลอยตามเมาส์) คลิกอีกครั้งเพื่อวาง
-- แถบเครื่องมือ **Undo / Redo / Save / Library / Exit**; ระหว่างลากปล่อยบนโซน **Delete** หรือ **Duplicate**
-- **Button Library** — รวมปุ่มทั้งหมดจาก `theme.yml` (แท็บ All / Main / Reveal / Sub Pages / Custom) คลิกเพื่อวางสำเนา; **[ + Add ]** ลงทะเบียนปุ่ม glyph ใหม่โดยเขียน `font_image` ลงแพ็ก ItemsAdder (แล้ว `/iazip`), **[ - Remove ]** ถอดปุ่ม custom
-- **Save** เขียนตำแหน่งใหม่กลับ `theme.yml` (และ banner override ของตู้ลง `crates.yml`)
+- **Save** เขียนตำแหน่ง/รูป/ฟังก์ชันใหม่กลับ `theme.yml` (banner override ของตู้ลง `crates.yml`); **Exit** ยกเลิก
+
+### แถบบน (ตอนยังไม่หยิบอะไร)
+
+| ช่อง | ทำอะไร |
+|------|--------|
+| **Undo** / **Redo** | ย้อน/ทำซ้ำการแก้ไข |
+| **Save** | บันทึกลง yml |
+| **Library** | เปิดหน้าต่าง Button Library |
+| **Text** | พิมพ์สร้าง element ข้อความใหม่ — จะลอยตามเมาส์ คลิกเพื่อวาง |
+| **Exit** | ยกเลิกแล้วออก |
+
+### แถบตอนหยิบ element (ขณะ element ลอยตามเมาส์)
+
+| ช่อง | ทำอะไร |
+|------|--------|
+| **ขยาย** / **ย่อ** | ปรับขนาด element ที่หยิบ (ทีละ 0.05) |
+| **ลบ** | เอา element ออก |
+| **ก็อป** | วางสำเนา แล้วแก้ที่สำเนาต่อ |
+| **รูป** | เปิด Library คลิกภาพไหนก็ได้เพื่อใช้เป็นรูปของ element นี้ |
+| **ฟังก์ชัน** | ใส่ action เวลากด (ดูตารางล่าง); พิมพ์ `none` เพื่อลบ |
+
+- **Button Library** — รวมปุ่มทั้งหมดจาก `theme.yml` (แท็บ All / Main / Reveal / Sub Pages / Custom) คลิกเพื่อวางสำเนา (หรือในโหมด *รูป* = ตั้งภาพให้ element ที่หยิบ); **[ + Add ]** ลงทะเบียนปุ่ม glyph ใหม่โดยเขียน `font_image` ลงแพ็ก ItemsAdder (แล้ว `/iazip`), **[ - Remove ]** ถอดปุ่ม custom
+
+### ฟังก์ชันของปุ่ม (ปุ่ม **ฟังก์ชัน**)
+
+ใส่ค่าเหล่านี้เพื่อทำให้ element ข้อความ/รูป กลายเป็นปุ่มที่กดได้จริง บันทึกลง `theme.yml` เป็น `elements.<id>.action` (+ `param`) พร้อม hitbox ให้กดได้อัตโนมัติ
+
+| Action | ปุ่มทำอะไร | Param |
+|--------|-----------|-------|
+| `open_shop` | เปิดร้าน Token | — |
+| `open_spark` | เปิด Spark Exchange | — |
+| `open_wishlist` | เปิด Wishlist | — |
+| `open_rates` | เปิดหน้าอัตราดรอป | — |
+| `open_history` | เปิดประวัติการสุ่มของผู้เล่น | — |
+| `open_count` | เปิดตู้นี้จำนวน N ครั้ง | `<ตู้>:<จำนวน>` (เช่น `starter:10`) |
+| `open_all` | เปิดสูงสุดรวดเดียว | id ตู้ (ใส่หรือไม่ก็ได้) |
+| `back_to_menu` | กลับไปหน้ารายการตู้ | — |
+| `close_menu` | ปิดเมนูทั้งหมด | — |
+| `link_url` | ส่งลิงก์คลิกได้ในแชทให้ผู้เล่น | URL |
+
+> เคล็ดลับ: แถบเครื่องมือเป็นภาพเดียวที่ถูกแบ่งเป็นช่องเท่า ๆ กัน ถ้าวาด `layout_edit.png` / `layout_edit_1.png` ใหม่ให้กว้างต่างจากเดิม ให้ตั้ง `theme.layout-editor.bar-aspect` / `mbar-aspect` (กว้าง ÷ สูง) จะได้ไม่ยืด
 
 ---
 
