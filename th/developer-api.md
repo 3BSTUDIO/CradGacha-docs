@@ -4,8 +4,13 @@ title: Developer API
 
 # Developer API
 
+::: warning เฉพาะพรีเมียม
+Developer API (facade `CradGachaAPI` และ Bukkit event) เป็นฟีเจอร์ **พรีเมียม** — ใช้ได้เฉพาะเมื่อ
+ติดตั้ง jar **Premium** เท่านั้น บนเวอร์ชัน Free เมธอดเหล่านี้ไม่รองรับ
+:::
+
 CradGacha มี API เล็กๆ ที่เสถียรให้ปลั๊กอินอื่นใช้: Bukkit event 2 ตัว + facade แบบ static
-ทุกเมธอด **เรียกจาก main thread เท่านั้น** และใช้ได้เมื่อ CradGacha เปิดใช้งานแล้ว
+ทุกเมธอด **เรียกจาก main thread เท่านั้น** และใช้ได้เมื่อ CradGacha **Premium** เปิดใช้งานแล้ว
 
 ## การตั้งค่า
 

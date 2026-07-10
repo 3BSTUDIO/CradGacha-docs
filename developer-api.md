@@ -4,8 +4,13 @@ title: Developer API
 
 # Developer API
 
+::: warning Premium only
+The Developer API (the `CradGachaAPI` facade and the Bukkit events) is a **Premium** feature — it is
+available only when the **Premium** jar is installed. On the Free version these calls are not supported.
+:::
+
 CradGacha exposes a small, stable API for other plugins: two Bukkit events and a static facade.
-All calls are **main-thread only** and available once CradGacha is enabled.
+All calls are **main-thread only** and available once the **Premium** CradGacha is enabled.
 
 ## Setup
 

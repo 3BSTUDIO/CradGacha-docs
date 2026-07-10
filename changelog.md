@@ -30,6 +30,10 @@ title: Changelog
 
 New config keys are listed on the [Configuration](configuration.md#keys-added-in-1-0-2) page.
 
+**Note**
+
+- The **Developer API** (events + `CradGachaAPI`) is now a **Premium** feature.
+
 ## 1.0.1
 
 - Hardened the built-in resource-pack host (multi-threaded serving, stricter requests) and safer first-run pack extraction.

@@ -4,8 +4,8 @@ CradGacha ships as **two separate jars**:
 
 | Edition | Jar | What you get |
 |---------|-----|--------------|
-| **Free** | `CradGacha-x.jar` | The full cursor menu, reveal, pity, duplicate→spark, wishlist, token shop, all cost types, rarity glow, per-reward size/message/title, history, PlaceholderAPI, developer API — up to **3 crates**. |
-| **Premium** | `CradGacha-Premium-x.jar` | Everything in Free **plus** the in-game editor, crate creator, rate-up events, VIP luck, crate keys, stats dashboard, live layout editor — and **unlimited crates**. |
+| **Free** | `CradGacha-x.jar` | The full cursor menu, reveal, pity, duplicate→spark, wishlist, token shop, all cost types, rarity glow, per-reward size/message/title, history, PlaceholderAPI — up to **3 crates**. |
+| **Premium** | `CradGacha-Premium-x.jar` | Everything in Free **plus** the in-game editor, crate creator, rate-up events, VIP luck, crate keys, stats dashboard, live layout editor, the **Developer API** — and **unlimited crates**. |
 
 The premium features live in a separate source set, so the free jar physically does not contain them. Drop in the premium jar (replacing the free one), restart, and the premium commands light up automatically. Nothing else to configure.
 
@@ -180,8 +180,9 @@ Assign any of these so a custom text/image element becomes a working button. Sav
 | Cursor menu, reveal, pity, cost types (incl. multi-cost) | ✅ | ✅ |
 | Duplicate→Spark, Spark Exchange, Wishlist, Token Shop | ✅ | ✅ |
 | Rarity glow, per-reward size / message / title | ✅ | ✅ |
-| `/gacha history`, PlaceholderAPI, Developer API | ✅ | ✅ |
+| `/gacha history`, PlaceholderAPI | ✅ | ✅ |
 | Number of crates | up to 3 | unlimited |
 | In-game editor / creator / settings | — | ✅ |
 | Rate-Up events, VIP luck, crate keys | — | ✅ |
 | `/gacha stats`, live layout editor | — | ✅ |
+| **Developer API** (events + `CradGachaAPI`) | — | ✅ |

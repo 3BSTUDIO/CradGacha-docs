@@ -4,8 +4,8 @@ CradGacha มี **2 jar แยกกัน**:
 
 | เวอร์ชัน | Jar | ได้อะไร |
 |----------|-----|---------|
-| **ฟรี** | `CradGacha-x.jar` | เมนู cursor เต็มรูปแบบ, เปิดการ์ด, pity, duplicate→spark, wishlist, token shop, cost ทุกแบบ, ขอบเรืองแสงตาม rarity, ขนาด/ข้อความ/title รายรางวัล, ประวัติ, PlaceholderAPI, developer API — ได้สูงสุด **3 ตู้** |
-| **พรีเมียม** | `CradGacha-Premium-x.jar` | ทุกอย่างของฟรี **บวก** editor ในเกม, สร้างตู้, rate-up event, VIP luck, กุญแจ, หน้าสถิติ, layout editor — และ **ตู้ไม่จำกัด** |
+| **ฟรี** | `CradGacha-x.jar` | เมนู cursor เต็มรูปแบบ, เปิดการ์ด, pity, duplicate→spark, wishlist, token shop, cost ทุกแบบ, ขอบเรืองแสงตาม rarity, ขนาด/ข้อความ/title รายรางวัล, ประวัติ, PlaceholderAPI — ได้สูงสุด **3 ตู้** |
+| **พรีเมียม** | `CradGacha-Premium-x.jar` | ทุกอย่างของฟรี **บวก** editor ในเกม, สร้างตู้, rate-up event, VIP luck, กุญแจ, หน้าสถิติ, layout editor, **Developer API** — และ **ตู้ไม่จำกัด** |
 
 ฟีเจอร์พรีเมียมอยู่ใน source set แยก jar ฟรีจึงไม่มีโค้ดพรีเมียมอยู่จริง แค่เอา jar พรีเมียมวางทับ (แทน jar ฟรี) แล้วรีสตาร์ท คำสั่งพรีเมียมก็ทำงานเอง ไม่ต้องตั้งค่าเพิ่ม
 
@@ -179,8 +179,9 @@ reward-log:
 | เมนู cursor, เปิดการ์ด, pity, cost ทุกแบบ (รวม multi-cost) | ✅ | ✅ |
 | Duplicate→Spark, Spark Exchange, Wishlist, Token Shop | ✅ | ✅ |
 | ขอบเรืองแสง, ขนาด/ข้อความ/title รายรางวัล | ✅ | ✅ |
-| `/gacha history`, PlaceholderAPI, Developer API | ✅ | ✅ |
+| `/gacha history`, PlaceholderAPI | ✅ | ✅ |
 | จำนวนตู้ | สูงสุด 3 | ไม่จำกัด |
 | editor / สร้างตู้ / settings ในเกม | — | ✅ |
 | Rate-Up event, VIP luck, กุญแจตู้ | — | ✅ |
 | `/gacha stats`, live layout editor | — | ✅ |
+| **Developer API** (event + `CradGachaAPI`) | — | ✅ |
