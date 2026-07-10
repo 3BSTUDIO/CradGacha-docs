@@ -184,9 +184,12 @@ model:
   animations: { COMMON: common, RARE: rare, EPIC: epic, LEGENDARY: legendary }
 ```
 
-**หมายเหตุ pack:** เมื่อใช้ BetterModel + Nexo คู่กัน Nexo เป็นคน serve pack ที่ merge แล้ว ใช้ `rebuild-bm-pack.bat`
-(อยู่ข้าง jar เซิร์ฟ) หลังแก้ `.bbmodel`: `/bettermodel reload` → รัน bat → restart → rejoin
-มันปรับความเร็ว animated texture (`frametime`) ให้ sprite sheet ไม่เร็วเกินด้วย
+**หมายเหตุ pack:** เท็กซ์เจอร์ของโมเดลอยู่ใน pack ที่ ModelEngine/BetterModel สร้างเอง ซึ่งต้องส่งถึง client
+ผ่าน pack ของ item provider · **`/gacha setup` merge ให้อัตโนมัติ** — ก็อป pack ของ ModelEngine เข้า
+`Nexo/pack/external_packs/`, `Oraxen/pack/uploads/`, หรือ zip vanilla ที่ bundle มาให้เอง · สำหรับ
+**ItemsAdder** ให้ตั้ง `allow_other_plugins_resourcepacks: true` ใน `ItemsAdder/config.yml` แล้ว `/iazip`
+(IA merge เอง) · หลังแก้ `.bbmodel` ให้ regenerate pack ของโมเดล แล้วรัน `/gacha setup` ใหม่ (หรือ rebuild
+pack ของ provider) และ **rejoin** ให้ client โหลดใหม่
 > Minecraft animated texture loop ตลอด (global, sync เวลาโลก) — "เล่นครั้งเดียวแล้วหยุด" ไม่ได้ ถ้าอยากได้แบบนั้น
 > ทำเป็น **bone animation** + texture นิ่ง (model animation ค้างเฟรมสุดท้ายได้จริง)
 

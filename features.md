@@ -195,9 +195,12 @@ model:
   animations: { COMMON: common, RARE: rare, EPIC: epic, LEGENDARY: legendary }
 ```
 
-**Resource-pack note:** when BetterModel + Nexo are used together, Nexo serves the merged pack. Use the bundled
-`rebuild-bm-pack.bat` (next to the server jar) after editing a `.bbmodel`: `/bettermodel reload` → run the bat →
-restart → rejoin. It also bumps animated-texture speed (`frametime`) so sprite sheets aren't too fast.
+**Resource-pack note:** the model's textures live in ModelEngine/BetterModel's own generated pack, which must
+reach clients through your item provider's pack. **`/gacha setup` merges it for you** — it copies the
+ModelEngine pack into `Nexo/pack/external_packs/`, `Oraxen/pack/uploads/`, or the bundled vanilla zip
+automatically. For **ItemsAdder**, set `allow_other_plugins_resourcepacks: true` in `ItemsAdder/config.yml`
+and run `/iazip` (IA merges it itself). After editing a `.bbmodel`, regenerate the model pack, then re-run
+`/gacha setup` (or your provider's pack rebuild) and **rejoin** so the client re-downloads.
 > Minecraft animated textures always loop (global, time-synced) — they can't "play once and stop". For a one-shot
 > effect, animate a **bone** with a static texture (the model animation holds the last frame).
 
