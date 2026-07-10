@@ -21,8 +21,9 @@ CradGacha มี **2 jar แยกกัน**:
 - **ต่อรางวัล (หน้า 1):** ชื่อ, ไอเทม, จำนวน, rarity, ยกเว้น duplicate→spark, commands (เพิ่ม/ล้าง)
 - **ต่อรางวัล (หน้า 2):** **ขนาด** ตอนโชว์บนการ์ด, **ข้อความ** ตอนได้ (แชท) และ **title** (ตัวใหญ่กลางจอ) รองรับ `{reward}` / `{player}`
 - **ตั้งจากไอเทมในมือ** — คลิก preview เพื่อคัดลอกไอเทมที่ถืออยู่ (ตรวจ ItemsAdder / Nexo / Oraxen / MMOItems / vanilla ให้อัตโนมัติ)
-- **[ Bag ]** — เลือกไอเทมของรางวัลจาก**กระเป๋า**แบบ grid ตั้งไอเทมได้หลายชิ้นโดยไม่ต้องปิดเมนูไปสลับของในมือ
+- **[ Inventory ]** — เลือกไอเทมของรางวัลจาก**กระเป๋า**แบบ grid ตั้งไอเทมได้หลายชิ้นโดยไม่ต้องปิดเมนูไปสลับของในมือ
 - **[ + Add ]** เพิ่มรางวัล, **[ Delete Reward ]**, **[ 🎲 Test 1000 ]** (ดู Simulator), **[ ⚙ Settings ]**
+- **[ Reset ]** (มุมขวาบน) — ยกเลิกการแก้ไขที่ยังไม่บันทึกทั้งหมด แล้วโหลดตู้จากดิสก์ใหม่ · ต้องกด 2 ครั้ง (ถามยืนยัน *Discard changes?* ก่อน) กันกดพลาด
 - **Submit & Save** เขียน `crates.yml` แล้ว reload พิมพ์ข้อความใช้ **Dialog API** บน 1.21.6+ (ช่องพิมพ์จริง) และ fallback เป็นแชทบนเวอร์ชันเก่า
 
 ## Crate Settings editor
@@ -43,9 +44,9 @@ CradGacha มี **2 jar แยกกัน**:
 ## Global Config editor — `/gacha config`
 
 ปรับค่า **global** บนแผง cursor — ไม่ต้องแตะ YAML แต่ละค่าจะเขียนกลับไฟล์ต้นทางที่ถูกต้อง
-(`cursor.yml` / `config.yml` / `theme.yml`) แล้ว reload ให้เอง
+(`cursor.yml` / `config.yml` / `theme.yml`) แล้ว reload ให้เอง · **ชี้เมาส์ที่ชื่อ setting** เพื่อดูคำอธิบายว่าปรับแล้วได้อะไร
 
-- **Mouse & Cursor** — **ความไวเมาส์** (X/Y), UI scale, cursor smoothing
+- **Mouse & Cursor** — **ความไวเมาส์** (ค่าเดียว; สูง = เร็วขึ้น — ระยะที่เคอร์เซอร์เอื้อมถึงกำหนดด้วยขนาดเมนู ไม่ใช่ความเร็ว), UI scale, cursor smoothing
 - **Cursor Feel** — ขนาด crosshair, magnetic snap (เปิด/แรง/รัศมี)
 - **Menu** — ซ่อนมือ, ฟ้าใส, body double, max open (x10), clear-area เปิด/ปิด + รัศมี
 - **Gameplay** — require-on-ground, เช็คช่องกระเป๋า, cooldown, reward log, VIP luck

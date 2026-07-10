@@ -6,6 +6,21 @@ title: Changelog
 
 ## 1.0.2
 
+**Setup & first run**
+
+- **`/gacha setup` runs automatically on first launch** once the server has finished starting — a fresh install gets a working menu with no manual step.
+- **`/gacha setup` now installs the ModelEngine blueprint** (`cradgacha_open`) into `ModelEngine/blueprints/` and reloads it, then re-merges the model pack — the 3D open model works out of the box instead of looking like the pack was incomplete.
+
+**Menu / cursor**
+
+- **Mouse speed is now a single value** (the old separate X/Y was confusing and made the reachable area seem to shrink). The cursor's reach is set by the menu layout, not the speed.
+- **"Not enough item" now names the item** you're missing (e.g. *Not enough Diamond!*).
+- **Performance:** the per-tick cursor loop no longer re-reads config every tick (snapshotted and refreshed on reload) — lighter when many players have a menu open.
+
+**Premium — editors**
+
+- Reward editor: the item picker button is renamed **[ Inventory ]**, and a new **[ Reset ]** button discards unsaved edits (two-click confirm).
+
 **Stability**
 
 - **Fixed models disappearing after joining** on servers with an item provider. The built-in resource-pack host was sending its vanilla pack on top of the provider's pack; the second load wiped the provider/model textures. The host now runs **only in vanilla mode**, and `/gacha setup` turns it off when you pin ItemsAdder/Nexo/Oraxen.

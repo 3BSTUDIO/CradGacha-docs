@@ -21,8 +21,9 @@ Edit a crate's rewards entirely in-game on a cursor-menu panel — no YAML, no r
 - **Per reward (page 1):** name, item, amount, rarity, duplicate→spark exempt, commands (add/clear).
 - **Per reward (page 2):** display **size** on the card, a **win message** (chat) and **win title** (big center text) with `{reward}` / `{player}` placeholders.
 - **Set from held item** — click the preview to copy the item you're holding (auto-detects ItemsAdder / Nexo / Oraxen / MMOItems / vanilla).
-- **[ Bag ]** — pick the reward's item from your **inventory** in a grid, so you can set several different items without closing the menu to swap what you're holding.
+- **[ Inventory ]** — pick the reward's item from your **inventory** in a grid, so you can set several different items without closing the menu to swap what you're holding.
 - **[ + Add ]** a new reward, **[ Delete Reward ]**, **[ 🎲 Test 1000 ]** (see Simulator), **[ ⚙ Settings ]**.
+- **[ Reset ]** (top-right) — discard all unsaved edits and reload the crate from disk. Two clicks (it asks *Discard changes?* first) so it can't be hit by accident.
 - **Submit & Save** writes `crates.yml` and reloads the plugin. Text input uses the native **Dialog API** on 1.21.6+ (a real text field), with a chat-capture fallback on older servers.
 
 ## Crate Settings editor
@@ -43,9 +44,10 @@ Build a brand-new crate from scratch, 100% in-game: it writes a disabled skeleto
 ## Global Config editor — `/gacha config`
 
 Tune **global** settings on a cursor panel — no YAML. Each field writes back to its real source file
-(`cursor.yml` / `config.yml` / `theme.yml`) and reloads the plugin.
+(`cursor.yml` / `config.yml` / `theme.yml`) and reloads the plugin. **Hover a setting's label** to see a
+one-line description of what it does.
 
-- **Mouse & Cursor** — **mouse speed** (X/Y), UI scale, cursor smoothing.
+- **Mouse & Cursor** — **mouse speed** (one value; higher = faster — the reachable area is set by the menu size, not the speed), UI scale, cursor smoothing.
 - **Cursor Feel** — crosshair size, magnetic snap (on/strength/radius).
 - **Menu** — hide hand, clear weather, body double, max open (x10), clear-area on/off + radius.
 - **Gameplay** — require-on-ground, inventory-space check, cooldown, reward log, VIP luck.
