@@ -378,7 +378,7 @@ theme:
     dup-scale: 0.5        # its size, as a multiplier of the card size
   layout-editor:          # only affects the /gacha layout editor's own toolbars
     bar-aspect: 5.79      # width/height of layout_edit.png (the top toolbar strip) — set if you re-draw it
-    mbar-aspect: 5.83     # width/height of layout_edit_1.png (the held-element toolbar)
+    mbar-aspect: 5.79     # width/height of layout_edit_1.png (the held-element toolbar)
     max-glyph-scale: 128  # the Library "All Images" tab hides font images bigger than this (backgrounds)
 ```
 

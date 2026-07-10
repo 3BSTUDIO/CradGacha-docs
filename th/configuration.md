@@ -362,7 +362,7 @@ theme:
     dup-scale: 0.5        # ขนาดข้อความ เป็นสัดส่วนของขนาดการ์ด
   layout-editor:          # มีผลเฉพาะแถบเครื่องมือของ /gacha layout
     bar-aspect: 5.79      # กว้าง/สูง ของ layout_edit.png (แถบบน) — ตั้งถ้าวาดใหม่ให้ขนาดต่างไป
-    mbar-aspect: 5.83     # กว้าง/สูง ของ layout_edit_1.png (แถบตอนหยิบ element)
+    mbar-aspect: 5.79     # กว้าง/สูง ของ layout_edit_1.png (แถบตอนหยิบ element)
     max-glyph-scale: 128  # แท็บ "All Images" ในไลบรารีจะซ่อน font image ที่ใหญ่เกินค่านี้ (พวกพื้นหลัง)
 ```
 
