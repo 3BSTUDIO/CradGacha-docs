@@ -357,4 +357,42 @@ on a matching client version are unaffected.
 
 ---
 
+## Keys added in 1.0.2
+
+```yaml
+cursor:
+  hide-players: true      # while your menu is open, hide every other player (and their body double) so
+                          # someone standing at the gacha point can't cover the UI. Everyone reappears on close.
+                          # On 1.21.9+ the locator bar is muted while the menu is open too.
+
+model:
+  # per-rarity play time in ticks — set each to the animation's REAL length (bbmodel length in seconds x 20)
+  # or the model gets cut off. Falls back to model.duration-ticks when a rarity isn't listed.
+  durations:
+    COMMON: 125
+    LEGENDARY: 160
+
+theme:
+  reveal-cards:
+    dup-y: -0.3           # vertical offset of the "+N Spark" text shown on a duplicate card (default = reward-y)
+    dup-scale: 0.5        # its size, as a multiplier of the card size
+  layout-editor:          # only affects the /gacha layout editor's own toolbars
+    bar-aspect: 5.79      # width/height of layout_edit.png (the top toolbar strip) — set if you re-draw it
+    mbar-aspect: 5.83     # width/height of layout_edit_1.png (the held-element toolbar)
+    max-glyph-scale: 128  # the Library "All Images" tab hides font images bigger than this (backgrounds)
+```
+
+Message (in `messages.yml`):
+
+```yaml
+duplicate.card: "&b&l+{spark} ✦\n&7Spark"   # shown ON a duplicate card instead of the item (no chat spoiler)
+```
+
+> **Resource-pack host (vanilla mode only):** `resource-pack-host` now serves its pack **only** when
+> `ui.item-provider` is `vanilla`. With ItemsAdder/Nexo/Oraxen installed, that plugin sends its own pack and
+> the built-in host stays off — so the two packs never fight (which used to make models vanish after join).
+> `/gacha setup` disables the host automatically when you pin a real provider.
+
+---
+
 Next: [Crates →](crates.md)

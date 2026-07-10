@@ -21,6 +21,7 @@ Edit a crate's rewards entirely in-game on a cursor-menu panel — no YAML, no r
 - **Per reward (page 1):** name, item, amount, rarity, duplicate→spark exempt, commands (add/clear).
 - **Per reward (page 2):** display **size** on the card, a **win message** (chat) and **win title** (big center text) with `{reward}` / `{player}` placeholders.
 - **Set from held item** — click the preview to copy the item you're holding (auto-detects ItemsAdder / Nexo / Oraxen / MMOItems / vanilla).
+- **[ Bag ]** — pick the reward's item from your **inventory** in a grid, so you can set several different items without closing the menu to swap what you're holding.
 - **[ + Add ]** a new reward, **[ Delete Reward ]**, **[ 🎲 Test 1000 ]** (see Simulator), **[ ⚙ Settings ]**.
 - **Submit & Save** writes `crates.yml` and reloads the plugin. Text input uses the native **Dialog API** on 1.21.6+ (a real text field), with a chat-capture fallback on older servers.
 

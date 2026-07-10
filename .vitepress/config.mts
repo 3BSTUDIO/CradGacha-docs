@@ -78,7 +78,8 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Troubleshooting', link: '/troubleshooting' },
-              { text: 'FAQ', link: '/faq' }
+              { text: 'FAQ', link: '/faq' },
+              { text: 'Changelog', link: '/changelog' }
             ]
           },
           {
@@ -139,7 +140,8 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: 'แก้ปัญหา', link: '/th/troubleshooting' },
-                { text: 'คำถามที่พบบ่อย', link: '/th/faq' }
+                { text: 'คำถามที่พบบ่อย', link: '/th/faq' },
+                { text: 'บันทึกการอัปเดต', link: '/th/changelog' }
               ]
             },
             {

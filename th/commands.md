@@ -32,8 +32,8 @@ title: คำสั่ง
 | `/gacha create <id>` | สร้างตู้ใหม่ในเกมแล้วเปิด editor | `cradgacha.admin` |
 | `/gacha key give <player> <crate> [amount]` | แจกกุญแจของตู้ (เปิดฟรีไม่เสีย cost) | `cradgacha.admin` |
 | `/gacha stats [crate]` | dashboard % ดรอป + อันดับคนเปิด (จาก reward log) | `cradgacha.admin` |
-| `/gacha layout` | layout editor — ลาก element เมนูด้วยเมาส์ | `cradgacha.admin` |
-| `/gacha config` | ตั้งค่า global ในเกม — ความไวเมาส์, ขอบเคอร์เซอร์, ui-scale, เอฟเฟกต์, rarities (รวม glow) — ไม่ต้องแตะ YAML | `cradgacha.admin` |
+| `/gacha layout [ธีม]` | layout editor — ลาก element, พิมพ์แก้ข้อความ, ตั้งรูปจาก Library, ใส่ฟังก์ชันคลิก; ใส่ชื่อธีมเพื่อสลับไปแก้ธีมนั้น | `cradgacha.admin` |
+| `/gacha config` | ตั้งค่า global ในเกม — ความไวเมาส์, ขอบเคอร์เซอร์, ui-scale, เอฟเฟกต์, rarities (รวม glow) — ไม่ต้องแตะ YAML **ชี้เมาส์ที่ชื่อ setting เพื่อดูคำอธิบาย** | `cradgacha.admin` |
 
 ## ตัวอย่าง
 

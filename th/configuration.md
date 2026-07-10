@@ -342,4 +342,41 @@ theme:
 
 ---
 
+## คีย์ที่เพิ่มใน 1.0.2
+
+```yaml
+cursor:
+  hide-players: true      # ระหว่างเปิดเมนู ซ่อนผู้เล่นคนอื่น (และร่างจำลอง) เพื่อไม่ให้คนที่ยืนตรงจุดกาชาบังเมนู
+                          # ทุกคนกลับมาแสดงตอนปิดเมนู · บน 1.21.9+ แถบ locator ก็จะถูกปิดระหว่างเปิดเมนูด้วย
+
+model:
+  # เวลาเล่นต่อ rarity (tick) — ตั้งให้ตรงความยาวจริงของอนิเมชัน (ความยาว bbmodel วินาที x 20) ไม่งั้นจะโดนตัด
+  # ถ้า rarity ไหนไม่ได้ใส่ จะใช้ model.duration-ticks แทน
+  durations:
+    COMMON: 125
+    LEGENDARY: 160
+
+theme:
+  reveal-cards:
+    dup-y: -0.3           # ตำแหน่งแนวตั้งของข้อความ "+N Spark" บนการ์ดของซ้ำ (ค่าเริ่มต้น = reward-y)
+    dup-scale: 0.5        # ขนาดข้อความ เป็นสัดส่วนของขนาดการ์ด
+  layout-editor:          # มีผลเฉพาะแถบเครื่องมือของ /gacha layout
+    bar-aspect: 5.79      # กว้าง/สูง ของ layout_edit.png (แถบบน) — ตั้งถ้าวาดใหม่ให้ขนาดต่างไป
+    mbar-aspect: 5.83     # กว้าง/สูง ของ layout_edit_1.png (แถบตอนหยิบ element)
+    max-glyph-scale: 128  # แท็บ "All Images" ในไลบรารีจะซ่อน font image ที่ใหญ่เกินค่านี้ (พวกพื้นหลัง)
+```
+
+Message (ใน `messages.yml`):
+
+```yaml
+duplicate.card: "&b&l+{spark} ✦\n&7Spark"   # แสดงบนการ์ดของซ้ำแทนรูปไอเทม (ไม่สปอยในแชท)
+```
+
+> **Resource-pack host (เฉพาะโหมด vanilla):** ตอนนี้ `resource-pack-host` จะเสิร์ฟ pack **เฉพาะ**เมื่อ
+> `ui.item-provider` เป็น `vanilla` เท่านั้น ถ้ามี ItemsAdder/Nexo/Oraxen ปลั๊กอินนั้นจะส่ง pack ของมันเอง
+> และ host ในตัวจะไม่ทำงาน — pack สองตัวจะได้ไม่ชนกัน (บั๊กเดิมที่ทำให้โมเดลหายหลัง join) ·
+> `/gacha setup` จะปิด host ให้อัตโนมัติเมื่อ pin provider จริง
+
+---
+
 ถัดไป: [ตู้กาชา →](crates.md)

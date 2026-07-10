@@ -32,8 +32,8 @@ These only exist in the [Premium](/premium) version (the free jar shows an upsel
 | `/gacha create <id>` | Create a new crate in-game and open the editor on it. | `cradgacha.admin` |
 | `/gacha key give <player> <crate> [amount]` | Give a crate's key item (opens the crate free, bypassing cost). | `cradgacha.admin` |
 | `/gacha stats [crate]` | Drop-distribution dashboard + top openers (from the reward log). | `cradgacha.admin` |
-| `/gacha layout` | Live layout editor — drag menu elements with the mouse. | `cradgacha.admin` |
-| `/gacha config` | In-game global config editor — mouse speed, cursor bounds, UI scale, effects, rarities (incl. glow) — no YAML. | `cradgacha.admin` |
+| `/gacha layout [theme]` | Live layout editor — drag menu elements, retype text, set images from the Library, and assign click functions. With a theme name it switches to and edits that theme. | `cradgacha.admin` |
+| `/gacha config` | In-game global config editor — mouse speed, cursor bounds, UI scale, effects, rarities (incl. glow) — no YAML. **Hover any setting's label for a description of what it does.** | `cradgacha.admin` |
 
 ## Examples
 
