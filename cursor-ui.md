@@ -77,6 +77,36 @@ elements:
 
 Full theme reference: see `THEME-REFERENCE.md` in the repository root.
 
+## Recommended image sizes
+
+If you replace a UI image with your own art, match these dimensions so it stays crisp and doesn't
+warp. All are **power-of-two-friendly** where it matters (Minecraft handles textures best that way) —
+these are exactly what the bundled Dragon Jade pack uses.
+
+| Element | Recommended PNG size | Notes |
+|---|---|---|
+| Background tile (`bg_1`…`bg_6`) | **512 × 512** | Minecraft caps one image at 256×256 on screen — a big background is split into a grid of tiles (see Configuration → background) |
+| Single background (`menu_background`) | **256 × 256** | one non-tiled backdrop |
+| Showcase banner (`showcase` / `showcase_pack`) | **512 × 256** (2 pieces) | wide banner, made of two glyph halves |
+| Reward card back (`card_back_*`) | **512 × 512** | square card |
+| Crate icon in the picker (`crate_1`, `crate_2`) | **256 × 128** | |
+| Open buttons (`g_open_x1`, `g_open_x10`, back/again/all) | **66 × 22** (keep the ~3:1 ratio) | wide pill button |
+| Currency / small icons (`i_token`, `i_money`) | **~21 × 22** | ~square, sits inline with text |
+| Nav / small glyph buttons (shop, spark, wishlist, rate…) | **24 × 24** | |
+| Cursor crosshair (`cursor.png`) | **16 × 16** | keep it small so aiming is precise |
+| Pity-bar segments (`pity_0`…`pity_full`) | **16 × 32** (tall) | tiled side-by-side into the bar |
+| Editor toolbar strips (`layout_edit`, `layout_edit_1`) | **139 × 24** (6 cells of ~23 px) | if you re-draw a different width, set `theme.layout-editor.bar-aspect` = width ÷ height |
+
+Rules of thumb:
+- **Keep the aspect ratio.** A wide button drawn square (or vice-versa) will look stretched — the menu
+  scales by height, so width follows the image's own ratio.
+- **Square-ish icons** (buttons, currency, cursor) read best; reserve wide sizes for banners/buttons.
+- **Don't go huge for tiny icons** — a 512×512 image used as a 16-px cursor just wastes pack size (and,
+  in the Library's "All Images" tab, oversized background glyphs are auto-hidden above
+  `theme.layout-editor.max-glyph-scale`).
+- On ItemsAdder, the on-screen size is the font `scale_ratio` in your `contents/.../configs`, not the
+  PNG — the PNG only needs to be sharp at the size above.
+
 ## Known limitations (server-side only)
 
 These come from doing a cursor UI purely on the server (no client mod):
