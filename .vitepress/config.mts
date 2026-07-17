@@ -70,7 +70,8 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Cursor UI', link: '/cursor-ui' },
-              { text: 'Result Panel', link: '/result-panel' }
+              { text: 'Result Panel', link: '/result-panel' },
+              { text: 'Animations & Importer', link: '/animations' }
             ]
           },
           {
@@ -132,7 +133,8 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: 'Cursor UI', link: '/th/cursor-ui' },
-                { text: 'หน้าผลรางวัล', link: '/th/result-panel' }
+                { text: 'หน้าผลรางวัล', link: '/th/result-panel' },
+                { text: 'แอนิเมชัน & นำเข้ารูป', link: '/th/animations' }
               ]
             },
             {

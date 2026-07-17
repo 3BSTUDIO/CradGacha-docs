@@ -34,6 +34,8 @@ These only exist in the [Premium](/premium) version (the free jar shows an upsel
 | `/gacha stats [crate]` | Drop-distribution dashboard + top openers (from the reward log). | `cradgacha.admin` |
 | `/gacha layout [theme]` | Live layout editor — drag menu elements, retype text, set images from the Library, and assign click functions. With a theme name it switches to and edits that theme. | `cradgacha.admin` |
 | `/gacha config` | In-game global config editor — mouse speed, cursor bounds, UI scale, effects, rarities (incl. glow) — no YAML. **Hover any setting's label for a description of what it does.** | `cradgacha.admin` |
+| `/gacha import <url> [name]` | Download a PNG or GIF straight into the active pack (a GIF is auto-sliced into animation frames). See [Animations](/animations). | `cradgacha.admin` |
+| `/gacha import file <filename> [name]` | Same, but from a file dropped in `plugins/CradGacha/import/` (for servers with no outbound internet). | `cradgacha.admin` |
 
 ## Examples
 

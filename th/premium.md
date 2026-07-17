@@ -1,71 +1,24 @@
 # พรีเมียม
 
-CradGacha มี **2 jar แยกกัน**:
+<a class="buy-card" href="https://mineassets.com/p/crad-gacha-archived-mcmodels-e64dhv53" target="_blank" rel="noreferrer">
+  <span class="desc">รับ CradGacha Premium — $14.99 · จ่ายครั้งเดียว ไม่มีรายเดือน</span>
+  <span class="title">ซื้อที่ MineAssets →</span>
+</a>
 
-| เวอร์ชัน | Jar | ได้อะไร |
-|----------|-----|---------|
-| **ฟรี** | `CradGacha-x.jar` | เมนู cursor เต็มรูปแบบ, เปิดการ์ด, pity, duplicate→spark, wishlist, token shop, cost ทุกแบบ, ขอบเรืองแสงตาม rarity, ขนาด/ข้อความ/title รายรางวัล, ประวัติ, PlaceholderAPI — ได้สูงสุด **3 ตู้** |
-| **พรีเมียม** | `CradGacha-Premium-x.jar` | ทุกอย่างของฟรี **บวก** editor ในเกม, สร้างตู้, rate-up event, VIP luck, กุญแจ, หน้าสถิติ, layout editor, **Developer API** — และ **ตู้ไม่จำกัด** |
+**jar ฟรีคือเกมกาชาที่สมบูรณ์อยู่แล้ว — พรีเมียมคือวิธีทำเงินจากมัน**
 
-ฟีเจอร์พรีเมียมอยู่ใน source set แยก jar ฟรีจึงไม่มีโค้ดพรีเมียมอยู่จริง แค่เอา jar พรีเมียมวางทับ (แทน jar ฟรี) แล้วรีสตาร์ท คำสั่งพรีเมียมก็ทำงานเอง ไม่ต้องตั้งค่าเพิ่ม
-
-> **ไม่ใช่แค่ flag** — ถ้าคำสั่งด้านล่างเขียนว่า *"พรีเมียม"* jar ฟรีจะขึ้นข้อความชวนอัปเกรดแล้วไม่ทำอะไร
-
----
-
-## Reward Editor ในเกม — `/gacha edit <ตู้>`
-
-แก้ไขรางวัลของตู้ในเกมทั้งหมดบนแผง cursor — ไม่ต้องแตะ YAML ไม่ต้อง reload
-
-- **รายการรางวัล** — โชว์เป็นกริดไอคอน เอาเมาส์ชี้ดูชื่อ+lore, คลิกเพื่อแก้
-- **ต่อรางวัล (หน้า 1):** ชื่อ, ไอเทม, จำนวน, rarity, ยกเว้น duplicate→spark, commands (เพิ่ม/ล้าง)
-- **ต่อรางวัล (หน้า 2):** **ขนาด** ตอนโชว์บนการ์ด, **ข้อความ** ตอนได้ (แชท) และ **title** (ตัวใหญ่กลางจอ) รองรับ `{reward}` / `{player}`
-- **ตั้งจากไอเทมในมือ** — คลิก preview เพื่อคัดลอกไอเทมที่ถืออยู่ (ตรวจ ItemsAdder / Nexo / Oraxen / MMOItems / vanilla ให้อัตโนมัติ)
-- **[ Inventory ]** — เลือกไอเทมของรางวัลจาก**กระเป๋า**แบบ grid ตั้งไอเทมได้หลายชิ้นโดยไม่ต้องปิดเมนูไปสลับของในมือ
-- **[ + Add ]** เพิ่มรางวัล, **[ Delete Reward ]**, **[ 🎲 Test 1000 ]** (ดู Simulator), **[ ⚙ Settings ]**
-- **[ Reset ]** (มุมขวาบน) — ยกเลิกการแก้ไขที่ยังไม่บันทึกทั้งหมด แล้วโหลดตู้จากดิสก์ใหม่ · ต้องกด 2 ครั้ง (ถามยืนยัน *Discard changes?* ก่อน) กันกดพลาด
-- **Submit & Save** เขียน `crates.yml` แล้ว reload พิมพ์ข้อความใช้ **Dialog API** บน 1.21.6+ (ช่องพิมพ์จริง) และ fallback เป็นแชทบนเวอร์ชันเก่า
-
-## Crate Settings editor
-
-เข้าจากปุ่ม **[ ⚙ Settings ]** — แผง 4 หน้า ครอบคลุมเกือบทุก key ของตู้:
-
-1. **General / Cost / Pity** — ชื่อ, เปิด/ปิด, cost type/amount/item, pity เปิด-ปิด + rarity + threshold, display item
-2. **Drops / Extras** — broadcast, duplicate→spark + จำนวน, wishlist (เปิด/max/rarity), spark shop + title + หน้าย่อยรายการ
-3. **Rate-Up Event** — วันเริ่ม/จบ + ตัวคูณ weight ต่อ rarity
-4. **Keys** — ไอเทมกุญแจ + ปุ่มแจกกุญแจให้ตัวเองไว้เทส
-
-เขียนกลับเฉพาะ key ที่แก้จริง ค่าที่จูนมือไว้ (ตำแหน่ง banner/ปุ่ม ฯลฯ) จึงไม่หาย
-
-## สร้างตู้ — `/gacha create <id>`
-
-สร้างตู้ใหม่จากศูนย์ในเกม 100% — เขียน skeleton (ปิดไว้) ลง `crates.yml`, reload, แล้วเปิด editor ให้ ใส่รางวัล/ตั้ง cost & pity/เปิดใช้งานใน Settings เสร็จ
-
-## Global Config editor — `/gacha config`
-
-ปรับค่า **global** บนแผง cursor — ไม่ต้องแตะ YAML แต่ละค่าจะเขียนกลับไฟล์ต้นทางที่ถูกต้อง
-(`cursor.yml` / `config.yml` / `theme.yml`) แล้ว reload ให้เอง · **ชี้เมาส์ที่ชื่อ setting** เพื่อดูคำอธิบายว่าปรับแล้วได้อะไร
-
-- **Mouse & Cursor** — **ความไวเมาส์** (ค่าเดียว; สูง = เร็วขึ้น — ระยะที่เคอร์เซอร์เอื้อมถึงกำหนดด้วยขนาดเมนู ไม่ใช่ความเร็ว), UI scale, cursor smoothing
-- **Cursor Feel** — ขนาด crosshair, magnetic snap (เปิด/แรง/รัศมี)
-- **Menu** — ซ่อนมือ, ฟ้าใส, body double, max open (x10), clear-area เปิด/ปิด + รัศมี
-- **Gameplay** — require-on-ground, เช็คช่องกระเป๋า, cooldown, reward log, VIP luck
-- **Effects** — glow การ์ด, pull suspense, โมเดล 3D, pity ค่ากลาง
-- **Rarities** — ต่อ rarity: weight, announce, สี glow
-
-ตัวเลขใช้ปุ่ม −/+ (หรือคลิกที่ค่าเพื่อพิมพ์ตรง); toggle สลับ; enum วน
-
-> ค่าที่อาจทำเมนูใช้ไม่ได้ (camera mode, cursor plane distance, cursor bounds) **ไม่** เปิดให้แก้ที่นี่ — อยู่ใน `cursor.yml`
-
-## Simulator สุ่ม 1,000 ครั้ง
-
-ปุ่ม **[ 🎲 Test 1000 ]** ในeditor สุ่มตู้ (ค่าที่ save ล่าสุด) 1,000 ครั้ง โชว์ % ที่ออกจริงต่อ rarity เทียบกับ % ที่ตั้ง — เช็คเร็วๆ ว่า weight รู้สึกถูกไหม (และ rate-up บูสต์ตรงจุดไหม)
+Rate-up banner, กุญแจที่เอาไปขายได้ และ luck ตามยศ คือ 3 อย่างที่เกมกาชาของจริงใช้ทำเงิน —
+พรีเมียมให้ครบทั้ง 3 อย่าง บวกกับจัดหน้าตาเมนูเป็นของคุณเอง และแก้ทุกอย่างในเกมได้โดยไม่ต้องเปิดไฟล์ YAML เลย
 
 ---
 
-## Rate-Up Event
+## ทำเงินจากกาชาของคุณ
 
-ตั้งช่วง "banner" ต่อตู้ที่บูสต์ weight ของ rarity พร้อมนับถอยหลังบนเมนู
+### Rate-Up Event
+
+**นี่คือเครื่องยนต์ที่เกมกาชาของจริงทุกเกมใช้** ตั้งช่วง banner ที่บูสต์ rarity แล้วเมนูจะมีนับถอยหลังสด ๆ
+(`⚡ RATE UP — ends in 2d 5h`) — ช่วงเวลาที่ "มีวันหมด" คือสิ่งที่เปลี่ยนผู้เล่นที่คิดว่า *ไว้ค่อยเปิดวันหลัง*
+ให้กลายเป็นคนที่เปิดคืนนี้
 
 ```yaml
 # crates.yml — ต่อตู้
@@ -76,12 +29,28 @@ event:
 ```
 
 - หน้าเรท **และ** simulator โชว์ % ที่บูสต์แล้วอัตโนมัติ
-- บรรทัดนับถอยหลัง (`⚡ RATE UP — ends in 2d 5h`) โผล่บนเมนู; ปรับตำแหน่ง/รูปแบบที่ `theme.event-line` หรือใส่ `{event}` ใน text element
-- แก้ในเกมได้ที่ Settings editor (หน้า 3)
+- ปรับตำแหน่ง/รูปแบบนับถอยหลังที่ `theme.event-line` หรือใส่ `{event}` ใน text element
+- แก้ในเกมได้ที่ Settings editor (หน้า 3) — เปิด banner รอบใหม่ได้โดยไม่ต้องแตะไฟล์
 
-## VIP Luck
+### กุญแจตู้ (Keys)
 
-บูสต์เรทตาม permission ทุกครั้งที่สุ่ม — เหมาะขายคู่กับ rank
+**สินค้าที่คุณเอาไปขายได้จริง** ไอเทมกุญแจเปิดตู้ **ฟรีไม่เสีย cost** — 1 ดอก/ครั้ง (10 ดอก = 10 ครั้ง)
+ผู้เล่นที่ไม่มีกุญแจจ่าย cost ปกติ
+
+```yaml
+# crates.yml — ต่อตู้
+cost: { type: MONEY, amount: 100 }
+key: "crad_gacha:starter_key"     # หรือไอเทม vanilla เช่น  key: TRIPWIRE_HOOK
+```
+
+- **`/gacha key give <ผู้เล่น> <ตู้> [จำนวน]`** ออกแบบมาให้รันจากแพ็กเกจในร้านค้า —
+  Tebex, CrazyVouchers หรืออะไรก็ได้ที่รันคำสั่ง console ตอนลูกค้าจ่ายเงิน
+- ตั้งไอเทมกุญแจในหน้า **Keys** ของ Settings editor (หรือ `crates.yml`) และแจกกุญแจให้ตัวเองไว้เทสได้ในนั้น
+- ตู้ฟรี (cost `NONE`) ไม่กินกุญแจ, เปิดล้มเหลวจะคืนกุญแจ (ไม่ใช่ cost)
+
+### VIP Luck
+
+**ทำให้ยศทุกยศที่คุณขายมีค่ามากขึ้น** บูสต์เรทตาม permission ทุกครั้งที่สุ่ม
 
 ```yaml
 # config.yml
@@ -91,46 +60,28 @@ luck:
   rarities: [EPIC, LEGENDARY]     # rarity ที่ตัวคูณจะมีผล
 ```
 
-แจก `cradgacha.luck.10` (= +10%), `cradgacha.luck.25` ฯลฯ ผ่านปลั๊กอิน rank — ค่าสูงสุดที่มีจะถูกใช้ โชว์ด้วย `{luck}` ใน text element ของ theme
-
-## กุญแจตู้ (Keys)
-
-ไอเทมกุญแจเปิดตู้ **ฟรีไม่เสีย cost** — 1 ดอก/ครั้ง (10 ดอก = 10 ครั้ง) ผู้เล่นที่ไม่มีกุญแจจ่าย cost ปกติ
-
-```yaml
-# crates.yml — ต่อตู้
-cost: { type: MONEY, amount: 100 }
-key: "crad_gacha:starter_key"     # หรือไอเทม vanilla เช่น  key: TRIPWIRE_HOOK
-```
-
-- ตั้งไอเทมกุญแจในหน้า **Keys** ของ Settings editor (หรือ `crates.yml`) และแจกกุญแจให้ตัวเองไว้เทสได้ในนั้น
-- แจกกุญแจให้ผู้เล่นด้วย **`/gacha key give <ผู้เล่น> <ตู้> [จำนวน]`** — ออกแบบมาให้รันจาก CrazyVouchers / Tebex
-- ตู้ฟรี (cost `NONE`) ไม่กินกุญแจ, เปิดล้มเหลวจะคืนกุญแจ (ไม่ใช่ cost)
+แจก `cradgacha.luck.10` (= +10%), `cradgacha.luck.25` ฯลฯ ผ่านปลั๊กอิน rank — ค่าสูงสุดที่มีจะถูกใช้
+โชว์ด้วย `{luck}` ใน text element ของ theme
 
 ---
 
-## สถิติ & ประวัติ
+## ทำให้เป็นของคุณ
 
-- **`/gacha stats [ตู้]`** *(แอดมิน)* — dashboard % ดรอปจริง vs ที่ตั้ง + อันดับคนเปิด พร้อมตัวกรองรายตู้ (จากไฟล์ audit log)
-- **`/gacha history`** *(ทุกคน — ฟรี)* — ประวัติของที่ตัวเองได้ + pity ปัจจุบันทุกตู้
+### แบนเนอร์ขยับได้ — ลาก GIF เข้าไปเลย
 
-ทั้งคู่ต้องเปิด audit log:
+ลากไฟล์ GIF เข้าเกม แล้วมันกลายเป็นแบนเนอร์แอนิเมชัน — CradGacha ตัดเฟรม ลงทะเบียน glyph
+และเขียนลงแพ็กให้เอง ไม่ต้องแก้แพ็ก ไม่ต้องใช้โปรแกรมแต่งรูป ดู **[แอนิเมชัน](/th/animations)**
 
-```yaml
-# config.yml
-reward-log:
-  enabled: true
-```
+### Live Layout Editor — `/gacha layout [ธีม]`
 
-## Live Layout Editor — `/gacha layout [ธีม]`
-
-จัด layout เมนูด้วยเมาส์แทนการปรับเลข `x`/`y` เอง
+จัด layout เมนูด้วยเมาส์แทนการปรับเลข `x`/`y` เอง — กาชาของคุณจะได้หน้าตาเหมือน *เซิร์ฟคุณ*
+ไม่ใช่ default เหมือนชาวบ้าน
 
 - `/gacha layout` = แก้ธีมที่ใช้อยู่; `/gacha layout <ชื่อ>` = สลับไปแก้ธีมนั้น (มี tab-complete) หากไม่อยากแก้ธีม default ให้โคลนก่อนที่ **`/gacha config` → Theme → Clone**
 - เปิดเมนูตู้จริงในโหมด **layout** — คลิก element เพื่อหยิบ (ลอยตามเมาส์) คลิกอีกครั้งเพื่อวาง
 - **Save** เขียนตำแหน่ง/รูป/ฟังก์ชันใหม่กลับ `theme.yml` (banner override ของตู้ลง `crates.yml`); **Exit** ยกเลิก
 
-### แถบบน (ตอนยังไม่หยิบอะไร)
+#### แถบบน (ตอนยังไม่หยิบอะไร)
 
 | ช่อง | ทำอะไร |
 |------|--------|
@@ -140,7 +91,7 @@ reward-log:
 | **Text** | พิมพ์สร้าง element ข้อความใหม่ — จะลอยตามเมาส์ คลิกเพื่อวาง |
 | **Exit** | ยกเลิกแล้วออก |
 
-### แถบตอนหยิบ element (ขณะ element ลอยตามเมาส์)
+#### แถบตอนหยิบ element (ขณะ element ลอยตามเมาส์)
 
 | ช่อง | ทำอะไร |
 |------|--------|
@@ -152,7 +103,7 @@ reward-log:
 
 - **Button Library** — รวมปุ่มทั้งหมดจาก `theme.yml` (แท็บ All / Main / Reveal / Sub Pages / Custom) คลิกเพื่อวางสำเนา (หรือในโหมด *รูป* = ตั้งภาพให้ element ที่หยิบ); **[ + Add ]** ลงทะเบียนปุ่ม glyph ใหม่โดยเขียน `font_image` ลงแพ็ก ItemsAdder (แล้ว `/iazip`), **[ - Remove ]** ถอดปุ่ม custom
 
-### ฟังก์ชันของปุ่ม (ปุ่ม **ฟังก์ชัน**)
+#### ฟังก์ชันของปุ่ม (ปุ่ม **ฟังก์ชัน**)
 
 ใส่ค่าเหล่านี้เพื่อทำให้ element ข้อความ/รูป กลายเป็นปุ่มที่กดได้จริง บันทึกลง `theme.yml` เป็น `elements.<id>.action` (+ `param`) พร้อม hitbox ให้กดได้อัตโนมัติ
 
@@ -173,6 +124,83 @@ reward-log:
 
 ---
 
+## ไม่ต้องเปิดไฟล์ YAML อีกเลย
+
+ทุกอย่างข้างบน — และทุกรางวัล, cost, pity, อัตราดรอป — แก้ในเกมได้หมดบนแผง cursor
+
+### Reward Editor ในเกม — `/gacha edit <ตู้>`
+
+แก้รางวัลของตู้ในเกมล้วน ๆ — ไม่ต้องแตะ YAML ไม่ต้อง reload
+
+- **รายการรางวัล** — ทุกรางวัลเป็นกริดไอคอน; ชี้เพื่อดู (ชื่อ + lore) คลิกเพื่อแก้
+- **ต่อรางวัล (หน้า 1):** ชื่อ, ไอเทม, จำนวน, rarity, ยกเว้น duplicate→spark, คำสั่ง (เพิ่ม/ล้าง)
+- **ต่อรางวัล (หน้า 2):** **ขนาด** ที่โชว์บนการ์ด, **ข้อความตอนได้** (แชท) และ **title ตอนได้** (ตัวใหญ่กลางจอ) รองรับ `{reward}` / `{player}`
+- **ตั้งจากของในมือ** — คลิกที่ preview เพื่อก็อปไอเทมที่ถืออยู่ (ตรวจ ItemsAdder / Nexo / Oraxen / MMOItems / vanilla ให้เอง)
+- **[ Inventory ]** — เลือกไอเทมรางวัลจาก**กระเป๋า**เป็นกริด ตั้งของหลายชิ้นได้โดยไม่ต้องปิดเมนูไปสลับของในมือ
+- **[ + Add ]** เพิ่มรางวัล, **[ Delete Reward ]**, **[ 🎲 Test 1000 ]** (ดู Simulator), **[ ⚙ Settings ]**
+- **[ Reset ]** (ขวาบน) — ทิ้งการแก้ที่ยังไม่ save แล้วโหลดตู้จากดิสก์ใหม่ ต้องคลิก 2 ครั้ง (ถาม *Discard changes?* ก่อน) กันกดโดนพลาด
+- **Submit & Save** เขียน `crates.yml` แล้ว reload ปลั๊กอิน ช่องพิมพ์ใช้ **Dialog API** ของเกมบน 1.21.6+ (ช่องกรอกจริง) เซิร์ฟเก่ากว่านั้นใช้พิมพ์ในแชทแทน
+
+### Crate Settings editor
+
+เข้าจากปุ่ม **[ ⚙ Settings ]** ในeditor — แผง 4 หน้า ครอบคลุม key ของตู้ (เกือบ) ทั้งหมด:
+
+1. **General / Cost / Pity** — ชื่อ, เปิด/ปิด, cost type/จำนวน/ไอเทม, pity เปิด/ปิด + rarity + เกณฑ์, ไอเทมที่โชว์
+2. **Drops / Extras** — broadcast, duplicate→spark + จำนวน, wishlist (เปิด/สูงสุด/rarity), ร้าน spark + title + หน้าย่อยไอเทม
+3. **Rate-Up Event** — วันเริ่ม/จบ + ตัวคูณ weight ต่อ rarity
+4. **Keys** — ไอเทมกุญแจ + แจกกุญแจให้ตัวเองไว้เทส
+
+เขียนกลับเฉพาะ key ที่คุณแก้จริง ค่าที่จูนมือไว้ (ตำแหน่ง banner/ปุ่ม ฯลฯ) จึงไม่หาย
+
+### สร้างตู้ — `/gacha create <id>`
+
+สร้างตู้ใหม่จากศูนย์ในเกม 100%: เขียนโครงตู้ (ปิดไว้) ลง `crates.yml`, reload แล้วเปิด editor ให้เลย
+เพิ่มรางวัล ตั้ง cost & pity แล้วเปิดใช้งานใน Settings จบ
+
+### Global Config editor — `/gacha config`
+
+ปรับค่า **global** บนแผง cursor — ไม่ต้องแตะ YAML แต่ละช่องเขียนกลับไฟล์ต้นทางจริง
+(`cursor.yml` / `config.yml` / `theme.yml`) แล้ว reload ให้ **ชี้ที่ชื่อ setting** เพื่อดูคำอธิบายว่ามันทำอะไร
+
+- **Mouse & Cursor** — **ความเร็วเมาส์** (ค่าเดียว; สูง = ไว — ระยะที่เมาส์ไปถึงกำหนดโดยขนาดเมนู ไม่ใช่ความเร็ว), ui-scale, cursor smoothing
+- **Cursor Feel** — ขนาดเป้า, magnetic snap (เปิด/แรง/รัศมี)
+- **Menu** — ซ่อนมือ, เคลียร์อากาศ, body double, เปิดสูงสุด (x10), clear-area เปิด/ปิด + รัศมี
+- **Gameplay** — ต้องยืนบนพื้น, เช็คช่องว่างกระเป๋า, cooldown, reward log, VIP luck
+- **Effects** — การ์ดเรืองแสง, pull suspense, โมเดล 3D ตอนเปิด, pity default
+- **Rarities** — ต่อ rarity: weight, ประกาศ, สีเรืองแสง
+
+ตัวเลขใช้ปุ่ม −/+ (หรือคลิกที่ค่าเพื่อพิมพ์เลขตรง ๆ); toggle กดสลับ; enum กดวน
+
+> setting ที่ทำให้เมนูพังใช้ไม่ได้ (โหมดกล้อง, ระยะระนาบ cursor, ขอบเขต cursor) **จงใจ**ไม่เอามาไว้ตรงนี้ — อยู่ใน `cursor.yml` เหมือนเดิม
+
+---
+
+## รู้ว่าเกิดอะไรขึ้นจริง ๆ
+
+### สถิติ & ประวัติ
+
+- **`/gacha stats [ตู้]`** *(แอดมิน)* — dashboard % ดรอปจริง vs ที่ตั้ง + อันดับคนเปิด พร้อมตัวกรองรายตู้ (จากไฟล์ audit log)
+- **`/gacha history`** *(ทุกคน — ฟรี)* — ประวัติของที่ตัวเองได้ + pity ปัจจุบันทุกตู้
+
+ทั้งคู่ต้องเปิด audit log:
+
+```yaml
+# config.yml
+reward-log:
+  enabled: true
+```
+
+### Simulator สุ่ม 1,000 ครั้ง
+
+ปุ่ม **[ 🎲 Test 1000 ]** ในeditor สุ่มตู้ (ค่าที่ save ล่าสุด) 1,000 ครั้ง โชว์ % ที่ออกจริงต่อ rarity เทียบกับ % ที่ตั้ง — เช็คเร็วๆ ว่า weight รู้สึกถูกไหม (และ rate-up บูสต์ตรงจุดไหม)
+
+### Developer API
+
+Bukkit event (`GachaPreOpenEvent` — ยกเลิกได้, `GachaOpenEvent`) พร้อม facade `CradGachaAPI` สำหรับเปิดตู้
+จัดการ token และคุมการเปิดจากปลั๊กอินของคุณเอง ดู **[Developer API](/th/developer-api)**
+
+---
+
 ## ฟรี vs พรีเมียม โดยสรุป
 
 | ฟีเจอร์ | ฟรี | พรีเมียม |
@@ -181,8 +209,29 @@ reward-log:
 | Duplicate→Spark, Spark Exchange, Wishlist, Token Shop | ✅ | ✅ |
 | ขอบเรืองแสง, ขนาด/ข้อความ/title รายรางวัล | ✅ | ✅ |
 | `/gacha history`, PlaceholderAPI | ✅ | ✅ |
+| แอนิเมชันเปิดตู้แบบโมเดล 3D (BetterModel / ModelEngine) | ✅ | ✅ |
 | จำนวนตู้ | สูงสุด 3 | ไม่จำกัด |
-| editor / สร้างตู้ / settings ในเกม | — | ✅ |
-| Rate-Up event, VIP luck, กุญแจตู้ | — | ✅ |
-| `/gacha stats`, live layout editor | — | ✅ |
+| **Rate-Up event, กุญแจตู้, VIP luck** | — | ✅ |
+| **นำเข้า GIF + แบนเนอร์ขยับได้** | — | ✅ |
+| Live layout editor | — | ✅ |
+| editor / สร้างตู้ / settings / config ในเกม | — | ✅ |
+| `/gacha stats` + simulator 1,000 ครั้ง | — | ✅ |
 | **Developer API** (event + `CradGachaAPI`) | — | ✅ |
+
+::: tip พร้อมแล้ว?
+**[รับ CradGacha Premium — $14.99 →](https://mineassets.com/p/crad-gacha-archived-mcmodels-e64dhv53)**
+:::
+
+---
+
+## วิธีติดตั้งพรีเมียม
+
+CradGacha มี **2 jar แยกกัน** ฟีเจอร์พรีเมียมอยู่ใน source set แยก jar ฟรีจึงไม่มีโค้ดพรีเมียมอยู่จริง
+
+1. ลบ `CradGacha-x.jar` (ตัวฟรี) ออกจาก `plugins/`
+2. วาง `CradGacha-Premium-x.jar` แทน
+3. รีสตาร์ท คำสั่งพรีเมียมทำงานเอง ไม่ต้องตั้งค่าเพิ่ม
+
+`config.yml`, `crates.yml` และ `theme.yml` ของคุณใช้ต่อได้เลย ไม่ต้องแก้อะไร
+
+> **ไม่ใช่แค่ flag** — ถ้าคำสั่งไหนเขียนว่า *"พรีเมียม"* jar ฟรีจะขึ้นข้อความชวนอัปเกรดแล้วไม่ทำอะไร

@@ -36,3 +36,43 @@
 
 /* Slightly wider content for the dense reference tables */
 .VPDoc.has-aside .content-container { max-width: 760px; }
+
+/* ===== Buy card =====
+   The premium page is where every in-game upsell link lands, so it opens with a call to action
+   shaped like VitePress's own prev/next pager card — a familiar, clickable affordance rather than
+   a link buried in a paragraph. Built only from VitePress's public CSS variables, so it follows the
+   theme (incl. light mode) without hardcoding a single colour. */
+.buy-card {
+  display: block;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 11px 16px 13px;
+  width: 100%;
+  transition: border-color 0.25s;
+  text-decoration: none !important;
+}
+
+.buy-card:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+.buy-card .desc {
+  display: block;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+}
+
+.buy-card .title {
+  display: block;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vp-c-brand-1);
+  transition: color 0.25s;
+}
+
+.buy-card:hover .title {
+  color: var(--vp-c-brand-2);
+}

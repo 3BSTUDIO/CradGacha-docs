@@ -34,6 +34,8 @@ title: คำสั่ง
 | `/gacha stats [crate]` | dashboard % ดรอป + อันดับคนเปิด (จาก reward log) | `cradgacha.admin` |
 | `/gacha layout [ธีม]` | layout editor — ลาก element, พิมพ์แก้ข้อความ, ตั้งรูปจาก Library, ใส่ฟังก์ชันคลิก; ใส่ชื่อธีมเพื่อสลับไปแก้ธีมนั้น | `cradgacha.admin` |
 | `/gacha config` | ตั้งค่า global ในเกม — ความไวเมาส์, ขอบเคอร์เซอร์, ui-scale, เอฟเฟกต์, rarities (รวม glow) — ไม่ต้องแตะ YAML **ชี้เมาส์ที่ชื่อ setting เพื่อดูคำอธิบาย** | `cradgacha.admin` |
+| `/gacha import <url> [ชื่อ]` | ดาวน์โหลด PNG หรือ GIF เข้าแพ็กที่ใช้อยู่ (GIF ถูกตัดเป็นเฟรมแอนิเมชันอัตโนมัติ) — ดู [แอนิเมชัน](/th/animations) | `cradgacha.admin` |
+| `/gacha import file <ไฟล์> [ชื่อ]` | แบบเดียวกันแต่อ่านจากไฟล์ใน `plugins/CradGacha/import/` (สำหรับเซิร์ฟไม่มีเน็ตขาออก) | `cradgacha.admin` |
 
 ## ตัวอย่าง
 
