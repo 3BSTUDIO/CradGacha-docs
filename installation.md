@@ -81,6 +81,7 @@ is set to. If you do reference items yourself, CradGacha reads each value by **n
 | `provider:<name>` | the built-in UI image for the active provider (recommended) |
 | `nexo:<id>` | a **Nexo** item |
 | `oraxen:<id>` | an **Oraxen** item |
+| `craftengine:<id>` | a **CraftEngine** item |
 | `mmoitems:<TYPE>:<id>` (e.g. `mmoitems:SWORD:CUTLASS`) | an **MMOItems** item |
 | `crad_gacha:<id>` | an **ItemsAdder** item |
 | `vanilla:crad_gacha:<id>` | a plain item carrying the `item_model` component (vanilla mode) |

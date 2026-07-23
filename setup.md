@@ -64,11 +64,15 @@ broken menu. (You can also just run 1.21.5+, or install a provider build matchin
 
 ```yaml
 ui:
-  item-provider: auto     # auto | itemsadder | nexo | oraxen | vanilla
+  item-provider: auto     # auto | itemsadder | nexo | oraxen | craftengine | vanilla
   namespace: crad_gacha   # the pack namespace (ItemsAdder / vanilla)
 ```
 
-`auto` picks ItemsAdder > Nexo > Oraxen if installed, otherwise vanilla. In the shipped `theme.yml` /
+`auto` picks ItemsAdder > Nexo > Oraxen if installed, otherwise the vanilla pack. **CraftEngine** is
+supported for reward/cost items (`craftengine:<id>`) but has no bundled CradGacha UI pack, so `auto`
+keeps the menu images on the self-hosted vanilla pack even when CraftEngine is present — pin
+`item-provider: craftengine` only if you've added the UI images to a CraftEngine pack yourself. In the
+shipped `theme.yml` /
 `cursor.yml`, images are written as `provider:<name>` (e.g. `provider:menu_background`); the `provider:` token
 expands to the active prefix at runtime, so one config works everywhere.
 

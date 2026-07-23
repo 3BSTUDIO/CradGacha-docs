@@ -157,5 +157,54 @@ export default defineConfig({
         }
       }
     }
+
+    // Vietnamese (community translation, in progress). Ready to activate: once the translated pages are in
+    // docs/vi/, uncomment this whole block and deploy. It is scoped to the 7 priority pages that get
+    // translated first, so no sidebar link points at a page that doesn't exist yet — add more entries as
+    // further pages are translated. Labels are standard Vietnamese tech terms; have the native translator
+    // confirm them when the content lands.
+    /*
+    ,vi: {
+      label: 'Tiếng Việt',
+      lang: 'vi',
+      link: '/vi/',
+      themeConfig: {
+        nav: [
+          { text: 'Hướng dẫn', link: '/vi/' },
+          { text: 'Cài đặt', link: '/vi/installation' },
+          { text: 'Premium', link: '/vi/premium' }
+        ],
+        sidebar: {
+          '/vi/': [
+            {
+              text: 'Bắt đầu',
+              collapsed: false,
+              items: [
+                { text: 'Giới thiệu', link: '/vi/' },
+                { text: 'Cài đặt', link: '/vi/installation' },
+                { text: 'Thiết lập ban đầu', link: '/vi/first-setup' }
+              ]
+            },
+            {
+              text: 'Tham khảo',
+              collapsed: false,
+              items: [
+                { text: 'Lệnh', link: '/vi/commands' },
+                { text: 'Premium', link: '/vi/premium' }
+              ]
+            },
+            {
+              text: 'Trợ giúp',
+              collapsed: false,
+              items: [
+                { text: 'Khắc phục sự cố', link: '/vi/troubleshooting' },
+                { text: 'Câu hỏi thường gặp', link: '/vi/faq' }
+              ]
+            }
+          ]
+        }
+      }
+    }
+    */
   }
 })

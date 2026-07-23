@@ -6,6 +6,10 @@ title: Changelog
 
 ## 1.0.3
 
+**New: CraftEngine support**
+
+- **CraftEngine is now a supported item provider** (free build too) — a free, open-source alternative to ItemsAdder / Nexo / Oraxen. Use `craftengine:<id>` for any reward, cost item, crate icon or menu image. Custom-item rewards work out of the box; for the menu **images**, keep `ui.item-provider: vanilla` (the self-hosted pack) unless you've added the UI art to a CraftEngine pack yourself. See [Crates](/crates).
+
 **Animated banners (Premium)**
 
 - **New `/gacha import <url>` — drop a GIF into the game and it becomes an animated banner.** The importer downloads a PNG or GIF (or reads one from `plugins/CradGacha/import/`), slices the GIF into frames with the built-in decoder — no external tool — and writes the frames and glyph entries straight into your active pack (ItemsAdder / Nexo / Oraxen). Up to 64 frames, 2 MB.
