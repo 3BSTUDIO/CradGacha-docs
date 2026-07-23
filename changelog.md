@@ -4,6 +4,18 @@ title: Changelog
 
 # Changelog
 
+## 1.0.3
+
+**Animated banners (Premium)**
+
+- **New `/gacha import <url>` — drop a GIF into the game and it becomes an animated banner.** The importer downloads a PNG or GIF (or reads one from `plugins/CradGacha/import/`), slices the GIF into frames with the built-in decoder — no external tool — and writes the frames and glyph entries straight into your active pack (ItemsAdder / Nexo / Oraxen). Up to 64 frames, 2 MB.
+- **Font Glyph Animation engine** — any menu element can now cycle a frame sequence (GIF-style), and `model.provider: GLYPH` plays a frame animation as the crate-open sequence with no ModelEngine or BetterModel needed. Per-rarity frame sets and play times are supported.
+- These are **Premium** features. The free build plays its full 3D open-animations (BetterModel / ModelEngine) as before; animation elements render their first frame statically. See the [Animations guide](/animations).
+
+**Premium upsell**
+
+- Every "this is a Premium feature" notice now carries a one-line benefit and a **clickable buy link** instead of stopping dead — including the crate-cap and rate-up notices in the console. The link is configurable under `premium.url` / `premium.label`, defaulting to the wiki's premium page.
+
 ## 1.0.2
 
 **Setup & first run**
