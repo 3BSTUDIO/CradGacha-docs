@@ -265,11 +265,35 @@ server-side; the clone vanishes the instant the menu closes. Set `false` to let 
 
 ---
 
-## language.yml (all text)
+## Language
 
-Every system message lives in `language.yml` so it can be translated/recoloured without touching code.
-Missing keys fall back to built-in English defaults, so an old file never breaks. Supports `&` colours
-and `{placeholders}` such as `{cost} {balance} {amount} {seconds} {crate} {reward} {token_name} {token_name_plural}`.
+CradGacha ships with **12 built-in languages** for the in-game text. Pick one in `config.yml`:
+
+```yaml
+language: en   # en th pt es id zh ru ko ja de fr pl
+```
+
+| Code | Language | Code | Language | Code | Language |
+|------|----------|------|----------|------|----------|
+| `en` | English | `id` | Bahasa Indonesia | `ja` | 日本語 |
+| `th` | ไทย | `zh` | 简体中文 | `de` | Deutsch |
+| `pt` | Português (BR) | `ru` | Русский | `fr` | Français |
+| `es` | Español | `ko` | 한국어 | `pl` | Polski |
+
+A code with no bundled translation falls back to English (a warning is logged). Missing keys within a
+language also fall back to English, so a partial translation never breaks.
+
+::: warning Switching an existing server
+`language.yml` in the plugin folder **overrides** the chosen language per key. English servers get one
+created automatically. If you're switching an older install to another language and still see English,
+**delete `language.yml`** (or clear its `messages:` block) so the chosen language shows through.
+:::
+
+### language.yml (per-key overrides)
+
+To fine-tune individual lines, edit `language.yml` — any key set there wins over the chosen language.
+Missing keys fall back to the language, then to built-in English. Supports `&` colours and
+`{placeholders}` such as `{cost} {balance} {amount} {seconds} {crate} {reward} {token_name} {token_name_plural}`.
 
 ```yaml
 messages:

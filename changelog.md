@@ -6,6 +6,11 @@ title: Changelog
 
 ## 1.0.3
 
+**New: 12 built-in languages**
+
+- The in-game text now ships in **12 languages** — English, ไทย, Português (BR), Español, Bahasa Indonesia, 简体中文, Русский, 한국어, 日本語, Deutsch, Français, Polski. Set `language: <code>` in `config.yml` (e.g. `language: pt`). See [Configuration → Language](/configuration#language).
+- `language.yml` still works as a per-key override on top of the chosen language, so you can tweak individual lines. Switching an older English install? Delete `language.yml` so the new language shows (it otherwise overrides with English).
+
 **New: CraftEngine support**
 
 - **CraftEngine is now a supported item provider** (free build too) — a free, open-source alternative to ItemsAdder / Nexo / Oraxen. Use `craftengine:<id>` for any reward, cost item, crate icon or menu image. Custom-item rewards work out of the box; for the menu **images**, keep `ui.item-provider: vanilla` (the self-hosted pack) unless you've added the UI art to a CraftEngine pack yourself. See [Crates](/crates).
