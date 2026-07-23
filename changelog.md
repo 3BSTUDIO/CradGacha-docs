@@ -10,6 +10,7 @@ title: Changelog
 
 - The in-game text now ships in **12 languages** — English, ไทย, Português (BR), Español, Bahasa Indonesia, 简体中文, Русский, 한국어, 日本語, Deutsch, Français, Polski. Set `language: <code>` in `config.yml` (e.g. `language: pt`). See [Configuration → Language](/configuration#language).
 - `language.yml` still works as a per-key override on top of the chosen language, so you can tweak individual lines. Switching an older English install? Delete `language.yml` so the new language shows (it otherwise overrides with English).
+- The **`/gacha config` editor** (Premium) now shows its page titles and setting names in the chosen language too. The longer hover tooltips stay English for now and can be filled per language via the `ui:` section of a language file (they fall back to English until then).
 
 **New: CraftEngine support**
 
