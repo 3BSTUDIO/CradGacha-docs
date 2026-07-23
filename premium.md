@@ -103,7 +103,7 @@ Redesign the menu with the mouse instead of tuning `x`/`y` numbers by hand — s
 | **Image** | open the Library and click any image to set it as this element's look |
 | **Function** | give it a click action (see the table below); type `none` to clear |
 
-- **Button Library** popup — lists every button defined in `theme.yml` (tabs: All / Main / Reveal / Sub Pages / Custom); click one to place a copy (or, in *Image* mode, to set the held element's image). **[ + Add ]** registers a new glyph button by writing a `font_image` into your ItemsAdder pack (then run `/iazip`), and **[ - Remove ]** unregisters custom ones.
+- **Button Library** popup — lists every button defined in `theme.yml` (tabs: All / Main / Reveal / Sub Pages / Custom); click one to place a copy (or, in *Image* mode, to set the held element's image). **[ + Add ]** registers a new glyph button by writing a `font_image` into your ItemsAdder pack (then run `/iazip`), **[ ⬇ Import ]** pulls a GIF/PNG straight from a URL into your pack (a GIF is sliced into frames you can place with **[ 🎬 Animation ]** — same as `/gacha import`, but without leaving the editor), and **[ - Remove ]** unregisters custom ones.
 
 #### Element functions (the **Function** button)
 
@@ -166,7 +166,7 @@ one-line description of what it does.
 
 - **Mouse & Cursor** — **mouse speed** (one value; higher = faster — the reachable area is set by the menu size, not the speed), UI scale, cursor smoothing.
 - **Cursor Feel** — crosshair size, magnetic snap (on/strength/radius).
-- **Menu** — hide hand, clear weather, body double, max open (x10), clear-area on/off + radius.
+- **Menu** — **language** (cycle through all 12 built-in languages, no YAML — switching also clears an overriding default `language.yml` for you), hide hand, clear weather, body double, max open (x10), clear-area on/off + radius.
 - **Gameplay** — require-on-ground, inventory-space check, cooldown, reward log, VIP luck.
 - **Effects** — card glow, pull suspense, 3D open model, global pity default.
 - **Rarities** — per rarity: weight, announce, glow color.
