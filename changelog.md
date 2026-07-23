@@ -4,15 +4,20 @@ title: Changelog
 
 # Changelog
 
-## 1.0.3
+## 1.0.4
 
 **New: 12 built-in languages**
 
 - The in-game text now ships in **12 languages** — English, ไทย, Português (BR), Español, Bahasa Indonesia, 简体中文, Русский, 한국어, 日本語, Deutsch, Français, Polski. Set `language: <code>` in `config.yml` (e.g. `language: pt`). See [Configuration → Language](/configuration#language).
 - `language.yml` still works as a per-key override on top of the chosen language, so you can tweak individual lines. Switching an older English install? Delete `language.yml` so the new language shows (it otherwise overrides with English).
 - The **`/gacha config` editor** (Premium) is now fully localized — page titles, setting names, and the hover tooltips all follow the chosen language. Any untranslated string falls back to English automatically.
-- **Pick your language in-game** — the `/gacha config` **Menu** page has a **Language** selector that cycles all 12 languages and reloads instantly (it also clears an overriding default `language.yml` so the switch shows). No YAML needed.
+
+**New: everything editable in-game**
+
+- **Pick your language in-game** — the `/gacha config` **Menu** page has a **Language** selector that cycles all 12 languages and reloads instantly (it also clears an overriding default `language.yml` so the switch shows). No YAML needed. Premium.
 - **Import a GIF from the layout editor** — the Button Library popup has a new **[ ⬇ Import ]** button: paste a GIF/PNG URL and it's pulled into your pack without leaving the editor (a GIF becomes frames for **[ 🎬 Animation ]**). Premium.
+
+## 1.0.3
 
 **New: CraftEngine support**
 
