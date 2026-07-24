@@ -64,6 +64,44 @@ luck:
 Grant `cradgacha.luck.10` (= +10%), `cradgacha.luck.25`, etc. via your rank plugin — the highest node
 the player has wins. Show it off with the `{luck}` placeholder in a theme text element.
 
+### Season Pass
+
+**A battle-pass for your gacha — and a new thing to sell.** Players earn XP by opening crates (and by
+completing Diary quests, or via `/gacha pass addxp` / the API), level up, and claim rewards on a **free
+track** and a **premium track**. The premium track unlocks with a permission you sell in your store.
+
+```yaml
+# pass.yml
+pass:
+  premium-permission: "cradgacha.pass.premium"   # sell this in your store (Tebex/vouchers)
+  xp: { per-open: 10, per-quest: 50 }
+  xp-per-level: 100
+  max-level: 30
+  levels:
+    5:
+      free:    [ "gacha token give {player} 10" ]
+      premium: [ "gacha key give {player} starter 3" ]
+```
+
+- `/gacha pass` — in-game cursor menu: level, XP bar, one-click claims.
+- Admin: `/gacha pass addxp <player> <n>` · `/gacha pass reset [player|all]` (start a new season).
+- Rewards are console commands (`{player}`) — items, money, keys, anything.
+
+### Daily Diary
+
+**Daily goals that keep players logging in.** Quests defined in `quests.yml` reset each day; finishing one
+grants rewards **and Season Pass XP**, so the two features feed each other.
+
+```yaml
+# quests.yml — types: open · cards · crate:<id> · rarity:<RARITY>
+diary:
+  quests:
+    daily_open:  { name: "Open 5 crates",   type: open,          target: 5,  xp: 30, rewards: [ "gacha token give {player} 5" ] }
+    daily_rare:  { name: "Pull 3 Rare",     type: "rarity:RARE", target: 3,  xp: 50, rewards: [ "gacha key give {player} starter 1" ] }
+```
+
+`/gacha diary` opens the quest menu with progress and one-click claims.
+
 ---
 
 ## Make it yours
@@ -215,6 +253,7 @@ crates, manage tokens and gate opens from your own plugins. See **[Developer API
 | 3D open animation (BetterModel / ModelEngine) | ✅ | ✅ |
 | Number of crates | up to 3 | unlimited |
 | **Rate-Up events, crate keys, VIP luck** | — | ✅ |
+| **Season Pass (free + premium track) + Daily Diary quests** | — | ✅ |
 | **GIF importer + animated banners** | — | ✅ |
 | Live layout editor | — | ✅ |
 | In-game editor / creator / settings / config | — | ✅ |

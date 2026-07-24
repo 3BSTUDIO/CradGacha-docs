@@ -4,6 +4,17 @@ title: Changelog
 
 # Changelog
 
+## 1.0.5
+
+**New: Season Pass (Premium)**
+
+- **A battle-pass for your gacha.** Players earn **XP** by opening crates (and completing Diary quests, or via `/gacha pass addxp` / the API), level up, and claim rewards on a **free track** and a **premium track**. The premium track is gated on a permission (`cradgacha.pass.premium`) you **sell in your store** — a new revenue stream. Rewards are console commands, so you can hand out items, money, keys, anything.
+- In-game cursor menu (`/gacha pass`): level, XP bar, and one-click reward claims. Admin: `/gacha pass addxp <player> <n>` · `/gacha pass reset [player|all]` (new season). Config in `pass.yml`.
+
+**New: Daily Diary quests (Premium)**
+
+- **Daily goals that bring players back.** Quests defined in `quests.yml` (open N crates, reveal N cards, open a specific crate, pull a rarity…) reset each day; completing and claiming one grants rewards **and Season Pass XP**. In-game menu: `/gacha diary`.
+
 ## 1.0.4
 
 **New: 12 built-in languages**
