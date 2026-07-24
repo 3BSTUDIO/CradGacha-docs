@@ -15,6 +15,10 @@ title: Changelog
 
 - **Daily goals that bring players back.** Quests defined in `quests.yml` (open N crates, reveal N cards, open a specific crate, pull a rarity…) reset each day; completing and claiming one grants rewards **and Season Pass XP**. In-game menu: `/gacha diary`.
 
+**Also**
+
+- **Sertraline-Hydrochloride** is now a supported item provider (free build too). Use `sertraline:<id>` for any reward or cost item. See [Crates](/crates).
+
 ## 1.0.4
 
 **New: 12 built-in languages**

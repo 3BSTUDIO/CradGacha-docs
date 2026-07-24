@@ -181,6 +181,7 @@ expected by writing its **`namespace:id`**. The matching plugin just needs to be
 | Nexo | `nexo:id` | `nexo:ruby` |
 | Oraxen | `oraxen:id` | `oraxen:ruby` |
 | CraftEngine | `craftengine:id` | `craftengine:ruby` |
+| Sertraline | `sertraline:id` | `sertraline:my_sword` |
 | MMOItems | `mmoitems:TYPE:ID` | `mmoitems:SWORD:CUTLASS` |
 | Vanilla | material name | `DIAMOND` |
 
