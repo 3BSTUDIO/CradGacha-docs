@@ -182,6 +182,7 @@ expected by writing its **`namespace:id`**. The matching plugin just needs to be
 | Oraxen | `oraxen:id` | `oraxen:ruby` |
 | CraftEngine | `craftengine:id` | `craftengine:ruby` |
 | Sertraline | `sertraline:id` | `sertraline:my_sword` |
+| ExecutableItems | `executableitems:id` | `executableitems:magic_wand` |
 | MMOItems | `mmoitems:TYPE:ID` | `mmoitems:SWORD:CUTLASS` |
 | Vanilla | material name | `DIAMOND` |
 

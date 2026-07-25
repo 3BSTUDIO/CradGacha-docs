@@ -17,7 +17,7 @@ title: Changelog
 
 **Also**
 
-- **Sertraline-Hydrochloride** is now a supported item provider (free build too). Use `sertraline:<id>` for any reward or cost item. See [Crates](/crates).
+- **Sertraline-Hydrochloride** and **ExecutableItems** (Ssomar) are now supported item providers (free build too). Use `sertraline:<id>` / `executableitems:<id>` for any reward or cost item. See [Crates](/crates).
 
 ## 1.0.4
 
