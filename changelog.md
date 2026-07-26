@@ -4,6 +4,16 @@ title: Changelog
 
 # Changelog
 
+## 1.0.6
+
+**Item providers — clearer errors, load-order proof**
+
+- **Fixed:** an item id like `executableitems:<id>` could fall back to **stone** with only a vague *"unresolved custom id"* warning when its provider wasn't hooked. Provider ids are now always routed to their provider, and an unavailable one says so **by name** (e.g. *"ExecutableItems is not installed/loaded on this server"*), so the log tells you what to fix.
+- **Fixed:** CraftEngine / Sertraline / ExecutableItems were detected once at startup, so a provider that enabled **after** CradGacha stayed unusable until a restart. Detection is now live.
+- If a provider id shows as stone, check the `Integrations ->` line in your startup log — it must list that provider as `found`.
+
+> **Note on 1.0.5:** ExecutableItems and Sertraline support was added *during* the 1.0.5 cycle, so some 1.0.5 builds don't include it. **1.0.6 is the first version guaranteed to have both.**
+
 ## 1.0.5
 
 **New: Season Pass (Premium)**
