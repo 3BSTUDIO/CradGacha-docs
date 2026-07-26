@@ -4,6 +4,16 @@ title: Changelog
 
 # Changelog
 
+## 1.0.7
+
+**Fixed: ExecutableItems reported as "not installed" when it was installed**
+
+- **The real fix for the stone fallback.** The ExecutableItems API classes ship in **SCore**, not in ExecutableItems itself, and modern Paper isolates plugin class loaders unless the dependency is declared — CradGacha only declared `ExecutableItems`, so the API was invisible and the provider looked absent even on servers running it. `SCore` is now declared too.
+- Also removed a guessed class name in that hook (the item interface's package isn't documented; it's now resolved from the object itself), so a package move upstream can't break it.
+- **Fixed:** a failed provider probe was cached forever, so a provider that finished loading *after* CradGacha stayed unusable until a restart. Failed probes are now retried; only a success is cached. Affects CraftEngine, Sertraline and ExecutableItems.
+
+> Running 1.0.6 with ExecutableItems and seeing *"not installed"* in `/gacha doctor`? **Update to 1.0.7** — that's this bug.
+
 ## 1.0.6
 
 **Item providers — clearer errors, load-order proof**
