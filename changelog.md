@@ -4,26 +4,6 @@ title: Changelog
 
 # Changelog
 
-## 1.0.7
-
-**Fixed: ExecutableItems reported as "not installed" when it was installed**
-
-- **The real fix for the stone fallback.** The ExecutableItems API classes ship in **SCore**, not in ExecutableItems itself, and modern Paper isolates plugin class loaders unless the dependency is declared — CradGacha only declared `ExecutableItems`, so the API was invisible and the provider looked absent even on servers running it. `SCore` is now declared too.
-- Also removed a guessed class name in that hook (the item interface's package isn't documented; it's now resolved from the object itself), so a package move upstream can't break it.
-- **Fixed:** a failed provider probe was cached forever, so a provider that finished loading *after* CradGacha stayed unusable until a restart. Failed probes are now retried; only a success is cached. Affects CraftEngine, Sertraline and ExecutableItems.
-
-> Running 1.0.6 with ExecutableItems and seeing *"not installed"* in `/gacha doctor`? **Update to 1.0.7** — that's this bug.
-
-## 1.0.6
-
-**Item providers — clearer errors, load-order proof**
-
-- **Fixed:** an item id like `executableitems:<id>` could fall back to **stone** with only a vague *"unresolved custom id"* warning when its provider wasn't hooked. Provider ids are now always routed to their provider, and an unavailable one says so **by name** (e.g. *"ExecutableItems is not installed/loaded on this server"*), so the log tells you what to fix.
-- **Fixed:** CraftEngine / Sertraline / ExecutableItems were detected once at startup, so a provider that enabled **after** CradGacha stayed unusable until a restart. Detection is now live.
-- If a provider id shows as stone, check the `Integrations ->` line in your startup log — it must list that provider as `found`.
-
-> **Note on 1.0.5:** ExecutableItems and Sertraline support was added *during* the 1.0.5 cycle, so some 1.0.5 builds don't include it. **1.0.6 is the first version guaranteed to have both.**
-
 ## 1.0.5
 
 **New: Season Pass (Premium)**
@@ -35,9 +15,11 @@ title: Changelog
 
 - **Daily goals that bring players back.** Quests defined in `quests.yml` (open N crates, reveal N cards, open a specific crate, pull a rarity…) reset each day; completing and claiming one grants rewards **and Season Pass XP**. In-game menu: `/gacha diary`.
 
-**Also**
+**New item providers**
 
 - **Sertraline-Hydrochloride** and **ExecutableItems** (Ssomar) are now supported item providers (free build too). Use `sertraline:<id>` / `executableitems:<id>` for any reward or cost item. See [Crates](/crates).
+- **`/gacha doctor` now lists every custom-item provider** — CraftEngine, Sertraline and ExecutableItems included — so you can confirm at a glance which ones are hooked.
+- **Provider ids explain themselves.** If an id like `executableitems:<id>` can't be resolved, the log now names the reason (provider not installed vs. no item with that id) instead of a generic "unresolved custom id", and a provider that finishes loading after CradGacha is picked up without a restart.
 
 ## 1.0.4
 
