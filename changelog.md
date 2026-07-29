@@ -15,10 +15,16 @@ title: Changelog
 
 - **Daily goals that bring players back.** Quests defined in `quests.yml` (open N crates, reveal N cards, open a specific crate, pull a rarity…) reset each day; completing and claiming one grants rewards **and Season Pass XP**. In-game menu: `/gacha diary`.
 
+**New: MiniMessage formatting (Premium)**
+
+- Write your menus and messages in **[MiniMessage](https://docs.papermc.io/adventure/minimessage/)** — gradients, hex colours, hover and click: `<gradient:#ff8800:#ffee00><bold>LEGENDARY</bold></gradient>`. Turn it on with `minimessage: true`.
+- **Your existing `&` colour codes keep working** — they're translated automatically, so you can mix both and convert at your own pace. A malformed tag falls back to plain rendering instead of breaking the line.
+
 **New item providers**
 
+- **MythicArmor** (3D armor sets) is now a supported item provider (free build too). Use `mythicarmor:<piece id>`, e.g. `mythicarmor:mythical_dragon_armor_chest_piece` — perfect as a Legendary reward.
 - **Sertraline-Hydrochloride** and **ExecutableItems** (Ssomar) are now supported item providers (free build too). Use `sertraline:<id>` / `executableitems:<id>` for any reward or cost item. See [Crates](/crates).
-- **`/gacha doctor` now lists every custom-item provider** — CraftEngine, Sertraline and ExecutableItems included — so you can confirm at a glance which ones are hooked.
+- **`/gacha doctor` now lists every custom-item provider** — CraftEngine, Sertraline, ExecutableItems and MythicArmor included — so you can confirm at a glance which ones are hooked.
 - **Provider ids explain themselves.** If an id like `executableitems:<id>` can't be resolved, the log now names the reason (provider not installed vs. no item with that id) instead of a generic "unresolved custom id", and a provider that finishes loading after CradGacha is picked up without a restart.
 
 ## 1.0.4

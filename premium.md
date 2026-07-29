@@ -106,6 +106,24 @@ diary:
 
 ## Make it yours
 
+### MiniMessage formatting
+
+Write every menu label and message in **[MiniMessage](https://docs.papermc.io/adventure/minimessage/)** —
+gradients, hex colours, hover text and click actions — instead of plain `&` codes.
+
+```yaml
+# config.yml
+minimessage: true
+```
+
+```yaml
+# then anywhere text is configured (theme.yml, language.yml, crates.yml)
+name: "<gradient:#ff8800:#ffee00><bold>LEGENDARY CRATE</bold></gradient>"
+```
+
+Your existing `&` codes keep working — they're translated automatically, so you can mix both and convert
+at your own pace. A malformed tag falls back to plain rendering rather than breaking the line.
+
 ### Animated banners — drag in a GIF
 
 Drop a GIF into the game and it becomes an animated banner — CradGacha slices the frames, registers
