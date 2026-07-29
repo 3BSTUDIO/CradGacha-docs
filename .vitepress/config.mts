@@ -163,7 +163,6 @@ export default defineConfig({
     // translated first, so no sidebar link points at a page that doesn't exist yet — add more entries as
     // further pages are translated. Labels are standard Vietnamese tech terms; have the native translator
     // confirm them when the content lands.
-    /*
     ,vi: {
       label: 'Tiếng Việt',
       lang: 'vi',
@@ -205,6 +204,5 @@ export default defineConfig({
         }
       }
     }
-    */
   }
 })

@@ -267,16 +267,17 @@ server-side; the clone vanishes the instant the menu closes. Set `false` to let 
 
 ## Language
 
-CradGacha ships with **12 built-in languages** for the in-game text. Pick one in `config.yml`:
+CradGacha ships with **13 built-in languages** for the in-game text. Pick one in `config.yml`:
 
 ```yaml
-language: en   # en th pt es id zh ru ko ja de fr pl
+language: en   # en th vi pt es id zh ru ko ja de fr pl
 ```
 
 | Code | Language | Code | Language | Code | Language |
 |------|----------|------|----------|------|----------|
 | `en` | English | `id` | Bahasa Indonesia | `ja` | 日本語 |
 | `th` | ไทย | `zh` | 简体中文 | `de` | Deutsch |
+| `vi` | Tiếng Việt | | | | |
 | `pt` | Português (BR) | `ru` | Русский | `fr` | Français |
 | `es` | Español | `ko` | 한국어 | `pl` | Polski |
 

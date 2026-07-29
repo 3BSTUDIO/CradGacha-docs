@@ -15,10 +15,14 @@ title: Changelog
 
 - **Daily goals that bring players back.** Quests defined in `quests.yml` (open N crates, reveal N cards, open a specific crate, pull a rarity…) reset each day; completing and claiming one grants rewards **and Season Pass XP**. In-game menu: `/gacha diary`.
 
-**New: MiniMessage formatting (Premium)**
+**New: MiniMessage formatting (both editions)**
 
-- Write your menus and messages in **[MiniMessage](https://docs.papermc.io/adventure/minimessage/)** — gradients, hex colours, hover and click: `<gradient:#ff8800:#ffee00><bold>LEGENDARY</bold></gradient>`. Turn it on with `minimessage: true`.
-- **Your existing `&` colour codes keep working** — they're translated automatically, so you can mix both and convert at your own pace. A malformed tag falls back to plain rendering instead of breaking the line.
+- Write your menus and messages in **[MiniMessage](https://docs.papermc.io/adventure/minimessage/)** — gradients, hex colours, hover and click: `<gradient:#ff8800:#ffee00><bold>LEGENDARY</bold></gradient>`. **On by default**; set `minimessage: false` for legacy-only.
+- **Your existing `&` colour codes keep working.** Only text that actually contains a `<tag>` is parsed as MiniMessage, and `&` codes inside it are translated too — so you can mix both and convert at your own pace. A malformed tag falls back to plain rendering instead of breaking the line.
+
+**New language: Tiếng Việt**
+
+- **Vietnamese** joins the bundled languages (`language: vi`) — thanks to a player from the community for the translation. The wiki is available in Vietnamese too.
 
 **New item providers**
 
