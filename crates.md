@@ -183,7 +183,7 @@ expected by writing its **`namespace:id`**. The matching plugin just needs to be
 | CraftEngine | `craftengine:id` | `craftengine:ruby` |
 | Sertraline | `sertraline:id` | `sertraline:my_sword` |
 | ExecutableItems | `executableitems:id` | `executableitems:magic_wand` |
-| MythicArmor | `mythicarmor:id` | `mythicarmor:mythical_dragon_armor_chest_piece` |
+| MythicArmor(s) | `mythicarmor:id` | `mythicarmor:mythical_dragon_armor_chest_piece` |
 | MMOItems | `mmoitems:TYPE:ID` | `mmoitems:SWORD:CUTLASS` |
 | Vanilla | material name | `DIAMOND` |
 
