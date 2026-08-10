@@ -83,7 +83,7 @@ pass:
       premium: [ "gacha key give {player} starter 3" ]
 ```
 
-- `/gacha pass` — in-game cursor menu: level, XP bar, one-click claims.
+- `/gacha pass` — in-game cursor menu: level, XP bar, one-click claims. To add a **button** instead, use `/gacha layout` → **Function** → `open_pass`.
 - Admin: `/gacha pass addxp <player> <n>` · `/gacha pass reset [player|all]` (start a new season).
 - Rewards are console commands (`{player}`) — items, money, keys, anything.
 
@@ -100,7 +100,7 @@ diary:
     daily_rare:  { name: "Pull 3 Rare",     type: "rarity:RARE", target: 3,  xp: 50, rewards: [ "gacha key give {player} starter 1" ] }
 ```
 
-`/gacha diary` opens the quest menu with progress and one-click claims.
+`/gacha diary` opens the quest menu with progress and one-click claims — or place a button with `/gacha layout` → **Function** → `open_diary`.
 
 ---
 
@@ -154,6 +154,8 @@ Assign any of these so a custom text/image element becomes a working button. Sav
 | `open_wishlist` | open the Wishlist | — |
 | `open_rates` | open the drop-rates page | — |
 | `open_history` | open the player's pull history | — |
+| `open_pass` | open the Season Pass | — |
+| `open_diary` | open the Daily Diary | — |
 | `open_count` | open this crate for N pulls | `<crate>:<count>` (e.g. `starter:10`) |
 | `open_all` | open the max pulls at once | crate id (optional) |
 | `back_to_menu` | return to the crate list | — |
