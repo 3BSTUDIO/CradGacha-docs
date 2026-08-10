@@ -24,6 +24,10 @@ title: Changelog
 
 - **Vietnamese** joins the bundled languages (`language: vi`) — thanks to a player from the community for the translation. The wiki is available in Vietnamese too.
 
+**Fixed**
+
+- **An NPC no longer blocks the menu.** Opening the gacha by right-clicking a shopkeeper NPC put its body right where the menu renders, covering the UI. Only armor-stand decorations were being hidden, so NPCs (mobs, or fake players like Citizens) slipped through — now anything standing in the way is hidden for that player while the menu is open, and restored on close. Toggle: `clear-area.hide-furniture`.
+
 **New item providers**
 
 - **MythicArmor** (3D armor sets) is now a supported item provider (free build too). Use `mythicarmor:<piece id>`, e.g. `mythicarmor:mythical_dragon_armor_chest_piece` — perfect as a Legendary reward.
