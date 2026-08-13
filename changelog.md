@@ -27,6 +27,8 @@ title: Changelog
 **Fixed**
 
 - **An NPC no longer blocks the menu.** Opening the gacha by right-clicking a shopkeeper NPC put its body right where the menu renders, covering the UI. Only armor-stand decorations were being hidden, so NPCs (mobs, or fake players like Citizens) slipped through — now anything standing in the way is hidden for that player while the menu is open, and restored on close. Toggle: `clear-area.hide-furniture`.
+- **…including NPCs that aren't really there.** **FancyNpcs** NPCs and **ModelEngine** models are drawn straight to your screen without existing as entities on the server, so nothing could hide them — they kept standing in front of the UI. Both are now hidden for the player in the menu (and only that player: everyone else sees the NPC as normal, and its right-click actions are untouched).
+- **`/gacha fix` also brings back anything left hidden**, so a player whose menu ended badly is never stuck looking at a missing NPC.
 
 **New item providers**
 
