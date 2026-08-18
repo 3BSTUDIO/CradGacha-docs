@@ -9,7 +9,10 @@ title: Changelog
 **New: Season Pass (Premium)**
 
 - **A battle-pass for your gacha.** Players earn **XP** by opening crates (and completing Diary quests, or via `/gacha pass addxp` / the API), level up, and claim rewards on a **free track** and a **premium track**. The premium track is gated on a permission (`cradgacha.pass.premium`) you **sell in your store** — a new revenue stream. Rewards are console commands, so you can hand out items, money, keys, anything.
-- In-game cursor menu (`/gacha pass`): level, XP bar, and one-click reward claims. Admin: `/gacha pass addxp <player> <n>` · `/gacha pass reset [player|all]` (new season). Config in `pass.yml`.
+- In-game cursor menu (`/gacha pass`): the reward track laid out on a board, a page at a time, with each reward's own icon, a lock on what you haven't reached and a tick on what you've collected. Admin: `/gacha pass addxp <player> <n>` · `/gacha pass reset [player|all]`. Config in `pass.yml`.
+- **Rewards can show what they are.** A reward is still a list of console commands, but it can also carry an `icon`, a `name` and an `amount` so the menu can display it. The plain-list form keeps working; `pass.yml` now ships rewards for all 30 levels.
+- **Seasons can end by themselves.** Set `season-length-days` and the pass resets on that cycle — every player's XP and claims cleared, the countdown rolled on to the next deadline. Leave it at 0 and `season-ends` is just a date shown in the menu, as before. Your `pass.yml` is never rewritten.
+- **`/gacha pass layout`** (admin) arranges the page in game: click a piece to pick it up, click again to drop it, `-`/`+` to resize, Save writes the numbers back to `theme.yml`.
 
 **New: Daily Diary quests (Premium)**
 
@@ -31,10 +34,24 @@ title: Changelog
 
 > **Upgrading?** Bukkit never overwrites a config you already have, so your existing `theme.yml` keeps its current look. To pick these up, either delete `plugins/CradGacha/theme.yml` (it is rebuilt on the next start) or add the new blocks by hand — see [Configuration](/configuration). A **fresh install gets them automatically**.
 
+**New: opening animation without a model plugin (Premium)**
+
+- The animation before your cards can now be a **frame sequence** instead of a 3D model, so you no longer need ModelEngine or BetterModel installed to have one. Set `model.provider: GLYPH` and point it at the frames.
+- **The bundled animation is colour-coded by rarity** — white, blue, purple, gold — and the rarer the pull, the longer it runs (3s to 6.3s). Everything before the burst looks the same whatever you rolled, so the colour appearing *is* the moment you find out what you got.
+- Bring your own with `/gacha import <url|file>`: a GIF is sliced into frames for you. Big frames can be drawn as a grid of tiles (`model.glyph.tiles`) to cover the screen at full resolution — the same way the menu background does it.
+
+**Theme keys now say what they are**
+
+- `x` / `y` are **`position-x` / `position-y`**, and an element's size is **`width` and `height`** instead of `scale` plus an `aspect` multiplier. Setting the size of something no longer means working out `width = scale x aspect` first.
+- **Your existing `theme.yml` keeps working** — the old names are still read, and both in-game layout editors write the new ones. Nothing to do unless you want to.
+
 **Fixed**
 
 - **An NPC no longer blocks the menu.** Opening the gacha by right-clicking a shopkeeper NPC put its body right where the menu renders, covering the UI. Only armor-stand decorations were being hidden, so NPCs (mobs, or fake players like Citizens) slipped through — now anything standing in the way is hidden for that player while the menu is open, and restored on close. Toggle: `clear-area.hide-furniture`.
 - **…including NPCs that aren't really there.** **FancyNpcs** NPCs and **ModelEngine** models are drawn straight to your screen without existing as entities on the server, so nothing could hide them — they kept standing in front of the UI. Both are now hidden for the player in the menu (and only that player: everyone else sees the NPC as normal, and its right-click actions are untouched).
+- **`/gacha reload` now reloads `pass.yml` and `quests.yml` too.** Editing rewards or quests and reloading did nothing at all — with no error to explain it — until a restart happened to pick the file up.
+- **Pack updates reach your server.** The bundled packs are unpacked on every start, but a file that already existed was skipped, so an update that *changed* one never arrived: the plugin shipped new art, the installed pack still had the old list, and the menu silently rendered nothing. Files you edited are still kept — and now named in the log so you know to merge them.
+- **`/gacha pass` and `/gacha diary` appear in tab completion.** They always worked; nothing ever announced them.
 - **`/gacha fix` also brings back anything left hidden**, so a player whose menu ended badly is never stuck looking at a missing NPC.
 
 **New item providers**
