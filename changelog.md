@@ -24,6 +24,13 @@ title: Changelog
 
 - **Vietnamese** joins the bundled languages (`language: vi`) — thanks to a player from the community for the translation. The wiki is available in Vietnamese too.
 
+**Menus look finished out of the box**
+
+- **Shop, Spark, Wishlist, Rates and History now have a framed panel behind them** instead of text floating on the menu background — they share the editor panel image, so nothing new to install.
+- **The Season Pass XP bar uses the same segmented artwork as the pity bar**, instead of a row of `|` characters.
+
+> **Upgrading?** Bukkit never overwrites a config you already have, so your existing `theme.yml` keeps its current look. To pick these up, either delete `plugins/CradGacha/theme.yml` (it is rebuilt on the next start) or add the new blocks by hand — see [Configuration](/configuration). A **fresh install gets them automatically**.
+
 **Fixed**
 
 - **An NPC no longer blocks the menu.** Opening the gacha by right-clicking a shopkeeper NPC put its body right where the menu renders, covering the UI. Only armor-stand decorations were being hidden, so NPCs (mobs, or fake players like Citizens) slipped through — now anything standing in the way is hidden for that player while the menu is open, and restored on close. Toggle: `clear-area.hide-furniture`.
